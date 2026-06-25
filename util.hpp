@@ -3,6 +3,15 @@
 
 #include <cmath>
 #include <complex>
+#include "daisy_seed.h"
+
+#define SAMPLE_RATE 48000
+#define BLOCK_SIZE 16
+
+#define MEMORY_SIZE (32 * 1048576)
+
+// creates an unfreeable allocation of desired size at first free spot in sdram, returning a pointer to it
+void* sdram_alloc(size_t size);
 
 float frequencyToNote(float freq, const char** note, int* octave);
 

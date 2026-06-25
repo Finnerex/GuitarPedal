@@ -5,6 +5,22 @@ using namespace std::complex_literals;
 
 #define My_PI 3.14159265358979323846f // like i guess bro
 
+
+DSY_SDRAM_BSS uint8_t sdramBuffer[MEMORY_SIZE];
+size_t nextOffset = 0;
+
+void* sdram_alloc(size_t size) {
+    if (nextOffset + size >= MEMORY_SIZE)
+        return nullptr;
+
+    void* ptr = sdramBuffer + nextOffset;
+    nextOffset += size;
+    
+    return ptr;
+}
+
+
+
 // thanks wikipedia
 void ditfft2(float* x, int N, int s, std::complex<float>* X)
 {
@@ -48,7 +64,7 @@ float frequencyToNote(float freq, const char** note, int* octave)
 
 // bloatware / premature abstraction / idrc / idrk
 
-CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), size(size), writePos(offset) {}
+CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), writePos(offset), readPos(0), size(size) {}
     // CircularBuffer(float* buffer, size_t size, size_t readPos, size_t writePos) : buffer(buffer), size(size), readPos(readPos), writePos(writePos) {}
 
 void CircularBuffer::setOffset(size_t offset) {

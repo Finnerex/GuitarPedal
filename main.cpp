@@ -8,10 +8,8 @@ using namespace daisy;
 
 DaisySeed hw;
 
-#define BLOCK_SIZE 16
-#define SAMPLE_RATE 48000
-
 // delay pedal stuff
+// maybe move these into the class
 #define MAX_DELAY_SECONDS 0.5f
 #define DELAY_SIZE (int)(SAMPLE_RATE * MAX_DELAY_SECONDS)
 float delayBuffer[DELAY_SIZE];
@@ -28,74 +26,34 @@ float delayBuffer[DELAY_SIZE];
 float DSY_SDRAM_BSS loopBuffer[SAMPLE_RATE * MAX_LOOP_SECONDS];
 
 
-// dft stuff
-#define DFT_NEW_WINDOW_SAMPLES 16384 //(int)(0.5f * SAMPLE_RATE) // (not right now) quarter second updates for now
-#define DFT_OVERLAP_SAMPLES DFT_NEW_WINDOW_SAMPLES //(int)(0.7f * DFT_NEW_WINDOW_SAMPLES) // (not right now) half overlap (or is it a third)
-#define DFT_WINDOW_SAMPLES (DFT_NEW_WINDOW_SAMPLES + DFT_OVERLAP_SAMPLES)
-
-// double buffer: one to copy to and one to process
-float DSY_SDRAM_BSS dftTimeBufferA[DFT_WINDOW_SAMPLES];
-float DSY_SDRAM_BSS dftTimeBufferB[DFT_WINDOW_SAMPLES];
-bool usingBufferA;
-int currentDftWindowSamples;
-std::complex<float> dftFrequencyBuffer[DFT_WINDOW_SAMPLES]; // maybe zero pad, idk. (f = k*fs/N)
-bool newDftReady = false;
-
-bool tunerEnabled = false;
-
-#define NUM_EFFECTS 2 // idk maybe the user will be able to add more in the interface
+#define NUM_EFFECTS 3 // idk maybe the user will be able to add more in the interface
 Effect* effects[NUM_EFFECTS];
-    
 
+using Display = OledDisplay<SSD130xI2c128x64Driver>;
+Display display;
 
 static void Callback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
-
     // passthrough copy
     memcpy(out[0], in[0], size * sizeof(float));
 
-    // dft
-    if (tunerEnabled)
-    {
-        if (usingBufferA)
-            memcpy(&dftTimeBufferA[currentDftWindowSamples], in[0], size * sizeof(float));
-        else
-            memcpy(&dftTimeBufferB[currentDftWindowSamples], in[0], size * sizeof(float));
-
-        currentDftWindowSamples += size;
-
-        if (currentDftWindowSamples >= DFT_WINDOW_SAMPLES) { // collected enough for 1 dft
-            newDftReady = true;
-            
-            if (usingBufferA)
-                memcpy(dftTimeBufferB, &dftTimeBufferA[DFT_NEW_WINDOW_SAMPLES], DFT_OVERLAP_SAMPLES * sizeof(float));
-            else 
-                memcpy(dftTimeBufferA, &dftTimeBufferB[DFT_NEW_WINDOW_SAMPLES], DFT_OVERLAP_SAMPLES * sizeof(float));
-
-            currentDftWindowSamples = DFT_OVERLAP_SAMPLES;
-            
-            usingBufferA = !usingBufferA;
-        }
-    }
+    // effects[2]->apply(in[0], out[0], size);
 
     for (int i = 0; i < NUM_EFFECTS; i++) {
+        // if (effects[i] == nullptr) continue;
+
         if (effects[i]->series)
             effects[i]->apply(out[0], out[0], size);
         else
             effects[i]->apply(in[0], out[0], size);
     }
-
-
 }
 
 
 void draw(void);
 void step(void);
 
-using Display = OledDisplay<SSD130xI2c128x64Driver>;
-Display display;
-
-float maxFrequency;
+float* maxFrequency;
 
 #define NUM_VARIABLE_CONTROLS 1
 VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
@@ -113,8 +71,6 @@ int main(void)
     hw.Init();
     hw.SetAudioBlockSize(BLOCK_SIZE); // each callback will process BLOCK_SIZE samples (probably wont overlap), 2 channel buffers will contain 2 * that many entries each
     hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
-    
-    hw.StartAudio(Callback);
 
 
     // display
@@ -134,24 +90,27 @@ int main(void)
     boolParams[0] = &looper->enabled;
     boolParams[1] = &looper->recordingEnabled;
 
-    Delay* delay = new Delay(true, delayBuffer, DELAY_SIZE, 0.5f);
+    Delay* delay = new Delay(true, delayBuffer, DELAY_SIZE, 0.5f * DELAY_SIZE);
     boolParams[2] = &delay->enabled;
     floatParams[0] = &delay->delayAmount;
-    
-    effects[0] = looper; // this kinda defeats some of the purpose
-    effects[1] = delay;
 
+    Tuner* tuner = new Tuner(false);
+    boolParams[3] = &tuner->enabled;
+    maxFrequency = &tuner->maxFrequency;
+    
+    effects[0] = tuner; // this kinda defeats some of the purpose
+    effects[1] = delay;
+    effects[2] = looper; 
 
     // pots
     AdcChannelConfig configs[NUM_VARIABLE_CONTROLS];
     for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
-        potentiometers[i] = new VariableControl(&hw, &configs[i], hw.GetPin(21 + i));
+        potentiometers[i] = new VariableControl(&hw, &configs[i], hw.GetPin(15 + i));
         potentiometers[i]->parameter = floatParams[i];
     }
 
     hw.adc.Init(configs, NUM_VARIABLE_CONTROLS);
     hw.adc.Start();
-
 
     // buttons
     for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
@@ -159,49 +118,48 @@ int main(void)
         buttons[i]->parameter = boolParams[i];
     }
 
-    buttons[3]->value = &tunerEnabled;
+    display.Fill(false);
+    display.SetCursor(10, 10);
+    display.WriteString("setup", Font_11x18, true);
+    display.Update();
+
+    // System::Delay(1000);
+
+    hw.StartAudio(Callback);
+
+    display.Fill(false);
+    display.SetCursor(10, 10);
+    display.WriteString("audio", Font_11x18, true);
+    display.Update();
+
+    // System::Delay(1000);
 
     while(true) {
 
         step();
-
         
-        if (tunerEnabled) {
-            draw();
-            display.Update();
-        }
+        draw();
+        display.Update();
 
+        // static int l = 0;
+        
+        // display.SetCursor(10, 10);
+        // display.WriteString("drew", Font_11x18, true);
+        // display.WriteChar(48 + l++, Font_11x18, true);
+
+        // display.SetCursor(10, 32);
+        // display.WriteChar(48 + (int)potentiometers[0]->parameter->value, Font_11x18, true);
+        // display.WriteChar('.', Font_11x18, true);
+        // display.WriteChar(48 + (int)(potentiometers[0]->parameter->value * 10) % 10, Font_11x18, true);
+        // display.WriteChar(48 + (int)(potentiometers[0]->parameter->value * 100) % 10, Font_11x18, true);
+
+        // display.Update();
+
+        // l %= 10;
     }
 }
 
 void step(void) { // could return a bool for stopping but idk if thats needed
-
-    // dft / tuner
-    if (newDftReady && tunerEnabled) { // hopefully this happens between buffer swaps - this isnt completely safe because the buffer could swap twice during this run i think and mess things up
-
-        newDftReady = false;
-
-        // run dft
-        if (usingBufferA)
-            ditfft2(dftTimeBufferB, DFT_WINDOW_SAMPLES, 1, dftFrequencyBuffer);
-        else 
-            ditfft2(dftTimeBufferA, DFT_WINDOW_SAMPLES, 1, dftFrequencyBuffer);
-
-        float maxMagnitude = 0;
-        int maxIdx = 0;
-
-        for (int i = 0; i < DFT_WINDOW_SAMPLES / 2 + 1; i++) { // only half because it should be circular symmetric (real input signal)
-            float mag = std::abs(dftFrequencyBuffer[i]);
-
-            if (mag > maxMagnitude) {
-                maxMagnitude = mag;
-                maxIdx = i;
-            }
-        }
-
-        maxFrequency = maxIdx * SAMPLE_RATE / (float)DFT_WINDOW_SAMPLES;  // k * fs / N
-    
-    }
 
     for (int i = 0; i < NUM_EFFECTS; i++) {
         effects[i]->update();
@@ -215,7 +173,7 @@ void step(void) { // could return a bool for stopping but idk if thats needed
         buttons[i]->update();
     }
 
-    System::Delay(50);
+    System::Delay(20);
 
 }
 
@@ -223,41 +181,39 @@ void step(void) { // could return a bool for stopping but idk if thats needed
 void draw(void) {
 
 
-    // if (tunerEnabled)
-    // {
-        // im gonna do the frequency to note here because its easier
+    // im gonna do the frequency to note here because its easier
 
-        int octave;
-        const char* note;
-        float error = frequencyToNote(maxFrequency, &note, &octave);
+    
+    int octave;
+    const char* note;
+    float error = frequencyToNote(*maxFrequency, &note, &octave);
 
-        char frequencyString[8] = "freq--";
-        snprintf(frequencyString, 8, "%d", (int)maxFrequency);
-        
-        char octaveString[2] = "";
-        if (octave >= 0 && octave <= 9)
-            snprintf(octaveString, 2, "%d", octave);
-        
-        char errorString[4] = "";
-        if (error > -1 && error < 1)
-            snprintf(errorString, 4, "%d", (int)(error * 100));
+    char frequencyString[8] = "freq--";
+    snprintf(frequencyString, 8, "%d", (int)*maxFrequency);
+    
+    char octaveString[2] = "";
+    if (octave >= 0 && octave <= 9)
+        snprintf(octaveString, 2, "%d", octave);
+    
+    char errorString[4] = "";
+    if (error > -1 && error < 1)
+        snprintf(errorString, 4, "%d", (int)(error * 100));
 
-        display.Fill(false);
+    display.Fill(false);
 
-        // tuner
-        // bounding boxes
-        display.DrawRect(3, 3, 82, 61, true, false);
-        display.DrawRect(85, 3, 124, 61, true, false);
+    // tuner
+    // bounding boxes
+    display.DrawRect(3, 3, 82, 61, true, false);
+    display.DrawRect(85, 3, 124, 61, true, false);
 
-        // text
-        display.WriteStringAligned(note, Font_16x26, Rectangle(85, 3, 39, 38), Alignment::centered, true);
-        display.WriteStringAligned(octaveString, Font_11x18, Rectangle(85, 41, 39, 20), Alignment::centered, true);
-        display.WriteStringAligned(errorString, Font_11x18, Rectangle(3, 41, 77, 20), Alignment::centered, true);
-        display.WriteStringAligned(frequencyString, Font_11x18, Rectangle(3, 8, 77, 20), Alignment::centered, true);
+    // text
+    display.WriteStringAligned(note, Font_16x26, Rectangle(85, 3, 39, 38), Alignment::centered, true);
+    display.WriteStringAligned(octaveString, Font_11x18, Rectangle(85, 41, 39, 20), Alignment::centered, true);
+    display.WriteStringAligned(errorString, Font_11x18, Rectangle(3, 41, 77, 20), Alignment::centered, true);
+    display.WriteStringAligned(frequencyString, Font_11x18, Rectangle(3, 8, 77, 20), Alignment::centered, true);
 
-        // dial (TODO)
+    // dial (TODO)
 
-    // }
 
 
 }
