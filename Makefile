@@ -1,5 +1,5 @@
 # Project Name
-TARGET = TestProject
+TARGET = GuitarPedal
 
 # Sources
 CPP_SOURCES = $(wildcard *.cpp)

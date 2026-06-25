@@ -1,0 +1,1643 @@
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"effect.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN6Looper5applyEPKfPfi,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN6Looper5applyEPKfPfi
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN6Looper5applyEPKfPfi:
+  27              	.LVL0:
+  28              	.LFB5578:
+  29              		.file 1 "effect.cpp"
+   1:effect.cpp    **** #include "effect.hpp"
+   2:effect.cpp    **** 
+   3:effect.cpp    **** 
+   4:effect.cpp    **** // ToggleControl
+   5:effect.cpp    **** 
+   6:effect.cpp    **** ToggleControl::ToggleControl(dsy_gpio_pin pin) {
+   7:effect.cpp    ****     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
+   8:effect.cpp    **** }
+   9:effect.cpp    **** 
+  10:effect.cpp    **** void ToggleControl::update() {
+  11:effect.cpp    ****     button.Debounce();
+  12:effect.cpp    ****     *value = button.Pressed();
+  13:effect.cpp    **** }   
+  14:effect.cpp    **** 
+  15:effect.cpp    **** 
+  16:effect.cpp    **** // VariableControl
+  17:effect.cpp    **** 
+  18:effect.cpp    **** VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+  19:effect.cpp    ****         config->InitSingle(pin);
+  20:effect.cpp    ****         channel = numChannels++;
+  21:effect.cpp    ****     }
+  22:effect.cpp    **** 
+  23:effect.cpp    **** void VariableControl::update() {
+  24:effect.cpp    **** 
+  25:effect.cpp    ****     float currentVal = hw->adc.GetFloat(channel);
+  26:effect.cpp    **** 
+  27:effect.cpp    ****     if (std::abs(currentVal - *value) >= 0.01f) // has changed by > 1 percent
+  28:effect.cpp    ****         *value = currentVal;
+  29:effect.cpp    ****     
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 2
+
+
+  30:effect.cpp    **** }
+  31:effect.cpp    **** 
+  32:effect.cpp    **** 
+  33:effect.cpp    **** // Effect
+  34:effect.cpp    **** 
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+  37:effect.cpp    ****     numBoolParams = 1;
+  38:effect.cpp    **** }
+  39:effect.cpp    **** 
+  40:effect.cpp    **** 
+  41:effect.cpp    **** // Looper
+  42:effect.cpp    **** 
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+  44:effect.cpp    ****     boolParams[1] = EffectParameter<bool>("Recording Enabled");
+  45:effect.cpp    ****     numBoolParams = 2;
+  46:effect.cpp    **** }
+  47:effect.cpp    **** 
+  48:effect.cpp    **** void Looper::apply(const float* in, float* out, int samples) {
+  30              		.loc 1 48 62 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  49:effect.cpp    **** 
+  50:effect.cpp    ****     // this probably shouldnt be done in the audio callback bc it doesnt have anything to do with t
+  51:effect.cpp    ****     if (boolParams[1].value && !lastRecEnabled) { // so the enabled thing cant go outside for this 
+  34              		.loc 1 51 5 view .LVU1
+  48:effect.cpp    **** 
+  35              		.loc 1 48 62 is_stmt 0 view .LVU2
+  36 0000 38B5     		push	{r3, r4, r5, lr}
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 3, -16
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  48:effect.cpp    **** 
+  42              		.loc 1 48 62 view .LVU3
+  43 0002 0446     		mov	r4, r0
+  44              		.loc 1 51 5 view .LVU4
+  45 0004 007B     		ldrb	r0, [r0, #12]	@ zero_extendqisi2
+  46              	.LVL1:
+  48:effect.cpp    **** 
+  47              		.loc 1 48 62 view .LVU5
+  48 0006 1D46     		mov	r5, r3
+  49              		.loc 1 51 5 view .LVU6
+  50 0008 90B1     		cbz	r0, .L2
+  51              		.loc 1 51 29 discriminator 1 view .LVU7
+  52 000a 94F84020 		ldrb	r2, [r4, #64]	@ zero_extendqisi2
+  53              	.LVL2:
+  54              		.loc 1 51 29 discriminator 1 view .LVU8
+  55 000e 02B9     		cbnz	r2, .L3
+  52:effect.cpp    ****         loopSamples = 0;
+  56              		.loc 1 52 9 is_stmt 1 view .LVU9
+  57              		.loc 1 52 21 is_stmt 0 view .LVU10
+  58 0010 6263     		str	r2, [r4, #52]
+  59              	.L3:
+  53:effect.cpp    ****     }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 3
+
+
+  54:effect.cpp    **** 
+  55:effect.cpp    ****     if ((boolParams[0].value && !lastPlaybackEnabled) || (!boolParams[1].value && lastRecEnabled)) 
+  60              		.loc 1 55 5 is_stmt 1 view .LVU11
+  61              		.loc 1 55 24 is_stmt 0 view .LVU12
+  62 0012 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
+  63              		.loc 1 55 5 view .LVU13
+  64 0014 002A     		cmp	r2, #0
+  65 0016 3ED1     		bne	.L32
+  66              	.L16:
+  56:effect.cpp    ****         currentLoopSample = 0;
+  57:effect.cpp    ****     }
+  58:effect.cpp    **** 
+  59:effect.cpp    ****     lastPlaybackEnabled = boolParams[0].value;
+  67              		.loc 1 59 5 is_stmt 1 view .LVU14
+  60:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+  68              		.loc 1 60 20 is_stmt 0 view .LVU15
+  69 0018 0120     		movs	r0, #1
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+  70              		.loc 1 59 25 view .LVU16
+  71 001a 84F84120 		strb	r2, [r4, #65]
+  72              		.loc 1 60 5 is_stmt 1 view .LVU17
+  73              	.LBB37:
+  61:effect.cpp    **** 
+  62:effect.cpp    **** 
+  63:effect.cpp    **** 
+  64:effect.cpp    ****     if (boolParams[1].value) {
+  65:effect.cpp    **** 
+  66:effect.cpp    ****         if (loopSamples + samples <= maxSize) {
+  74              		.loc 1 66 13 is_stmt 0 view .LVU18
+  75 001e 626B     		ldr	r2, [r4, #52]
+  76              	.LBE37:
+  60:effect.cpp    **** 
+  77              		.loc 1 60 20 view .LVU19
+  78 0020 84F84000 		strb	r0, [r4, #64]
+  64:effect.cpp    **** 
+  79              		.loc 1 64 5 is_stmt 1 view .LVU20
+  80              	.LBB41:
+  81              		.loc 1 66 9 view .LVU21
+  82              		.loc 1 66 25 is_stmt 0 view .LVU22
+  83 0024 02EB050C 		add	ip, r2, r5
+  84              		.loc 1 66 9 view .LVU23
+  85 0028 E06B     		ldr	r0, [r4, #60]
+  86 002a 8445     		cmp	ip, r0
+  87 002c 42D9     		bls	.L33
+  88              	.LVL3:
+  89              	.L1:
+  90              		.loc 1 66 9 view .LVU24
+  91              	.LBE41:
+  67:effect.cpp    ****             memcpy(buffer + loopSamples, in, sizeof(float) * samples);
+  68:effect.cpp    ****             loopSamples += samples;
+  69:effect.cpp    ****         }
+  70:effect.cpp    **** 
+  71:effect.cpp    ****     } else if (boolParams[0].value) {
+  72:effect.cpp    **** 
+  73:effect.cpp    ****         for (int i = 0; i < samples; i++) { 
+  74:effect.cpp    ****             out[i] += buffer[currentLoopSample + i];
+  75:effect.cpp    ****         }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 4
+
+
+  76:effect.cpp    **** 
+  77:effect.cpp    ****         currentLoopSample += samples;
+  78:effect.cpp    ****         currentLoopSample %= loopSamples;
+  79:effect.cpp    ****     } 
+  80:effect.cpp    **** 
+  81:effect.cpp    **** }
+  92              		.loc 1 81 1 view .LVU25
+  93 002e 38BD     		pop	{r3, r4, r5, pc}
+  94              	.LVL4:
+  95              	.L2:
+  55:effect.cpp    ****         currentLoopSample = 0;
+  96              		.loc 1 55 5 is_stmt 1 view .LVU26
+  55:effect.cpp    ****         currentLoopSample = 0;
+  97              		.loc 1 55 24 is_stmt 0 view .LVU27
+  98 0030 2179     		ldrb	r1, [r4, #4]	@ zero_extendqisi2
+  99              	.LVL5:
+  55:effect.cpp    ****         currentLoopSample = 0;
+ 100              		.loc 1 55 5 view .LVU28
+ 101 0032 49B1     		cbz	r1, .L15
+  55:effect.cpp    ****         currentLoopSample = 0;
+ 102              		.loc 1 55 34 view .LVU29
+ 103 0034 94F84110 		ldrb	r1, [r4, #65]	@ zero_extendqisi2
+  55:effect.cpp    ****         currentLoopSample = 0;
+ 104              		.loc 1 55 30 view .LVU30
+ 105 0038 31B9     		cbnz	r1, .L15
+  56:effect.cpp    ****     }
+ 106              		.loc 1 56 9 is_stmt 1 view .LVU31
+  60:effect.cpp    **** 
+ 107              		.loc 1 60 20 is_stmt 0 view .LVU32
+ 108 003a 4FF4807C 		mov	ip, #256
+  56:effect.cpp    ****     }
+ 109              		.loc 1 56 27 view .LVU33
+ 110 003e A163     		str	r1, [r4, #56]
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+ 111              		.loc 1 59 5 is_stmt 1 view .LVU34
+  60:effect.cpp    **** 
+ 112              		.loc 1 60 5 view .LVU35
+  60:effect.cpp    **** 
+ 113              		.loc 1 60 20 is_stmt 0 view .LVU36
+ 114 0040 A4F840C0 		strh	ip, [r4, #64]	@ movhi
+  64:effect.cpp    **** 
+ 115              		.loc 1 64 5 is_stmt 1 view .LVU37
+  60:effect.cpp    **** 
+ 116              		.loc 1 60 20 is_stmt 0 view .LVU38
+ 117 0044 AC46     		mov	ip, r5
+ 118 0046 0EE0     		b	.L18
+ 119              	.L15:
+  55:effect.cpp    ****         currentLoopSample = 0;
+ 120              		.loc 1 55 80 discriminator 4 view .LVU39
+ 121 0048 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
+ 122 004c 0028     		cmp	r0, #0
+ 123 004e 3BD0     		beq	.L34
+  56:effect.cpp    ****     }
+ 124              		.loc 1 56 9 is_stmt 1 view .LVU40
+  56:effect.cpp    ****     }
+ 125              		.loc 1 56 27 is_stmt 0 view .LVU41
+ 126 0050 0020     		movs	r0, #0
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 5
+
+
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+ 127              		.loc 1 59 25 view .LVU42
+ 128 0052 84F84110 		strb	r1, [r4, #65]
+  56:effect.cpp    ****     }
+ 129              		.loc 1 56 27 view .LVU43
+ 130 0056 A063     		str	r0, [r4, #56]
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+ 131              		.loc 1 59 5 is_stmt 1 view .LVU44
+  60:effect.cpp    **** 
+ 132              		.loc 1 60 5 view .LVU45
+  60:effect.cpp    **** 
+ 133              		.loc 1 60 20 is_stmt 0 view .LVU46
+ 134 0058 84F84000 		strb	r0, [r4, #64]
+  64:effect.cpp    **** 
+ 135              		.loc 1 64 5 is_stmt 1 view .LVU47
+ 136              	.L13:
+  71:effect.cpp    **** 
+ 137              		.loc 1 71 12 view .LVU48
+ 138              	.LBB42:
+ 139              	.LBB38:
+ 140 005c 0029     		cmp	r1, #0
+ 141 005e E6D0     		beq	.L1
+ 142              	.LBB39:
+  77:effect.cpp    ****         currentLoopSample %= loopSamples;
+ 143              		.loc 1 77 27 is_stmt 0 view .LVU49
+ 144 0060 A16B     		ldr	r1, [r4, #56]
+ 145 0062 05EB010C 		add	ip, r5, r1
+ 146              	.L18:
+ 147              	.LVL6:
+ 148              	.LBB40:
+  73:effect.cpp    ****             out[i] += buffer[currentLoopSample + i];
+ 149              		.loc 1 73 27 is_stmt 1 view .LVU50
+ 150 0066 002D     		cmp	r5, #0
+ 151 0068 0EDD     		ble	.L10
+ 152 006a 206B     		ldr	r0, [r4, #48]
+ 153 006c 02EB8503 		add	r3, r2, r5, lsl #2
+ 154              	.LVL7:
+  73:effect.cpp    ****             out[i] += buffer[currentLoopSample + i];
+ 155              		.loc 1 73 27 is_stmt 0 view .LVU51
+ 156 0070 00EB8101 		add	r1, r0, r1, lsl #2
+ 157              	.LVL8:
+ 158              	.L11:
+  74:effect.cpp    ****         }
+ 159              		.loc 1 74 13 is_stmt 1 discriminator 2 view .LVU52
+  74:effect.cpp    ****         }
+ 160              		.loc 1 74 20 is_stmt 0 discriminator 2 view .LVU53
+ 161 0074 D2ED007A 		vldr.32	s15, [r2]
+  74:effect.cpp    ****         }
+ 162              		.loc 1 74 51 discriminator 2 view .LVU54
+ 163 0078 B1EC017A 		vldmia.32	r1!, {s14}
+  74:effect.cpp    ****         }
+ 164              		.loc 1 74 20 discriminator 2 view .LVU55
+ 165 007c 77EE877A 		vadd.f32	s15, s15, s14
+ 166 0080 E2EC017A 		vstmia.32	r2!, {s15}
+  73:effect.cpp    ****             out[i] += buffer[currentLoopSample + i];
+ 167              		.loc 1 73 9 is_stmt 1 discriminator 2 view .LVU56
+  73:effect.cpp    ****             out[i] += buffer[currentLoopSample + i];
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 6
+
+
+ 168              		.loc 1 73 27 discriminator 2 view .LVU57
+ 169 0084 9342     		cmp	r3, r2
+ 170 0086 F5D1     		bne	.L11
+ 171              	.L10:
+  73:effect.cpp    ****             out[i] += buffer[currentLoopSample + i];
+ 172              		.loc 1 73 27 is_stmt 0 discriminator 2 view .LVU58
+ 173              	.LBE40:
+  77:effect.cpp    ****         currentLoopSample %= loopSamples;
+ 174              		.loc 1 77 9 is_stmt 1 view .LVU59
+  78:effect.cpp    ****     } 
+ 175              		.loc 1 78 9 view .LVU60
+  78:effect.cpp    ****     } 
+ 176              		.loc 1 78 27 is_stmt 0 view .LVU61
+ 177 0088 636B     		ldr	r3, [r4, #52]
+ 178 008a 9CFBF3F2 		sdiv	r2, ip, r3
+ 179 008e 03FB12C3 		mls	r3, r3, r2, ip
+ 180 0092 A363     		str	r3, [r4, #56]
+ 181              	.LBE39:
+ 182              	.LBE38:
+ 183              	.LBE42:
+ 184              		.loc 1 81 1 view .LVU62
+ 185 0094 38BD     		pop	{r3, r4, r5, pc}
+ 186              	.LVL9:
+ 187              	.L32:
+  55:effect.cpp    ****         currentLoopSample = 0;
+ 188              		.loc 1 55 34 view .LVU63
+ 189 0096 94F84120 		ldrb	r2, [r4, #65]	@ zero_extendqisi2
+  55:effect.cpp    ****         currentLoopSample = 0;
+ 190              		.loc 1 55 30 view .LVU64
+ 191 009a 002A     		cmp	r2, #0
+ 192 009c BCD1     		bne	.L16
+  56:effect.cpp    ****     }
+ 193              		.loc 1 56 9 is_stmt 1 view .LVU65
+  60:effect.cpp    **** 
+ 194              		.loc 1 60 20 is_stmt 0 view .LVU66
+ 195 009e 40F20110 		movw	r0, #257
+  56:effect.cpp    ****     }
+ 196              		.loc 1 56 27 view .LVU67
+ 197 00a2 A263     		str	r2, [r4, #56]
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+ 198              		.loc 1 59 5 is_stmt 1 view .LVU68
+  60:effect.cpp    **** 
+ 199              		.loc 1 60 5 view .LVU69
+ 200              	.LBB43:
+  66:effect.cpp    ****             memcpy(buffer + loopSamples, in, sizeof(float) * samples);
+ 201              		.loc 1 66 13 is_stmt 0 view .LVU70
+ 202 00a4 626B     		ldr	r2, [r4, #52]
+ 203              	.LBE43:
+  60:effect.cpp    **** 
+ 204              		.loc 1 60 20 view .LVU71
+ 205 00a6 A4F84000 		strh	r0, [r4, #64]	@ movhi
+  64:effect.cpp    **** 
+ 206              		.loc 1 64 5 is_stmt 1 view .LVU72
+ 207              	.LBB44:
+  66:effect.cpp    ****             memcpy(buffer + loopSamples, in, sizeof(float) * samples);
+ 208              		.loc 1 66 9 view .LVU73
+  66:effect.cpp    ****             memcpy(buffer + loopSamples, in, sizeof(float) * samples);
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 7
+
+
+ 209              		.loc 1 66 25 is_stmt 0 view .LVU74
+ 210 00aa 02EB050C 		add	ip, r2, r5
+  66:effect.cpp    ****             memcpy(buffer + loopSamples, in, sizeof(float) * samples);
+ 211              		.loc 1 66 9 view .LVU75
+ 212 00ae E06B     		ldr	r0, [r4, #60]
+ 213 00b0 8445     		cmp	ip, r0
+ 214 00b2 BCD8     		bhi	.L1
+ 215              	.L33:
+  67:effect.cpp    ****             loopSamples += samples;
+ 216              		.loc 1 67 13 is_stmt 1 view .LVU76
+  67:effect.cpp    ****             loopSamples += samples;
+ 217              		.loc 1 67 27 is_stmt 0 view .LVU77
+ 218 00b4 206B     		ldr	r0, [r4, #48]
+  67:effect.cpp    ****             loopSamples += samples;
+ 219              		.loc 1 67 19 view .LVU78
+ 220 00b6 00EB8200 		add	r0, r0, r2, lsl #2
+ 221 00ba AA00     		lsls	r2, r5, #2
+ 222 00bc FFF7FEFF 		bl	memcpy
+ 223              	.LVL10:
+  68:effect.cpp    ****         }
+ 224              		.loc 1 68 13 is_stmt 1 view .LVU79
+  68:effect.cpp    ****         }
+ 225              		.loc 1 68 25 is_stmt 0 view .LVU80
+ 226 00c0 626B     		ldr	r2, [r4, #52]
+ 227 00c2 2A44     		add	r2, r2, r5
+ 228 00c4 6263     		str	r2, [r4, #52]
+ 229              	.LBE44:
+ 230              		.loc 1 81 1 view .LVU81
+ 231 00c6 38BD     		pop	{r3, r4, r5, pc}
+ 232              	.LVL11:
+ 233              	.L34:
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+ 234              		.loc 1 59 5 is_stmt 1 view .LVU82
+  59:effect.cpp    ****     lastRecEnabled = boolParams[1].value;
+ 235              		.loc 1 59 25 is_stmt 0 view .LVU83
+ 236 00c8 84F84110 		strb	r1, [r4, #65]
+  60:effect.cpp    **** 
+ 237              		.loc 1 60 5 is_stmt 1 view .LVU84
+  60:effect.cpp    **** 
+ 238              		.loc 1 60 20 is_stmt 0 view .LVU85
+ 239 00cc 84F84000 		strb	r0, [r4, #64]
+  64:effect.cpp    **** 
+ 240              		.loc 1 64 5 is_stmt 1 view .LVU86
+ 241 00d0 C4E7     		b	.L13
+ 242              		.cfi_endproc
+ 243              	.LFE5578:
+ 245 00d2 00BF     		.section	.text._ZN5Delay5applyEPKfPfi,"ax",%progbits
+ 246              		.align	1
+ 247              		.p2align 2,,3
+ 248              		.global	_ZN5Delay5applyEPKfPfi
+ 249              		.syntax unified
+ 250              		.thumb
+ 251              		.thumb_func
+ 252              		.fpu fpv5-d16
+ 254              	_ZN5Delay5applyEPKfPfi:
+ 255              	.LVL12:
+ 256              	.LFB5582:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 8
+
+
+  82:effect.cpp    **** 
+  83:effect.cpp    **** 
+  84:effect.cpp    **** // Delay
+  85:effect.cpp    **** 
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+  87:effect.cpp    ****     floatParams[0] = EffectParameter<float>("Delay Amount");
+  88:effect.cpp    ****     numFloatParams = 1;
+  89:effect.cpp    **** }
+  90:effect.cpp    **** 
+  91:effect.cpp    **** void Delay::apply(const float* in, float* out, int samples) {
+ 257              		.loc 1 91 61 view -0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+  92:effect.cpp    **** 
+  93:effect.cpp    ****     if (!floatParams[0].value) return; // dumb that i have to put this on all of them
+ 261              		.loc 1 93 5 view .LVU88
+ 262              		.loc 1 93 25 is_stmt 0 view .LVU89
+ 263 0000 90ED067A 		vldr.32	s14, [r0, #24]
+ 264              		.loc 1 93 5 view .LVU90
+ 265 0004 B5EE407A 		vcmp.f32	s14, #0
+ 266 0008 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 267 000c 00D1     		bne	.L43
+ 268 000e 7047     		bx	lr
+ 269              	.L43:
+  94:effect.cpp    **** 
+  95:effect.cpp    ****     buffer.setOffset(floatParams[0].value * buffer.size); // ie percent of maximum (value between 0
+ 270              		.loc 1 95 5 is_stmt 1 view .LVU91
+ 271              		.loc 1 95 43 is_stmt 0 view .LVU92
+ 272 0010 D0ED0F7A 		vldr.32	s15, [r0, #60]	@ int
+ 273 0014 F8EE677A 		vcvt.f32.u32	s15, s15
+  91:effect.cpp    **** 
+ 274              		.loc 1 91 61 view .LVU93
+ 275 0018 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 276              		.cfi_def_cfa_offset 24
+ 277              		.cfi_offset 4, -24
+ 278              		.cfi_offset 5, -20
+ 279              		.cfi_offset 6, -16
+ 280              		.cfi_offset 7, -12
+ 281              		.cfi_offset 8, -8
+ 282              		.cfi_offset 14, -4
+ 283              		.loc 1 95 43 view .LVU94
+ 284 001c 67EE877A 		vmul.f32	s15, s15, s14
+ 285              		.loc 1 95 21 view .LVU95
+ 286 0020 00F13007 		add	r7, r0, #48
+ 287 0024 9846     		mov	r8, r3
+ 288 0026 0E46     		mov	r6, r1
+ 289 0028 3846     		mov	r0, r7
+ 290              	.LVL13:
+ 291              		.loc 1 95 21 view .LVU96
+ 292 002a 1446     		mov	r4, r2
+ 293 002c FCEEE77A 		vcvt.u32.f32	s15, s15
+ 294 0030 17EE901A 		vmov	r1, s15	@ int
+ 295              	.LVL14:
+ 296              		.loc 1 95 21 view .LVU97
+ 297 0034 FFF7FEFF 		bl	_ZN14CircularBuffer9setOffsetEj
+ 298              	.LVL15:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 9
+
+
+  96:effect.cpp    **** 
+  97:effect.cpp    ****     for (int i = 0; i < samples; i++) {
+ 299              		.loc 1 97 5 is_stmt 1 view .LVU98
+ 300              	.LBB45:
+ 301              		.loc 1 97 23 view .LVU99
+ 302 0038 B8F1000F 		cmp	r8, #0
+ 303 003c 11DD     		ble	.L35
+ 304              		.loc 1 97 14 is_stmt 0 view .LVU100
+ 305 003e 0025     		movs	r5, #0
+ 306              	.LVL16:
+ 307              	.L37:
+  98:effect.cpp    ****         out[i] += buffer.readNext();
+ 308              		.loc 1 98 9 is_stmt 1 discriminator 2 view .LVU101
+ 309              		.loc 1 98 34 is_stmt 0 discriminator 2 view .LVU102
+ 310 0040 3846     		mov	r0, r7
+  97:effect.cpp    ****         out[i] += buffer.readNext();
+ 311              		.loc 1 97 5 discriminator 2 view .LVU103
+ 312 0042 0135     		adds	r5, r5, #1
+ 313              	.LVL17:
+ 314              		.loc 1 98 34 discriminator 2 view .LVU104
+ 315 0044 FFF7FEFF 		bl	_ZN14CircularBuffer8readNextEv
+ 316              	.LVL18:
+ 317              		.loc 1 98 16 discriminator 2 view .LVU105
+ 318 0048 D4ED007A 		vldr.32	s15, [r4]
+  99:effect.cpp    ****         buffer.writeNext(in[i]);
+ 319              		.loc 1 99 25 discriminator 2 view .LVU106
+ 320 004c 3846     		mov	r0, r7
+  98:effect.cpp    ****         out[i] += buffer.readNext();
+ 321              		.loc 1 98 16 discriminator 2 view .LVU107
+ 322 004e 37EE800A 		vadd.f32	s0, s15, s0
+ 323 0052 A4EC010A 		vstmia.32	r4!, {s0}
+ 324              		.loc 1 99 9 is_stmt 1 discriminator 2 view .LVU108
+ 325              		.loc 1 99 25 is_stmt 0 discriminator 2 view .LVU109
+ 326 0056 B6EC010A 		vldmia.32	r6!, {s0}
+ 327 005a FFF7FEFF 		bl	_ZN14CircularBuffer9writeNextEf
+ 328              	.LVL19:
+  97:effect.cpp    ****         out[i] += buffer.readNext();
+ 329              		.loc 1 97 5 is_stmt 1 discriminator 2 view .LVU110
+  97:effect.cpp    ****         out[i] += buffer.readNext();
+ 330              		.loc 1 97 23 discriminator 2 view .LVU111
+ 331 005e A845     		cmp	r8, r5
+ 332 0060 EED1     		bne	.L37
+ 333              	.LVL20:
+ 334              	.L35:
+  97:effect.cpp    ****         out[i] += buffer.readNext();
+ 335              		.loc 1 97 23 is_stmt 0 discriminator 2 view .LVU112
+ 336              	.LBE45:
+ 100:effect.cpp    ****     }
+ 101:effect.cpp    ****     
+ 102:effect.cpp    **** }...
+ 337              		.loc 1 102 1 view .LVU113
+ 338 0062 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 339              		.loc 1 102 1 view .LVU114
+ 340              		.cfi_endproc
+ 341              	.LFE5582:
+ 343 0066 00BF     		.section	.text._ZN13ToggleControlC2E12dsy_gpio_pin,"ax",%progbits
+ 344              		.align	1
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 10
+
+
+ 345              		.p2align 2,,3
+ 346              		.global	_ZN13ToggleControlC2E12dsy_gpio_pin
+ 347              		.syntax unified
+ 348              		.thumb
+ 349              		.thumb_func
+ 350              		.fpu fpv5-d16
+ 352              	_ZN13ToggleControlC2E12dsy_gpio_pin:
+ 353              	.LVL21:
+ 354              	.LFB5565:
+   6:effect.cpp    **** ToggleControl::ToggleControl(dsy_gpio_pin pin) {
+ 355              		.loc 1 6 1 is_stmt 1 view -0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 8
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+   6:effect.cpp    **** ToggleControl::ToggleControl(dsy_gpio_pin pin) {
+ 359              		.loc 1 6 1 is_stmt 0 view .LVU116
+ 360 0000 30B5     		push	{r4, r5, lr}
+ 361              		.cfi_def_cfa_offset 12
+ 362              		.cfi_offset 4, -12
+ 363              		.cfi_offset 5, -8
+ 364              		.cfi_offset 14, -4
+ 365 0002 85B0     		sub	sp, sp, #20
+ 366              		.cfi_def_cfa_offset 32
+ 367              	.LBB46:
+   7:effect.cpp    ****     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
+ 368              		.loc 1 7 16 view .LVU117
+ 369 0004 0225     		movs	r5, #2
+ 370              	.LBE46:
+   6:effect.cpp    **** ToggleControl::ToggleControl(dsy_gpio_pin pin) {
+ 371              		.loc 1 6 1 view .LVU118
+ 372 0006 0446     		mov	r4, r0
+ 373              	.LVL22:
+ 374              	.LBB48:
+ 375              	.LBB47:
+ 376              	.LBI47:
+ 377              		.file 2 "../../libDaisy/src/hid/switch.h"
+   1:../../libDaisy/src/hid/switch.h **** #pragma once
+   2:../../libDaisy/src/hid/switch.h **** #ifndef DSY_SWITCH_H
+   3:../../libDaisy/src/hid/switch.h **** #define DSY_SWITCH_H
+   4:../../libDaisy/src/hid/switch.h **** #include "daisy_core.h"
+   5:../../libDaisy/src/hid/switch.h **** #include "per/gpio.h"
+   6:../../libDaisy/src/hid/switch.h **** #include "sys/system.h"
+   7:../../libDaisy/src/hid/switch.h **** 
+   8:../../libDaisy/src/hid/switch.h **** namespace daisy
+   9:../../libDaisy/src/hid/switch.h **** {
+  10:../../libDaisy/src/hid/switch.h **** /** 
+  11:../../libDaisy/src/hid/switch.h ****     Generic Class for handling momentary/latching switches \n 
+  12:../../libDaisy/src/hid/switch.h ****     Inspired/influenced by Mutable Instruments (pichenettes) Switch classes
+  13:../../libDaisy/src/hid/switch.h ****     @author Stephen Hensley
+  14:../../libDaisy/src/hid/switch.h ****     @date December 2019
+  15:../../libDaisy/src/hid/switch.h ****     @ingroup controls
+  16:../../libDaisy/src/hid/switch.h **** */
+  17:../../libDaisy/src/hid/switch.h **** class Switch
+  18:../../libDaisy/src/hid/switch.h **** {
+  19:../../libDaisy/src/hid/switch.h ****   public:
+  20:../../libDaisy/src/hid/switch.h ****     /** Specifies the expected behavior of the switch */
+  21:../../libDaisy/src/hid/switch.h ****     enum Type
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 11
+
+
+  22:../../libDaisy/src/hid/switch.h ****     {
+  23:../../libDaisy/src/hid/switch.h ****         TYPE_TOGGLE,    /**< & */
+  24:../../libDaisy/src/hid/switch.h ****         TYPE_MOMENTARY, /**< & */
+  25:../../libDaisy/src/hid/switch.h ****     };
+  26:../../libDaisy/src/hid/switch.h ****     /** Specifies whether the pressed is HIGH or LOW. */
+  27:../../libDaisy/src/hid/switch.h ****     enum Polarity
+  28:../../libDaisy/src/hid/switch.h ****     {
+  29:../../libDaisy/src/hid/switch.h ****         POLARITY_NORMAL,   /**< & */
+  30:../../libDaisy/src/hid/switch.h ****         POLARITY_INVERTED, /**< & */
+  31:../../libDaisy/src/hid/switch.h ****     };
+  32:../../libDaisy/src/hid/switch.h **** 
+  33:../../libDaisy/src/hid/switch.h ****     /** Specifies whether to use built-in Pull Up/Down resistors to hold button at a given state wh
+  34:../../libDaisy/src/hid/switch.h ****     enum Pull
+  35:../../libDaisy/src/hid/switch.h ****     {
+  36:../../libDaisy/src/hid/switch.h ****         PULL_UP,   /**< & */
+  37:../../libDaisy/src/hid/switch.h ****         PULL_DOWN, /**< & */
+  38:../../libDaisy/src/hid/switch.h ****         PULL_NONE, /**< & */
+  39:../../libDaisy/src/hid/switch.h ****     };
+  40:../../libDaisy/src/hid/switch.h **** 
+  41:../../libDaisy/src/hid/switch.h ****     Switch() {}
+ 378              		.loc 2 41 5 is_stmt 1 view .LVU119
+ 379              		.loc 2 41 5 is_stmt 0 view .LVU120
+ 380              	.LBE47:
+   7:effect.cpp    ****     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
+ 381              		.loc 1 7 5 is_stmt 1 view .LVU121
+   7:effect.cpp    ****     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
+ 382              		.loc 1 7 16 is_stmt 0 view .LVU122
+ 383 0008 0023     		movs	r3, #0
+ 384              	.LBE48:
+   6:effect.cpp    **** ToggleControl::ToggleControl(dsy_gpio_pin pin) {
+ 385              		.loc 1 6 1 view .LVU123
+ 386 000a ADF80C10 		strh	r1, [sp, #12]	@ movhi
+ 387              	.LBB49:
+   7:effect.cpp    ****     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
+ 388              		.loc 1 7 16 view .LVU124
+ 389 000e 0122     		movs	r2, #1
+ 390 0010 9FED040A 		vldr.32	s0, .L46
+ 391 0014 0399     		ldr	r1, [sp, #12]
+ 392 0016 0095     		str	r5, [sp]
+ 393 0018 FFF7FEFF 		bl	_ZN5daisy6Switch4InitE12dsy_gpio_pinfNS0_4TypeENS0_8PolarityENS0_4PullE
+ 394              	.LVL23:
+   7:effect.cpp    ****     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
+ 395              		.loc 1 7 16 view .LVU125
+ 396              	.LBE49:
+   8:effect.cpp    **** }
+ 397              		.loc 1 8 1 view .LVU126
+ 398 001c 2046     		mov	r0, r4
+ 399 001e 05B0     		add	sp, sp, #20
+ 400              		.cfi_def_cfa_offset 12
+ 401              		@ sp needed
+ 402 0020 30BD     		pop	{r4, r5, pc}
+ 403              	.LVL24:
+ 404              	.L47:
+   8:effect.cpp    **** }
+ 405              		.loc 1 8 1 view .LVU127
+ 406 0022 00BF     		.align	2
+ 407              	.L46:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 12
+
+
+ 408 0024 00000000 		.word	0
+ 409              		.cfi_endproc
+ 410              	.LFE5565:
+ 412              		.global	_ZN13ToggleControlC1E12dsy_gpio_pin
+ 413              		.thumb_set _ZN13ToggleControlC1E12dsy_gpio_pin,_ZN13ToggleControlC2E12dsy_gpio_pin
+ 414              		.section	.text._ZN13ToggleControl6updateEv,"ax",%progbits
+ 415              		.align	1
+ 416              		.p2align 2,,3
+ 417              		.global	_ZN13ToggleControl6updateEv
+ 418              		.syntax unified
+ 419              		.thumb
+ 420              		.thumb_func
+ 421              		.fpu fpv5-d16
+ 423              	_ZN13ToggleControl6updateEv:
+ 424              	.LVL25:
+ 425              	.LFB5567:
+  10:effect.cpp    **** void ToggleControl::update() {
+ 426              		.loc 1 10 30 is_stmt 1 view -0
+ 427              		.cfi_startproc
+ 428              		@ args = 0, pretend = 0, frame = 0
+ 429              		@ frame_needed = 0, uses_anonymous_args = 0
+  11:effect.cpp    ****     button.Debounce();
+ 430              		.loc 1 11 5 view .LVU129
+  10:effect.cpp    **** void ToggleControl::update() {
+ 431              		.loc 1 10 30 is_stmt 0 view .LVU130
+ 432 0000 10B5     		push	{r4, lr}
+ 433              		.cfi_def_cfa_offset 8
+ 434              		.cfi_offset 4, -8
+ 435              		.cfi_offset 14, -4
+  10:effect.cpp    **** void ToggleControl::update() {
+ 436              		.loc 1 10 30 view .LVU131
+ 437 0002 0446     		mov	r4, r0
+  11:effect.cpp    ****     button.Debounce();
+ 438              		.loc 1 11 20 view .LVU132
+ 439 0004 FFF7FEFF 		bl	_ZN5daisy6Switch8DebounceEv
+ 440              	.LVL26:
+  12:effect.cpp    ****     *value = button.Pressed();
+ 441              		.loc 1 12 5 is_stmt 1 view .LVU133
+ 442              	.LBB50:
+ 443              	.LBI50:
+  42:../../libDaisy/src/hid/switch.h ****     ~Switch() {}
+  43:../../libDaisy/src/hid/switch.h **** 
+  44:../../libDaisy/src/hid/switch.h ****     /** 
+  45:../../libDaisy/src/hid/switch.h ****     Initializes the switch object with a given port/pin combo.
+  46:../../libDaisy/src/hid/switch.h ****     \param pin port/pin object to tell the switch which hardware pin to use.
+  47:../../libDaisy/src/hid/switch.h ****     \param update_rate Does nothing. Backwards compatibility until next breaking update.
+  48:../../libDaisy/src/hid/switch.h ****     \param t switch type -- Default: TYPE_MOMENTARY
+  49:../../libDaisy/src/hid/switch.h ****     \param pol switch polarity -- Default: POLARITY_INVERTED
+  50:../../libDaisy/src/hid/switch.h ****     \param pu switch pull up/down -- Default: PULL_UP
+  51:../../libDaisy/src/hid/switch.h ****     */
+  52:../../libDaisy/src/hid/switch.h ****     void
+  53:../../libDaisy/src/hid/switch.h ****     Init(dsy_gpio_pin pin, float update_rate, Type t, Polarity pol, Pull pu);
+  54:../../libDaisy/src/hid/switch.h **** 
+  55:../../libDaisy/src/hid/switch.h ****     /**
+  56:../../libDaisy/src/hid/switch.h ****        Simplified Init.
+  57:../../libDaisy/src/hid/switch.h ****        \param pin port/pin object to tell the switch which hardware pin to use.
+  58:../../libDaisy/src/hid/switch.h ****        \param update_rate Left for backwards compatibility until next breaking change.
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 13
+
+
+  59:../../libDaisy/src/hid/switch.h ****     */
+  60:../../libDaisy/src/hid/switch.h ****     void Init(dsy_gpio_pin pin, float update_rate = 0.f);
+  61:../../libDaisy/src/hid/switch.h **** 
+  62:../../libDaisy/src/hid/switch.h ****     /** 
+  63:../../libDaisy/src/hid/switch.h ****     Called at update_rate to debounce and handle timing for the switch.
+  64:../../libDaisy/src/hid/switch.h ****     In order for events not to be missed, its important that the Edge/Pressed checks
+  65:../../libDaisy/src/hid/switch.h ****     be made at the same rate as the debounce function is being called.
+  66:../../libDaisy/src/hid/switch.h ****     */
+  67:../../libDaisy/src/hid/switch.h ****     void Debounce();
+  68:../../libDaisy/src/hid/switch.h **** 
+  69:../../libDaisy/src/hid/switch.h ****     /** \return true if a button was just pressed. */
+  70:../../libDaisy/src/hid/switch.h ****     inline bool RisingEdge() const { return updated_ ? state_ == 0x7f : false; }
+  71:../../libDaisy/src/hid/switch.h **** 
+  72:../../libDaisy/src/hid/switch.h ****     /** \return true if the button was just released */
+  73:../../libDaisy/src/hid/switch.h ****     inline bool FallingEdge() const
+  74:../../libDaisy/src/hid/switch.h ****     {
+  75:../../libDaisy/src/hid/switch.h ****         return updated_ ? state_ == 0x80 : false;
+  76:../../libDaisy/src/hid/switch.h ****     }
+  77:../../libDaisy/src/hid/switch.h **** 
+  78:../../libDaisy/src/hid/switch.h ****     /** \return true if the button is held down (or if the toggle is on) */
+  79:../../libDaisy/src/hid/switch.h ****     inline bool Pressed() const { return state_ == 0xff; }
+ 444              		.loc 2 79 17 view .LVU134
+ 445              	.LBB51:
+ 446              		.loc 2 79 35 view .LVU135
+ 447              		.loc 2 79 52 is_stmt 0 view .LVU136
+ 448 0008 A37A     		ldrb	r3, [r4, #10]	@ zero_extendqisi2
+ 449              	.LBE51:
+ 450              	.LBE50:
+  12:effect.cpp    ****     *value = button.Pressed();
+ 451              		.loc 1 12 12 view .LVU137
+ 452 000a 2269     		ldr	r2, [r4, #16]
+ 453              	.LBB53:
+ 454              	.LBB52:
+ 455              		.loc 2 79 52 view .LVU138
+ 456 000c A3F1FF03 		sub	r3, #255
+ 457 0010 B3FA83F3 		clz	r3, r3
+ 458 0014 5B09     		lsrs	r3, r3, #5
+ 459 0016 1370     		strb	r3, [r2]
+ 460              	.LBE52:
+ 461              	.LBE53:
+  13:effect.cpp    **** }   
+ 462              		.loc 1 13 1 view .LVU139
+ 463 0018 10BD     		pop	{r4, pc}
+  13:effect.cpp    **** }   
+ 464              		.loc 1 13 1 view .LVU140
+ 465              		.cfi_endproc
+ 466              	.LFE5567:
+ 468 001a 00BF     		.section	.text._ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin,"a
+ 469              		.align	1
+ 470              		.p2align 2,,3
+ 471              		.global	_ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin
+ 472              		.syntax unified
+ 473              		.thumb
+ 474              		.thumb_func
+ 475              		.fpu fpv5-d16
+ 477              	_ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin:
+ 478              	.LVL27:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 14
+
+
+ 479              	.LFB5569:
+  18:effect.cpp    **** VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+ 480              		.loc 1 18 1 is_stmt 1 view -0
+ 481              		.cfi_startproc
+ 482              		@ args = 0, pretend = 0, frame = 8
+ 483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 484              	.LBB54:
+  19:effect.cpp    ****         config->InitSingle(pin);
+ 485              		.loc 1 19 9 view .LVU142
+ 486              	.LBE54:
+  18:effect.cpp    **** VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+ 487              		.loc 1 18 1 is_stmt 0 view .LVU143
+ 488 0000 10B5     		push	{r4, lr}
+ 489              		.cfi_def_cfa_offset 8
+ 490              		.cfi_offset 4, -8
+ 491              		.cfi_offset 14, -4
+ 492 0002 82B0     		sub	sp, sp, #8
+ 493              		.cfi_def_cfa_offset 16
+  18:effect.cpp    **** VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+ 494              		.loc 1 18 1 view .LVU144
+ 495 0004 1146     		mov	r1, r2
+ 496              	.LVL28:
+  18:effect.cpp    **** VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+ 497              		.loc 1 18 1 view .LVU145
+ 498 0006 0446     		mov	r4, r0
+ 499              	.LBB55:
+  19:effect.cpp    ****         config->InitSingle(pin);
+ 500              		.loc 1 19 27 view .LVU146
+ 501 0008 0222     		movs	r2, #2
+ 502              	.LVL29:
+  19:effect.cpp    ****         config->InitSingle(pin);
+ 503              		.loc 1 19 27 view .LVU147
+ 504              	.LBE55:
+  18:effect.cpp    **** VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+ 505              		.loc 1 18 1 view .LVU148
+ 506 000a ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 507              	.LBB56:
+  19:effect.cpp    ****         config->InitSingle(pin);
+ 508              		.loc 1 19 27 view .LVU149
+ 509 000e 0846     		mov	r0, r1
+ 510              	.LVL30:
+  19:effect.cpp    ****         config->InitSingle(pin);
+ 511              		.loc 1 19 27 view .LVU150
+ 512 0010 0199     		ldr	r1, [sp, #4]
+ 513              	.LVL31:
+  19:effect.cpp    ****         config->InitSingle(pin);
+ 514              		.loc 1 19 27 view .LVU151
+ 515 0012 FFF7FEFF 		bl	_ZN5daisy16AdcChannelConfig10InitSingleE12dsy_gpio_pinNS0_15ConversionSpeedE
+ 516              	.LVL32:
+  20:effect.cpp    ****         channel = numChannels++;
+ 517              		.loc 1 20 9 is_stmt 1 view .LVU152
+  20:effect.cpp    ****         channel = numChannels++;
+ 518              		.loc 1 20 30 is_stmt 0 view .LVU153
+ 519 0016 044B     		ldr	r3, .L52
+ 520              	.LBE56:
+  21:effect.cpp    ****     }
+ 521              		.loc 1 21 5 view .LVU154
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 15
+
+
+ 522 0018 2046     		mov	r0, r4
+ 523              	.LBB57:
+  20:effect.cpp    ****         channel = numChannels++;
+ 524              		.loc 1 20 30 view .LVU155
+ 525 001a 1A68     		ldr	r2, [r3]
+ 526 001c 511C     		adds	r1, r2, #1
+  20:effect.cpp    ****         channel = numChannels++;
+ 527              		.loc 1 20 17 view .LVU156
+ 528 001e 2260     		str	r2, [r4]
+  20:effect.cpp    ****         channel = numChannels++;
+ 529              		.loc 1 20 30 view .LVU157
+ 530 0020 1960     		str	r1, [r3]
+ 531              	.LBE57:
+  21:effect.cpp    ****     }
+ 532              		.loc 1 21 5 view .LVU158
+ 533 0022 02B0     		add	sp, sp, #8
+ 534              		.cfi_def_cfa_offset 8
+ 535              		@ sp needed
+ 536 0024 10BD     		pop	{r4, pc}
+ 537              	.LVL33:
+ 538              	.L53:
+  21:effect.cpp    ****     }
+ 539              		.loc 1 21 5 view .LVU159
+ 540 0026 00BF     		.align	2
+ 541              	.L52:
+ 542 0028 00000000 		.word	_ZN15VariableControl11numChannelsE
+ 543              		.cfi_endproc
+ 544              	.LFE5569:
+ 546              		.global	_ZN15VariableControlC1EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin
+ 547              		.thumb_set _ZN15VariableControlC1EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin,_ZN15V
+ 548              		.section	.text._ZN15VariableControl6updateEv,"ax",%progbits
+ 549              		.align	1
+ 550              		.p2align 2,,3
+ 551              		.global	_ZN15VariableControl6updateEv
+ 552              		.syntax unified
+ 553              		.thumb
+ 554              		.thumb_func
+ 555              		.fpu fpv5-d16
+ 557              	_ZN15VariableControl6updateEv:
+ 558              	.LVL34:
+ 559              	.LFB5571:
+  23:effect.cpp    **** void VariableControl::update() {
+ 560              		.loc 1 23 32 is_stmt 1 view -0
+ 561              		.cfi_startproc
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+  25:effect.cpp    ****     float currentVal = hw->adc.GetFloat(channel);
+ 564              		.loc 1 25 5 view .LVU161
+  23:effect.cpp    **** void VariableControl::update() {
+ 565              		.loc 1 23 32 is_stmt 0 view .LVU162
+ 566 0000 10B5     		push	{r4, lr}
+ 567              		.cfi_def_cfa_offset 8
+ 568              		.cfi_offset 4, -8
+ 569              		.cfi_offset 14, -4
+  23:effect.cpp    **** void VariableControl::update() {
+ 570              		.loc 1 23 32 view .LVU163
+ 571 0002 0446     		mov	r4, r0
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 16
+
+
+  25:effect.cpp    ****     float currentVal = hw->adc.GetFloat(channel);
+ 572              		.loc 1 25 40 view .LVU164
+ 573 0004 4068     		ldr	r0, [r0, #4]
+ 574              	.LVL35:
+  25:effect.cpp    ****     float currentVal = hw->adc.GetFloat(channel);
+ 575              		.loc 1 25 40 view .LVU165
+ 576 0006 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 577 0008 1830     		adds	r0, r0, #24
+ 578 000a FFF7FEFF 		bl	_ZNK5daisy9AdcHandle8GetFloatEh
+ 579              	.LVL36:
+  27:effect.cpp    ****     if (std::abs(currentVal - *value) >= 0.01f) // has changed by > 1 percent
+ 580              		.loc 1 27 32 view .LVU166
+ 581 000e A368     		ldr	r3, [r4, #8]
+  27:effect.cpp    ****     if (std::abs(currentVal - *value) >= 0.01f) // has changed by > 1 percent
+ 582              		.loc 1 27 5 view .LVU167
+ 583 0010 9FED077A 		vldr.32	s14, .L59
+ 584              	.LVL37:
+  27:effect.cpp    ****     if (std::abs(currentVal - *value) >= 0.01f) // has changed by > 1 percent
+ 585              		.loc 1 27 5 is_stmt 1 view .LVU168
+ 586              	.LBB58:
+ 587              	.LBI58:
+ 588              		.file 3 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
+   1:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // -*- C++ -*- C library enhancements header.
+   2:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+   3:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // Copyright (C) 2016-2020 Free Software Foundation, Inc.
+   4:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** //
+   5:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // software; you can redistribute it and/or modify it under the
+   7:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // terms of the GNU General Public License as published by the
+   8:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // Free Software Foundation; either version 3, or (at your option)
+   9:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // any later version.
+  10:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  11:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // This library is distributed in the hope that it will be useful,
+  12:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // GNU General Public License for more details.
+  15:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  16:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // Under Section 7 of GPL version 3, you are granted additional
+  17:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // permissions described in the GCC Runtime Library Exception, version
+  18:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // 3.1, as published by the Free Software Foundation.
+  19:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  20:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // You should have received a copy of the GNU General Public License and
+  21:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // <http://www.gnu.org/licenses/>.
+  24:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  25:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** /** @file include/bits/std_abs.h
+  26:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****  *  This is an internal header file, included by other library headers.
+  27:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****  *  Do not attempt to use it directly. @headername{cmath, cstdlib}
+  28:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****  */
+  29:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  30:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #ifndef _GLIBCXX_BITS_STD_ABS_H
+  31:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #define _GLIBCXX_BITS_STD_ABS_H
+  32:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  33:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #pragma GCC system_header
+  34:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  35:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #include <bits/c++config.h>
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 17
+
+
+  36:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  37:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  38:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #include_next <stdlib.h>
+  39:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #ifdef __CORRECT_ISO_CPP_MATH_H_PROTO
+  40:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** # include_next <math.h>
+  41:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #endif
+  42:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  43:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  44:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #undef abs
+  45:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  46:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** extern "C++"
+  47:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** {
+  48:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** namespace std _GLIBCXX_VISIBILITY(default)
+  49:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** {
+  50:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  51:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  52:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   using ::abs;
+  53:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  54:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #ifndef __CORRECT_ISO_CPP_STDLIB_H_PROTO
+  55:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   inline long
+  56:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   abs(long __i) { return __builtin_labs(__i); }
+  57:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #endif
+  58:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  59:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #ifdef _GLIBCXX_USE_LONG_LONG
+  60:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   inline long long
+  61:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   abs(long long __x) { return __builtin_llabs (__x); }
+  62:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #endif
+  63:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  64:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // _GLIBCXX_RESOLVE_LIB_DEFECTS
+  65:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // 2192. Validity and return type of std::abs(0u) is unclear
+  66:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // 2294. <cstdlib> should declare abs(double)
+  67:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** // 2735. std::abs(short), std::abs(signed char) and others should return int
+  68:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  69:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+  70:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   inline _GLIBCXX_CONSTEXPR double
+  71:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   abs(double __x)
+  72:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   { return __builtin_fabs(__x); }
+  73:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h **** 
+  74:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   inline _GLIBCXX_CONSTEXPR float
+  75:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   abs(float __x)
+ 589              		.loc 3 75 3 view .LVU169
+ 590              	.LBB59:
+  76:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\bits\std_abs.h ****   { return __builtin_fabsf(__x); }
+ 591              		.loc 3 76 5 view .LVU170
+ 592              		.loc 3 76 5 is_stmt 0 view .LVU171
+ 593              	.LBE59:
+ 594              	.LBE58:
+  27:effect.cpp    ****     if (std::abs(currentVal - *value) >= 0.01f) // has changed by > 1 percent
+ 595              		.loc 1 27 17 view .LVU172
+ 596 0014 D3ED007A 		vldr.32	s15, [r3]
+ 597 0018 70EE677A 		vsub.f32	s15, s0, s15
+ 598              	.LBB61:
+ 599              	.LBB60:
+ 600              		.loc 3 76 31 view .LVU173
+ 601 001c F0EEE77A 		vabs.f32	s15, s15
+ 602              	.LBE60:
+ 603              	.LBE61:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 18
+
+
+  27:effect.cpp    ****     if (std::abs(currentVal - *value) >= 0.01f) // has changed by > 1 percent
+ 604              		.loc 1 27 5 view .LVU174
+ 605 0020 F4EEC77A 		vcmpe.f32	s15, s14
+ 606 0024 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  28:effect.cpp    ****         *value = currentVal;
+ 607              		.loc 1 28 9 is_stmt 1 view .LVU175
+  28:effect.cpp    ****         *value = currentVal;
+ 608              		.loc 1 28 16 is_stmt 0 view .LVU176
+ 609 0028 A8BF     		it	ge
+ 610 002a 83ED000A 		vstrge.32	s0, [r3]
+  30:effect.cpp    **** }
+ 611              		.loc 1 30 1 view .LVU177
+ 612 002e 10BD     		pop	{r4, pc}
+ 613              	.LVL38:
+ 614              	.L60:
+  30:effect.cpp    **** }
+ 615              		.loc 1 30 1 view .LVU178
+ 616              		.align	2
+ 617              	.L59:
+ 618 0030 0AD7233C 		.word	1008981770
+ 619              		.cfi_endproc
+ 620              	.LFE5571:
+ 622              		.section	.rodata._ZN6EffectC2Eb.str1.4,"aMS",%progbits,1
+ 623              		.align	2
+ 624              	.LC0:
+ 625 0000 456E6162 		.ascii	"Enabled\000"
+ 625      6C656400 
+ 626              		.section	.text._ZN6EffectC2Eb,"ax",%progbits
+ 627              		.align	1
+ 628              		.p2align 2,,3
+ 629              		.global	_ZN6EffectC2Eb
+ 630              		.syntax unified
+ 631              		.thumb
+ 632              		.thumb_func
+ 633              		.fpu fpv5-d16
+ 635              	_ZN6EffectC2Eb:
+ 636              	.LVL39:
+ 637              	.LFB5573:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 638              		.loc 1 35 1 is_stmt 1 view -0
+ 639              		.cfi_startproc
+ 640              		@ args = 0, pretend = 0, frame = 0
+ 641              		@ frame_needed = 0, uses_anonymous_args = 0
+ 642              		@ link register save eliminated.
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 643              		.loc 1 35 1 is_stmt 0 view .LVU180
+ 644 0000 0022     		movs	r2, #0
+ 645              	.LBB62:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 646              		.loc 1 35 44 view .LVU181
+ 647 0002 80F82C10 		strb	r1, [r0, #44]
+ 648              	.LBE62:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 649              		.loc 1 35 1 view .LVU182
+ 650 0006 10B4     		push	{r4}
+ 651              		.cfi_def_cfa_offset 4
+ 652              		.cfi_offset 4, -4
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 19
+
+
+ 653              	.LBB64:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 654              		.loc 1 35 44 view .LVU183
+ 655 0008 044C     		ldr	r4, .L63
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 656              		.loc 1 36 19 view .LVU184
+ 657 000a 0271     		strb	r2, [r0, #4]
+  37:effect.cpp    ****     numBoolParams = 1;
+ 658              		.loc 1 37 19 view .LVU185
+ 659 000c 0122     		movs	r2, #1
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 660              		.loc 1 35 44 view .LVU186
+ 661 000e 0460     		str	r4, [r0]
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 662              		.loc 1 35 44 is_stmt 1 view .LVU187
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 663              		.loc 1 35 44 view .LVU188
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 664              		.loc 1 36 5 view .LVU189
+ 665              	.LVL40:
+ 666              	.LBB63:
+ 667              	.LBI63:
+ 668              		.file 4 "effect.hpp"
+   1:effect.hpp    **** #ifndef EFFECT_H
+   2:effect.hpp    **** #define EFFECT_H
+   3:effect.hpp    **** 
+   4:effect.hpp    **** #include "util.hpp"
+   5:effect.hpp    **** #include "daisy_seed.h"
+   6:effect.hpp    **** 
+   7:effect.hpp    **** using namespace daisy;
+   8:effect.hpp    **** 
+   9:effect.hpp    **** 
+  10:effect.hpp    **** // class Control {
+  11:effect.hpp    **** //     virtual void update() = 0;
+  12:effect.hpp    **** // };
+  13:effect.hpp    **** 
+  14:effect.hpp    **** class ToggleControl /* : Control */ {
+  15:effect.hpp    **** 
+  16:effect.hpp    ****     Switch button;
+  17:effect.hpp    **** 
+  18:effect.hpp    **** public:
+  19:effect.hpp    ****     bool* value; // have some kind of menu to set this per effect, also maybe this should be a ptr 
+  20:effect.hpp    **** 
+  21:effect.hpp    ****     ToggleControl(dsy_gpio_pin pin);
+  22:effect.hpp    ****     void update();
+  23:effect.hpp    **** };
+  24:effect.hpp    **** 
+  25:effect.hpp    **** 
+  26:effect.hpp    **** class VariableControl /* : Control */ {
+  27:effect.hpp    ****     int channel;
+  28:effect.hpp    ****     DaisySeed* hw;
+  29:effect.hpp    **** 
+  30:effect.hpp    **** public:
+  31:effect.hpp    ****     float* value;
+  32:effect.hpp    ****     static int numChannels;
+  33:effect.hpp    **** 
+  34:effect.hpp    ****     VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin);
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 20
+
+
+  35:effect.hpp    **** 
+  36:effect.hpp    ****     // THESE HAVE TO BE DONE when this and all others are initialized
+  37:effect.hpp    ****     // hw->adc.Init(configs, n);
+  38:effect.hpp    ****     // hw->adc.Start();
+  39:effect.hpp    ****     
+  40:effect.hpp    ****     void update();
+  41:effect.hpp    **** 
+  42:effect.hpp    **** };
+  43:effect.hpp    **** 
+  44:effect.hpp    **** template <typename T> struct EffectParameter {
+  45:effect.hpp    ****     T value;
+  46:effect.hpp    ****     const char* name;
+  47:effect.hpp    **** 
+  48:effect.hpp    ****     EffectParameter() {};
+  49:effect.hpp    ****     EffectParameter(const char* name) : name(name) {};
+ 669              		.loc 4 49 5 view .LVU190
+ 670              		.loc 4 49 5 is_stmt 0 view .LVU191
+ 671              	.LBE63:
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 672              		.loc 1 36 19 view .LVU192
+ 673 0010 034C     		ldr	r4, .L63+4
+  37:effect.cpp    ****     numBoolParams = 1;
+ 674              		.loc 1 37 19 view .LVU193
+ 675 0012 4261     		str	r2, [r0, #20]
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 676              		.loc 1 36 19 view .LVU194
+ 677 0014 8460     		str	r4, [r0, #8]
+  37:effect.cpp    ****     numBoolParams = 1;
+ 678              		.loc 1 37 5 is_stmt 1 view .LVU195
+ 679              	.LBE64:
+  38:effect.cpp    **** }
+ 680              		.loc 1 38 1 is_stmt 0 view .LVU196
+ 681 0016 5DF8044B 		ldr	r4, [sp], #4
+ 682              		.cfi_restore 4
+ 683              		.cfi_def_cfa_offset 0
+ 684 001a 7047     		bx	lr
+ 685              	.L64:
+ 686              		.align	2
+ 687              	.L63:
+ 688 001c 08000000 		.word	_ZTV6Effect+8
+ 689 0020 00000000 		.word	.LC0
+ 690              		.cfi_endproc
+ 691              	.LFE5573:
+ 693              		.global	_ZN6EffectC1Eb
+ 694              		.thumb_set _ZN6EffectC1Eb,_ZN6EffectC2Eb
+ 695              		.section	.rodata._ZN6LooperC2EbPfj.str1.4,"aMS",%progbits,1
+ 696              		.align	2
+ 697              	.LC1:
+ 698 0000 5265636F 		.ascii	"Recording Enabled\000"
+ 698      7264696E 
+ 698      6720456E 
+ 698      61626C65 
+ 698      6400
+ 699              		.section	.text._ZN6LooperC2EbPfj,"ax",%progbits
+ 700              		.align	1
+ 701              		.p2align 2,,3
+ 702              		.global	_ZN6LooperC2EbPfj
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 21
+
+
+ 703              		.syntax unified
+ 704              		.thumb
+ 705              		.thumb_func
+ 706              		.fpu fpv5-d16
+ 708              	_ZN6LooperC2EbPfj:
+ 709              	.LVL41:
+ 710              	.LFB5576:
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 711              		.loc 1 43 1 is_stmt 1 view -0
+ 712              		.cfi_startproc
+ 713              		@ args = 0, pretend = 0, frame = 0
+ 714              		@ frame_needed = 0, uses_anonymous_args = 0
+ 715              		@ link register save eliminated.
+ 716              	.LBB65:
+ 717              	.LBB66:
+ 718              	.LBI66:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 719              		.loc 1 35 1 view .LVU198
+ 720              	.LBB67:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 721              		.loc 1 35 44 view .LVU199
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 722              		.loc 1 35 44 view .LVU200
+ 723              	.LBE67:
+ 724              	.LBE66:
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 725              		.loc 1 43 103 is_stmt 0 view .LVU201
+ 726 0000 C363     		str	r3, [r0, #60]
+  45:effect.cpp    ****     numBoolParams = 2;
+ 727              		.loc 1 45 19 view .LVU202
+ 728 0002 0223     		movs	r3, #2
+ 729              	.LVL42:
+ 730              	.LBB72:
+ 731              	.LBB69:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 732              		.loc 1 35 44 view .LVU203
+ 733 0004 80F82C10 		strb	r1, [r0, #44]
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 734              		.loc 1 36 5 is_stmt 1 view .LVU204
+ 735              	.LVL43:
+ 736              	.LBB68:
+ 737              	.LBI68:
+ 738              		.loc 4 49 5 view .LVU205
+ 739              		.loc 4 49 5 is_stmt 0 view .LVU206
+ 740              	.LBE68:
+ 741              	.LBE69:
+ 742              	.LBE72:
+  44:effect.cpp    ****     boolParams[1] = EffectParameter<bool>("Recording Enabled");
+ 743              		.loc 1 44 19 view .LVU207
+ 744 0008 0749     		ldr	r1, .L67
+ 745              	.LVL44:
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 746              		.loc 1 43 103 view .LVU208
+ 747 000a 0263     		str	r2, [r0, #48]
+  45:effect.cpp    ****     numBoolParams = 2;
+ 748              		.loc 1 45 19 view .LVU209
+ 749 000c 4361     		str	r3, [r0, #20]
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 22
+
+
+ 750              	.LBE65:
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 751              		.loc 1 43 1 view .LVU210
+ 752 000e 0023     		movs	r3, #0
+ 753              	.LBB76:
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 754              		.loc 1 43 103 view .LVU211
+ 755 0010 064A     		ldr	r2, .L67+4
+ 756              	.LVL45:
+  44:effect.cpp    ****     boolParams[1] = EffectParameter<bool>("Recording Enabled");
+ 757              		.loc 1 44 19 view .LVU212
+ 758 0012 0161     		str	r1, [r0, #16]
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 759              		.loc 1 43 103 view .LVU213
+ 760 0014 0260     		str	r2, [r0]
+ 761              	.LBB73:
+ 762              	.LBB70:
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 763              		.loc 1 36 19 view .LVU214
+ 764 0016 0371     		strb	r3, [r0, #4]
+ 765              	.LBE70:
+ 766              	.LBE73:
+  44:effect.cpp    ****     boolParams[1] = EffectParameter<bool>("Recording Enabled");
+ 767              		.loc 1 44 19 view .LVU215
+ 768 0018 0373     		strb	r3, [r0, #12]
+ 769              	.LBE76:
+  43:effect.cpp    **** Looper::Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(s
+ 770              		.loc 1 43 1 view .LVU216
+ 771 001a 10B4     		push	{r4}
+ 772              		.cfi_def_cfa_offset 4
+ 773              		.cfi_offset 4, -4
+ 774              	.LBB77:
+ 775              	.LBB74:
+ 776              	.LBB71:
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 777              		.loc 1 36 19 view .LVU217
+ 778 001c 044C     		ldr	r4, .L67+8
+ 779 001e 8460     		str	r4, [r0, #8]
+  37:effect.cpp    ****     numBoolParams = 1;
+ 780              		.loc 1 37 5 is_stmt 1 view .LVU218
+ 781              	.LVL46:
+  37:effect.cpp    ****     numBoolParams = 1;
+ 782              		.loc 1 37 5 is_stmt 0 view .LVU219
+ 783              	.LBE71:
+ 784              	.LBE74:
+  44:effect.cpp    ****     boolParams[1] = EffectParameter<bool>("Recording Enabled");
+ 785              		.loc 1 44 5 is_stmt 1 view .LVU220
+ 786              	.LBB75:
+ 787              	.LBI75:
+ 788              		.loc 4 49 5 view .LVU221
+ 789              		.loc 4 49 5 is_stmt 0 view .LVU222
+ 790              	.LBE75:
+  45:effect.cpp    ****     numBoolParams = 2;
+ 791              		.loc 1 45 5 is_stmt 1 view .LVU223
+ 792              	.LBE77:
+  46:effect.cpp    **** }
+ 793              		.loc 1 46 1 is_stmt 0 view .LVU224
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 23
+
+
+ 794 0020 5DF8044B 		ldr	r4, [sp], #4
+ 795              		.cfi_restore 4
+ 796              		.cfi_def_cfa_offset 0
+ 797 0024 7047     		bx	lr
+ 798              	.L68:
+ 799 0026 00BF     		.align	2
+ 800              	.L67:
+ 801 0028 00000000 		.word	.LC1
+ 802 002c 08000000 		.word	.LANCHOR0+8
+ 803 0030 00000000 		.word	.LC0
+ 804              		.cfi_endproc
+ 805              	.LFE5576:
+ 807              		.global	_ZN6LooperC1EbPfj
+ 808              		.thumb_set _ZN6LooperC1EbPfj,_ZN6LooperC2EbPfj
+ 809              		.section	.rodata._ZN5DelayC2EbPfjj.str1.4,"aMS",%progbits,1
+ 810              		.align	2
+ 811              	.LC2:
+ 812 0000 44656C61 		.ascii	"Delay Amount\000"
+ 812      7920416D 
+ 812      6F756E74 
+ 812      00
+ 813              		.section	.text._ZN5DelayC2EbPfjj,"ax",%progbits
+ 814              		.align	1
+ 815              		.p2align 2,,3
+ 816              		.global	_ZN5DelayC2EbPfjj
+ 817              		.syntax unified
+ 818              		.thumb
+ 819              		.thumb_func
+ 820              		.fpu fpv5-d16
+ 822              	_ZN5DelayC2EbPfjj:
+ 823              	.LVL47:
+ 824              	.LFB5580:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 825              		.loc 1 86 1 is_stmt 1 view -0
+ 826              		.cfi_startproc
+ 827              		@ args = 4, pretend = 0, frame = 0
+ 828              		@ frame_needed = 0, uses_anonymous_args = 0
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 829              		.loc 1 86 1 is_stmt 0 view .LVU226
+ 830 0000 38B5     		push	{r3, r4, r5, lr}
+ 831              		.cfi_def_cfa_offset 16
+ 832              		.cfi_offset 3, -16
+ 833              		.cfi_offset 4, -12
+ 834              		.cfi_offset 5, -8
+ 835              		.cfi_offset 14, -4
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 836              		.loc 1 86 1 view .LVU227
+ 837 0002 0446     		mov	r4, r0
+ 838              	.LVL48:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 839              		.loc 1 86 1 view .LVU228
+ 840 0004 0D46     		mov	r5, r1
+ 841              	.LVL49:
+ 842              	.LBB78:
+ 843              	.LBB79:
+ 844              	.LBI79:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 24
+
+
+ 845              		.loc 1 35 1 is_stmt 1 view .LVU229
+ 846              	.LBB80:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 847              		.loc 1 35 44 view .LVU230
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 848              		.loc 1 35 44 view .LVU231
+ 849              	.LBE80:
+ 850              	.LBE79:
+ 851              	.LBE78:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 852              		.loc 1 86 1 is_stmt 0 view .LVU232
+ 853 0006 0020     		movs	r0, #0
+ 854              	.LVL50:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 855              		.loc 1 86 1 view .LVU233
+ 856 0008 1146     		mov	r1, r2
+ 857              	.LVL51:
+ 858              	.LBB87:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 859              		.loc 1 86 115 view .LVU234
+ 860 000a 1A46     		mov	r2, r3
+ 861              	.LVL52:
+ 862              	.LBB84:
+ 863              	.LBB82:
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 864              		.loc 1 36 19 view .LVU235
+ 865 000c 0A4B     		ldr	r3, .L71
+ 866              	.LVL53:
+  35:effect.cpp    **** Effect::Effect(bool series) : series(series) {
+ 867              		.loc 1 35 44 view .LVU236
+ 868 000e 84F82C50 		strb	r5, [r4, #44]
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 869              		.loc 1 36 5 is_stmt 1 view .LVU237
+ 870              	.LVL54:
+ 871              	.LBB81:
+ 872              	.LBI81:
+ 873              		.loc 4 49 5 view .LVU238
+ 874              		.loc 4 49 5 is_stmt 0 view .LVU239
+ 875              	.LBE81:
+  37:effect.cpp    ****     numBoolParams = 1;
+ 876              		.loc 1 37 19 view .LVU240
+ 877 0012 0125     		movs	r5, #1
+ 878              	.LVL55:
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 879              		.loc 1 36 19 view .LVU241
+ 880 0014 A360     		str	r3, [r4, #8]
+  37:effect.cpp    ****     numBoolParams = 1;
+ 881              		.loc 1 37 5 is_stmt 1 view .LVU242
+  36:effect.cpp    ****     boolParams[0] = EffectParameter<bool>("Enabled");
+ 882              		.loc 1 36 19 is_stmt 0 view .LVU243
+ 883 0016 2071     		strb	r0, [r4, #4]
+ 884              	.LBE82:
+ 885              	.LBE84:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 886              		.loc 1 86 115 view .LVU244
+ 887 0018 2046     		mov	r0, r4
+ 888 001a 084B     		ldr	r3, .L71+4
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 25
+
+
+ 889              	.LBB85:
+ 890              	.LBB83:
+  37:effect.cpp    ****     numBoolParams = 1;
+ 891              		.loc 1 37 19 view .LVU245
+ 892 001c 6561     		str	r5, [r4, #20]
+ 893              	.LVL56:
+  37:effect.cpp    ****     numBoolParams = 1;
+ 894              		.loc 1 37 19 view .LVU246
+ 895              	.LBE83:
+ 896              	.LBE85:
+  86:effect.cpp    **** Delay::Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffe
+ 897              		.loc 1 86 115 view .LVU247
+ 898 001e 40F8303B 		str	r3, [r0], #48
+ 899 0022 049B     		ldr	r3, [sp, #16]
+ 900 0024 FFF7FEFF 		bl	_ZN14CircularBufferC1EPfjj
+ 901              	.LVL57:
+  87:effect.cpp    ****     floatParams[0] = EffectParameter<float>("Delay Amount");
+ 902              		.loc 1 87 5 is_stmt 1 view .LVU248
+ 903              	.LBB86:
+ 904              	.LBI86:
+ 905              		.loc 4 49 5 view .LVU249
+ 906              		.loc 4 49 5 is_stmt 0 view .LVU250
+ 907              	.LBE86:
+  87:effect.cpp    ****     floatParams[0] = EffectParameter<float>("Delay Amount");
+ 908              		.loc 1 87 20 view .LVU251
+ 909 0028 0022     		movs	r2, #0
+ 910 002a 054B     		ldr	r3, .L71+8
+ 911              	.LBE87:
+  89:effect.cpp    **** }
+ 912              		.loc 1 89 1 view .LVU252
+ 913 002c 2046     		mov	r0, r4
+ 914              	.LBB88:
+  88:effect.cpp    ****     numFloatParams = 1;
+ 915              		.loc 1 88 20 view .LVU253
+ 916 002e A562     		str	r5, [r4, #40]
+  87:effect.cpp    ****     floatParams[0] = EffectParameter<float>("Delay Amount");
+ 917              		.loc 1 87 20 view .LVU254
+ 918 0030 A261     		str	r2, [r4, #24]	@ float
+ 919 0032 E361     		str	r3, [r4, #28]
+  88:effect.cpp    ****     numFloatParams = 1;
+ 920              		.loc 1 88 5 is_stmt 1 view .LVU255
+ 921              	.LBE88:
+  89:effect.cpp    **** }
+ 922              		.loc 1 89 1 is_stmt 0 view .LVU256
+ 923 0034 38BD     		pop	{r3, r4, r5, pc}
+ 924              	.LVL58:
+ 925              	.L72:
+  89:effect.cpp    **** }
+ 926              		.loc 1 89 1 view .LVU257
+ 927 0036 00BF     		.align	2
+ 928              	.L71:
+ 929 0038 00000000 		.word	.LC0
+ 930 003c 08000000 		.word	.LANCHOR1+8
+ 931 0040 00000000 		.word	.LC2
+ 932              		.cfi_endproc
+ 933              	.LFE5580:
+ 935              		.global	_ZN5DelayC1EbPfjj
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 26
+
+
+ 936              		.thumb_set _ZN5DelayC1EbPfjj,_ZN5DelayC2EbPfjj
+ 937              		.weak	_ZTV6Effect
+ 938              		.section	.rodata._ZTV6Effect,"aG",%progbits,_ZTV6Effect,comdat
+ 939              		.align	2
+ 942              	_ZTV6Effect:
+ 943 0000 00000000 		.word	0
+ 944 0004 00000000 		.word	0
+ 945 0008 00000000 		.word	__cxa_pure_virtual
+ 946              		.global	_ZTV6Looper
+ 947              		.global	_ZTV5Delay
+ 948              		.section	.rodata._ZTV5Delay,"a"
+ 949              		.align	2
+ 950              		.set	.LANCHOR1,. + 0
+ 953              	_ZTV5Delay:
+ 954 0000 00000000 		.word	0
+ 955 0004 00000000 		.word	0
+ 956 0008 00000000 		.word	_ZN5Delay5applyEPKfPfi
+ 957              		.section	.rodata._ZTV6Looper,"a"
+ 958              		.align	2
+ 959              		.set	.LANCHOR0,. + 0
+ 962              	_ZTV6Looper:
+ 963 0000 00000000 		.word	0
+ 964 0004 00000000 		.word	0
+ 965 0008 00000000 		.word	_ZN6Looper5applyEPKfPfi
+ 966              		.text
+ 967              	.Letext0:
+ 968              		.file 5 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 969              		.file 6 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 970              		.file 7 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
+ 971              		.file 8 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
+ 972              		.file 9 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cmath"
+ 973              		.file 10 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
+ 974              		.file 11 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
+ 975              		.file 12 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
+ 976              		.file 13 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
+ 977              		.file 14 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
+ 978              		.file 15 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
+ 979              		.file 16 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
+ 980              		.file 17 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\string_view"
+ 981              		.file 18 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
+ 982              		.file 19 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\complex"
+ 983              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
+ 984              		.file 21 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
+ 985              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\system_error"
+ 986              		.file 23 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwctype"
+ 987              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\tr1\\special_fun
+ 988              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\functional"
+ 989              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdarg"
+ 990              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstring"
+ 991              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
+ 992              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
+ 993              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
+ 994              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
+ 995              		.file 32 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
+ 996              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
+ 997              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
+ 998              		.file 35 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 27
+
+
+ 999              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
+ 1000              		.file 37 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
+ 1001              		.file 38 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
+ 1002              		.file 39 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wctype.h"
+ 1003              		.file 40 "util.hpp"
+ 1004              		.file 41 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\stdlib.h"
+ 1005              		.file 42 "../../libDaisy/src/daisy_core.h"
+ 1006              		.file 43 "../../libDaisy/src/per/tim.h"
+ 1007              		.file 44 "../../libDaisy/src/sys/system.h"
+ 1008              		.file 45 "../../libDaisy/src/per/qspi.h"
+ 1009              		.file 46 "../../libDaisy/src/per/dac.h"
+ 1010              		.file 47 "../../libDaisy/src/per/sai.h"
+ 1011              		.file 48 "../../libDaisy/src/hid/audio.h"
+ 1012              		.file 49 "../../libDaisy/src/per/adc.h"
+ 1013              		.file 50 "../../libDaisy/src/hid/usb.h"
+ 1014              		.file 51 "../../libDaisy/src/util/wav_format.h"
+ 1015              		.file 52 "../../libDaisy/src/dev/max11300.h"
+ 1016              		.file 53 "../../libDaisy/src/daisy_seed.h"
+ 1017              		.file 54 "../../libDaisy/src/per/gpio.h"
+ 1018              		.file 55 "../../libDaisy/src/dev/sdram.h"
+ 1019              		.file 56 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\pstl\\execution_
+ 1020              		.file 57 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\string.h"
+ 1021              		.file 58 "<built-in>"
+ 1022              		.file 59 "../../libDaisy/src/dev/sr_595.h"
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 effect.cpp
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:17     .text._ZN6Looper5applyEPKfPfi:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:26     .text._ZN6Looper5applyEPKfPfi:00000000 _ZN6Looper5applyEPKfPfi
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:246    .text._ZN5Delay5applyEPKfPfi:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:254    .text._ZN5Delay5applyEPKfPfi:00000000 _ZN5Delay5applyEPKfPfi
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:344    .text._ZN13ToggleControlC2E12dsy_gpio_pin:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:352    .text._ZN13ToggleControlC2E12dsy_gpio_pin:00000000 _ZN13ToggleControlC2E12dsy_gpio_pin
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:408    .text._ZN13ToggleControlC2E12dsy_gpio_pin:00000024 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:352    .text._ZN13ToggleControlC2E12dsy_gpio_pin:00000000 _ZN13ToggleControlC1E12dsy_gpio_pin
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:415    .text._ZN13ToggleControl6updateEv:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:423    .text._ZN13ToggleControl6updateEv:00000000 _ZN13ToggleControl6updateEv
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:469    .text._ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:477    .text._ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin:00000000 _ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:542    .text._ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin:00000028 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:477    .text._ZN15VariableControlC2EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin:00000000 _ZN15VariableControlC1EPN5daisy9DaisySeedEPNS0_16AdcChannelConfigE12dsy_gpio_pin
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:549    .text._ZN15VariableControl6updateEv:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:557    .text._ZN15VariableControl6updateEv:00000000 _ZN15VariableControl6updateEv
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:618    .text._ZN15VariableControl6updateEv:00000030 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:623    .rodata._ZN6EffectC2Eb.str1.4:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:627    .text._ZN6EffectC2Eb:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:635    .text._ZN6EffectC2Eb:00000000 _ZN6EffectC2Eb
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:688    .text._ZN6EffectC2Eb:0000001c $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:942    .rodata._ZTV6Effect:00000000 _ZTV6Effect
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:635    .text._ZN6EffectC2Eb:00000000 _ZN6EffectC1Eb
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:696    .rodata._ZN6LooperC2EbPfj.str1.4:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:700    .text._ZN6LooperC2EbPfj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:708    .text._ZN6LooperC2EbPfj:00000000 _ZN6LooperC2EbPfj
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:801    .text._ZN6LooperC2EbPfj:00000028 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:708    .text._ZN6LooperC2EbPfj:00000000 _ZN6LooperC1EbPfj
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:810    .rodata._ZN5DelayC2EbPfjj.str1.4:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:814    .text._ZN5DelayC2EbPfjj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:822    .text._ZN5DelayC2EbPfjj:00000000 _ZN5DelayC2EbPfjj
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:929    .text._ZN5DelayC2EbPfjj:00000038 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:822    .text._ZN5DelayC2EbPfjj:00000000 _ZN5DelayC1EbPfjj
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:939    .rodata._ZTV6Effect:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:962    .rodata._ZTV6Looper:00000000 _ZTV6Looper
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:953    .rodata._ZTV5Delay:00000000 _ZTV5Delay
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:949    .rodata._ZTV5Delay:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\cclhN2RX.s:958    .rodata._ZTV6Looper:00000000 $d
+
+UNDEFINED SYMBOLS
+memcpy
+_ZN14CircularBuffer9setOffsetEj
+_ZN14CircularBuffer8readNextEv
+_ZN14CircularBuffer9writeNextEf
+_ZN5daisy6Switch4InitE12dsy_gpio_pinfNS0_4TypeENS0_8PolarityENS0_4PullE
+_ZN5daisy6Switch8DebounceEv
+_ZN5daisy16AdcChannelConfig10InitSingleE12dsy_gpio_pinNS0_15ConversionSpeedE
+_ZN15VariableControl11numChannelsE
+_ZNK5daisy9AdcHandle8GetFloatEh
+_ZN14CircularBufferC1EPfjj
+__cxa_pure_virtual

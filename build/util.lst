@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   43              		.cfi_offset 8, -12
   44              		.cfi_offset 9, -8
   45              		.cfi_offset 14, -4
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 2
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 2
 
 
   46 0006 8046     		mov	r8, r0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   91              	.LVL4:
   19:util.cpp      **** 
   20:util.cpp      ****     for (int k = 0; k < N/2; k++) {
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 3
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 3
 
 
   92              		.loc 1 20 5 is_stmt 1 view .LVU15
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   26:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****  *  This is a Standard C++ Library header.
   27:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****  */
   28:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 4
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 4
 
 
   29:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** //
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   83:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp> complex<_Tp> polar(const _Tp&, const _Tp& = 0);
   84:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
   85:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // Transcendentals:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 5
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 5
 
 
   86:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   /// Return complex cosine of @a z.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  140:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #endif
  141:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  142:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       ///  Converting constructor.
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 6
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 6
 
 
  143:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       template<typename _Up>
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  197:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _GLIBCXX20_CONSTEXPR complex<_Tp>&
  198:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       operator-=(const _Tp& __t)
  199:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       {
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 7
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 7
 
 
  200:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	_M_real -= __t;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  254:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       return *this;
  255:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     }
  256:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 8
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 8
 
 
  257:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.5/7
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  311:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  312:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.5/15
  313:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // XXX: This is a grammar school implementation.
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 9
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 9
 
 
  314:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  368:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  369:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _GLIBCXX20_CONSTEXPR complex<_Tp>
  370:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     operator-(const complex<_Tp>& __x, const _Tp& __y)
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 10
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 10
 
 
  371:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  425:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       return __r;
  426:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     }
  427:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 11
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 11
 
 
  428:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  482:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     operator!=(const complex<_Tp>& __x, const complex<_Tp>& __y)
  483:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     { return __x.real() != __y.real() || __x.imag() != __y.imag(); }
  484:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 12
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 12
 
 
  485:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  539:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	      if (__is >> __u)
  540:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 		{
  541:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 		  __x = __u;
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 13
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 13
 
 
  542:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 		  __fail = false;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  596:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  597:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.7/3 abs(__z):  Returns the magnitude of __z.
  598:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 14
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 14
 
 
  599:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _Tp
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  653:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #else
  654:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  655:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _Tp
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 15
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 15
 
 
  656:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     arg(const complex<_Tp>& __z) { return __complex_arg(__z); }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  710:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  711:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // Transcendentals
  712:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 16
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 16
 
 
  713:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.8/1 cos(__z):  Returns the cosine of __z.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  767:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #else
  768:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  769:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 17
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 17
 
 
  770:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     cosh(const complex<_Tp>& __z) { return __complex_cosh(__z); }
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  824:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #endif
  825:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  826:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 18
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 18
 
 
  827:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  881:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  882:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  883:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 19
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 19
 
 
  884:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     sinh(const complex<_Tp>& __z) { return __complex_sinh(__z.__rep()); }
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  938:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
  939:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     __complex_tan(const complex<_Tp>& __z)
  940:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     { return std::sin(__z) / std::cos(__z); }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 20
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 20
 
 
  941:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  995:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     complex<_Tp>
  996:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     __complex_pow_unsigned(complex<_Tp> __x, unsigned __n)
  997:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 21
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 21
 
 
  998:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       complex<_Tp> __y = __n % 2 ? __x : complex<_Tp>(1);
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
 1052:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   { return __builtin_cpow(__x, __y); }
 1053:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
 1054:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline __complex__ long double
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 22
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 22
 
 
 1055:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_pow(const __complex__ long double& __x,
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
 1109:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       __attribute ((__abi_tag__ ("cxx11")))
 1110:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       constexpr float
 1111:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       imag() const { return __imag__ _M_value; }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 23
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 23
 
 
 1112:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #else
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  124              	.LBE199:
   20:util.cpp      ****         std::complex<float> p = X[k];
  125              		.loc 1 20 5 discriminator 2 view .LVU23
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 24
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 24
 
 
  126 0058 0136     		adds	r6, r6, #1
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
 1160:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       }
 1161:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
 1162:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _GLIBCXX20_CONSTEXPR complex&
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 25
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 25
 
 
 1163:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       operator/=(float __f)
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  220              	.LBB168:
  221              	.LBB166:
  222              	.LBB155:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 26
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 26
 
 
  223              	.LBI155:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   53:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #undef div
   54:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #undef acos
   55:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #undef asin
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 27
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 27
 
 
   56:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #undef atan
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  110:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   asin(long double __x)
  111:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_asinl(__x); }
  112:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 28
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 28
 
 
  113:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  167:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  168:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
  169:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   ceil(long double __x)
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 29
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 29
 
 
  170:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_ceill(__x); }
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  226              	.LBB156:
  223:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_expf(__x); }
  227              		.loc 3 223 5 discriminator 2 view .LVU49
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 30
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 30
 
 
  228              		.loc 3 223 26 is_stmt 0 discriminator 2 view .LVU50
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  235:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_exp(__x); }
  236:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  237:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::fabs;
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 31
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 31
 
 
  238:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  292:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
  293:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****       return fmod(__type(__x), __type(__y));
  294:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 32
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 32
 
 
  295:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  349:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
  350:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     log(_Tp __x)
  351:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_log(__x); }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 33
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 33
 
 
  352:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  406:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline long double
  407:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(long double __x, int __n)
  408:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powil(__x, __n); }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 34
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 34
 
 
  409:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  296              	.LBB172:
  297              	.LBI172:
 1167:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 35
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 35
 
 
 1168:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
 1215:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	  return *this;
 1216:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	}
 1217:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 36
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 36
 
 
 1218:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _GLIBCXX_CONSTEXPR _ComplexT __rep() const { return _M_value; }
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
 1188:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	  return *this;
  352              		.loc 2 1188 13 is_stmt 0 discriminator 2 view .LVU77
  353 00bc 39EE876A 		vadd.f32	s12, s19, s14
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 37
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 37
 
 
  354              	.LBE180:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  401              	.LBE197:
  402              		.loc 1 23 20 discriminator 2 view .LVU85
  403 00d4 04ED026A 		vstr.32	s12, [r4, #-8]
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 38
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 38
 
 
  404 00d8 44ED016A 		vstr.32	s13, [r4, #-4]
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  448              		.cfi_def_cfa_offset 28
  449 00ec BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
  450              	.LVL22:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 39
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 39
 
 
  451              	.L11:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  496              		.loc 1 27 1 view .LVU108
  497 010e FFF7FEFF 		bl	__mulsc3
  498              	.LVL28:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 40
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 40
 
 
  499              		.loc 1 27 1 view .LVU109
@@ -2367,7 +2367,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   29:util.cpp      **** const char* notes[] = { "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
   30:util.cpp      **** #define C0 16.3515978313f
   31:util.cpp      **** 
-  32:util.cpp      **** // wrong octave still
+  32:util.cpp      **** // TODO: wrong octave still
   33:util.cpp      **** // returns error from closest note (+- 0.5 from note usually)
   34:util.cpp      **** float frequencyToNote(float freq, const char** note, int* octave)
   35:util.cpp      **** {
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  542 000c 0C46     		mov	r4, r1
  543 000e 2DED028B 		vpush.64	{d8}
  544              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 41
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 41
 
 
  545              		.cfi_offset 80, -24
@@ -2438,7 +2438,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   44:util.cpp      **** 
   45:util.cpp      ****     return tone - roundf(tone);
   46:util.cpp      **** 
-  47:util.cpp      **** }...
+  47:util.cpp      **** }
  571              		.loc 1 47 1 view .LVU125
  572 003e 30EE670A 		vsub.f32	s0, s0, s15
   40:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
@@ -2447,30 +2447,30 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
   40:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
  575              		.loc 1 40 5 is_stmt 1 view .LVU127
  576              	.LVL35:
-  42:util.cpp      ****     *note = notes[noteNumber];
+  42:util.cpp      ****     *octave = roundf((n - 5) / 12);
  577              		.loc 1 42 5 view .LVU128
-  43:util.cpp      ****     *octave = roundf((n - 5) / 12);
+  43:util.cpp      **** 
  578              		.loc 1 43 25 is_stmt 0 view .LVU129
  579 0044 A8EE887A 		vfma.f32	s14, s17, s16
-  42:util.cpp      ****     *note = notes[noteNumber];
+  42:util.cpp      ****     *octave = roundf((n - 5) / 12);
  580              		.loc 1 42 29 view .LVU130
  581 0048 0F49     		ldr	r1, .L17+8
-  40:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+  40:util.cpp      **** 
  582              		.loc 1 40 31 view .LVU131
  583 004a 16EE902A 		vmov	r2, s13	@ int
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 42
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 42
 
 
-  40:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+  40:util.cpp      **** 
  584              		.loc 1 40 30 view .LVU132
  585 004e 002A     		cmp	r2, #0
  586 0050 B8BF     		it	lt
  587 0052 5242     		rsblt	r2, r2, #0
-  43:util.cpp      ****     *octave = roundf((n - 5) / 12);
+  43:util.cpp      **** 
  588              		.loc 1 43 21 view .LVU133
  589 0054 C7EE087A 		vdiv.f32	s15, s14, s16
  590              	.LVL36:
-  40:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+  40:util.cpp      **** 
  591              		.loc 1 40 9 view .LVU134
  592 0058 A3FB0203 		umull	r0, r3, r3, r2
  593 005c DB08     		lsrs	r3, r3, #3
@@ -2481,22 +2481,22 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  598              		.cfi_restore 80
  599              		.cfi_restore 81
  600              		.cfi_def_cfa_offset 16
-  42:util.cpp      ****     *note = notes[noteNumber];
+  42:util.cpp      ****     *octave = roundf((n - 5) / 12);
  601              		.loc 1 42 29 view .LVU136
  602 006a 51F82330 		ldr	r3, [r1, r3, lsl #2]
-  42:util.cpp      ****     *note = notes[noteNumber];
+  42:util.cpp      ****     *octave = roundf((n - 5) / 12);
  603              		.loc 1 42 11 view .LVU137
  604 006e 2B60     		str	r3, [r5]
-  43:util.cpp      ****     *octave = roundf((n - 5) / 12);
+  43:util.cpp      **** 
  605              		.loc 1 43 5 is_stmt 1 view .LVU138
-  43:util.cpp      ****     *octave = roundf((n - 5) / 12);
+  43:util.cpp      **** 
  606              		.loc 1 43 21 is_stmt 0 view .LVU139
  607 0070 F8FE677A 		vrinta.f32	s15, s15
-  43:util.cpp      ****     *octave = roundf((n - 5) / 12);
+  43:util.cpp      **** 
  608              		.loc 1 43 13 view .LVU140
  609 0074 FDEEE77A 		vcvt.s32.f32	s15, s15
  610 0078 C4ED007A 		vstr.32	s15, [r4]	@ int
-  45:util.cpp      ****     return tone - roundf(tone);
+  45:util.cpp      **** 
  611              		.loc 1 45 5 is_stmt 1 view .LVU141
  612              		.loc 1 47 1 is_stmt 0 view .LVU142
  613 007c 38BD     		pop	{r3, r4, r5, pc}
@@ -2510,117 +2510,356 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 1
  621 0088 00000000 		.word	.LANCHOR0
  622              		.cfi_endproc
  623              	.LFE4386:
- 625              		.global	notes
- 626              		.section	.rodata.str1.4,"aMS",%progbits,1
- 627              		.align	2
- 628              	.LC0:
- 629 0000 4100     		.ascii	"A\000"
- 630 0002 0000     		.align	2
- 631              	.LC1:
- 632 0004 412300   		.ascii	"A#\000"
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 43
+ 625              		.section	.text._ZN14CircularBufferC2EPfjj,"ax",%progbits
+ 626              		.align	1
+ 627              		.p2align 2,,3
+ 628              		.global	_ZN14CircularBufferC2EPfjj
+ 629              		.syntax unified
+ 630              		.thumb
+ 631              		.thumb_func
+ 632              		.fpu fpv5-d16
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 43
 
 
- 633 0007 00       		.align	2
- 634              	.LC2:
- 635 0008 4200     		.ascii	"B\000"
- 636 000a 0000     		.align	2
- 637              	.LC3:
- 638 000c 4300     		.ascii	"C\000"
- 639 000e 0000     		.align	2
- 640              	.LC4:
- 641 0010 432300   		.ascii	"C#\000"
- 642 0013 00       		.align	2
- 643              	.LC5:
- 644 0014 4400     		.ascii	"D\000"
- 645 0016 0000     		.align	2
- 646              	.LC6:
- 647 0018 442300   		.ascii	"D#\000"
- 648 001b 00       		.align	2
- 649              	.LC7:
- 650 001c 4500     		.ascii	"E\000"
- 651 001e 0000     		.align	2
- 652              	.LC8:
- 653 0020 4600     		.ascii	"F\000"
- 654 0022 0000     		.align	2
- 655              	.LC9:
- 656 0024 462300   		.ascii	"F#\000"
- 657 0027 00       		.align	2
- 658              	.LC10:
- 659 0028 4700     		.ascii	"G\000"
- 660 002a 0000     		.align	2
- 661              	.LC11:
- 662 002c 472300   		.ascii	"G#\000"
- 663              		.section	.data.notes,"aw"
- 664              		.align	2
- 665              		.set	.LANCHOR0,. + 0
- 668              	notes:
- 669 0000 00000000 		.word	.LC0
- 670 0004 04000000 		.word	.LC1
- 671 0008 08000000 		.word	.LC2
- 672 000c 0C000000 		.word	.LC3
- 673 0010 10000000 		.word	.LC4
- 674 0014 14000000 		.word	.LC5
- 675 0018 18000000 		.word	.LC6
- 676 001c 1C000000 		.word	.LC7
- 677 0020 20000000 		.word	.LC8
- 678 0024 24000000 		.word	.LC9
- 679 0028 28000000 		.word	.LC10
- 680 002c 2C000000 		.word	.LC11
- 681              		.text
- 682              	.Letext0:
- 683              		.file 4 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
- 684              		.file 5 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
- 685              		.file 6 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
- 686              		.file 7 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
- 687              		.file 8 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
- 688              		.file 9 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
- 689              		.file 10 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
- 690              		.file 11 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
- 691              		.file 12 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 44
+ 634              	_ZN14CircularBufferC2EPfjj:
+ 635              	.LVL38:
+ 636              	.LFB4388:
+  48:util.cpp      **** 
+  49:util.cpp      **** // bloatware / premature abstraction / idrc / idrk
+  50:util.cpp      **** 
+  51:util.cpp      **** CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), size(si
+ 637              		.loc 1 51 1 is_stmt 1 view -0
+ 638              		.cfi_startproc
+ 639              		@ args = 0, pretend = 0, frame = 0
+ 640              		@ frame_needed = 0, uses_anonymous_args = 0
+ 641              		@ link register save eliminated.
+ 642              	.LBB218:
+ 643              		.loc 1 51 120 is_stmt 0 view .LVU145
+ 644 0000 C0E90013 		strd	r1, r3, [r0]
+ 645 0004 C260     		str	r2, [r0, #12]
+ 646              	.LBE218:
+ 647              		.loc 1 51 123 view .LVU146
+ 648 0006 7047     		bx	lr
+ 649              		.cfi_endproc
+ 650              	.LFE4388:
+ 652              		.global	_ZN14CircularBufferC1EPfjj
+ 653              		.thumb_set _ZN14CircularBufferC1EPfjj,_ZN14CircularBufferC2EPfjj
+ 654              		.section	.text._ZN14CircularBuffer9setOffsetEj,"ax",%progbits
+ 655              		.align	1
+ 656              		.p2align 2,,3
+ 657              		.global	_ZN14CircularBuffer9setOffsetEj
+ 658              		.syntax unified
+ 659              		.thumb
+ 660              		.thumb_func
+ 661              		.fpu fpv5-d16
+ 663              	_ZN14CircularBuffer9setOffsetEj:
+ 664              	.LVL39:
+ 665              	.LFB4390:
+  52:util.cpp      ****     // CircularBuffer(float* buffer, size_t size, size_t readPos, size_t writePos) : buffer(buffer)
+  53:util.cpp      **** 
+  54:util.cpp      **** void CircularBuffer::setOffset(size_t offset) {
+ 666              		.loc 1 54 47 is_stmt 1 view -0
+ 667              		.cfi_startproc
+ 668              		@ args = 0, pretend = 0, frame = 0
+ 669              		@ frame_needed = 0, uses_anonymous_args = 0
+ 670              		@ link register save eliminated.
+  55:util.cpp      ****     writePos = (readPos + offset) % size;
+ 671              		.loc 1 55 5 view .LVU148
+ 672              		.loc 1 55 35 is_stmt 0 view .LVU149
+ 673 0000 D0E90223 		ldrd	r2, r3, [r0, #8]
+ 674              		.loc 1 55 25 view .LVU150
+ 675 0004 1144     		add	r1, r1, r2
+ 676              	.LVL40:
+ 677              		.loc 1 55 35 view .LVU151
+ 678 0006 B1FBF3F2 		udiv	r2, r1, r3
+ 679 000a 03FB1211 		mls	r1, r3, r2, r1
+ 680              		.loc 1 55 14 view .LVU152
+ 681 000e 4160     		str	r1, [r0, #4]
+  56:util.cpp      **** }
+ 682              		.loc 1 56 1 view .LVU153
+ 683 0010 7047     		bx	lr
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 44
 
 
- 692              		.file 13 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
- 693              		.file 14 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
- 694              		.file 15 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
- 695              		.file 16 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\string_view"
- 696              		.file 17 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
- 697              		.file 18 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
- 698              		.file 19 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
- 699              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\system_error"
- 700              		.file 21 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwctype"
- 701              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\tr1\\special_fun
- 702              		.file 23 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\functional"
- 703              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\cpp_type_t
- 704              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
- 705              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
- 706              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
- 707              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
- 708              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
- 709              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
- 710              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
- 711              		.file 32 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
- 712              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
- 713              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
- 714              		.file 35 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
- 715              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wctype.h"
- 716              		.file 37 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\pstl\\execution_
- 717              		.file 38 "<built-in>"
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s 			page 45
+ 684              		.cfi_endproc
+ 685              	.LFE4390:
+ 687 0012 00BF     		.section	.text._ZN14CircularBuffer8readNextEv,"ax",%progbits
+ 688              		.align	1
+ 689              		.p2align 2,,3
+ 690              		.global	_ZN14CircularBuffer8readNextEv
+ 691              		.syntax unified
+ 692              		.thumb
+ 693              		.thumb_func
+ 694              		.fpu fpv5-d16
+ 696              	_ZN14CircularBuffer8readNextEv:
+ 697              	.LVL41:
+ 698              	.LFB4391:
+  57:util.cpp      **** 
+  58:util.cpp      **** float CircularBuffer::readNext() {
+ 699              		.loc 1 58 34 is_stmt 1 view -0
+ 700              		.cfi_startproc
+ 701              		@ args = 0, pretend = 0, frame = 0
+ 702              		@ frame_needed = 0, uses_anonymous_args = 0
+ 703              		@ link register save eliminated.
+  59:util.cpp      ****     float f = buffer[readPos];
+ 704              		.loc 1 59 5 view .LVU155
+ 705              		.loc 1 59 22 is_stmt 0 view .LVU156
+ 706 0000 8368     		ldr	r3, [r0, #8]
+ 707              		.loc 1 59 11 view .LVU157
+ 708 0002 0268     		ldr	r2, [r0]
+  60:util.cpp      ****     readPos++;
+  61:util.cpp      **** 
+  62:util.cpp      ****     if (readPos >= size) // this might be faster than mod idk if it matters tho
+ 709              		.loc 1 62 5 view .LVU158
+ 710 0004 C168     		ldr	r1, [r0, #12]
+  59:util.cpp      ****     float f = buffer[readPos];
+ 711              		.loc 1 59 11 view .LVU159
+ 712 0006 02EB8302 		add	r2, r2, r3, lsl #2
+  60:util.cpp      ****     readPos++;
+ 713              		.loc 1 60 12 view .LVU160
+ 714 000a 0133     		adds	r3, r3, #1
+ 715              		.loc 1 62 5 view .LVU161
+ 716 000c 8B42     		cmp	r3, r1
+  59:util.cpp      ****     float f = buffer[readPos];
+ 717              		.loc 1 59 11 view .LVU162
+ 718 000e 92ED000A 		vldr.32	s0, [r2]
+ 719              	.LVL42:
+  60:util.cpp      ****     readPos++;
+ 720              		.loc 1 60 5 is_stmt 1 view .LVU163
+  60:util.cpp      ****     readPos++;
+ 721              		.loc 1 60 12 is_stmt 0 view .LVU164
+ 722 0012 8360     		str	r3, [r0, #8]
+ 723              		.loc 1 62 5 is_stmt 1 view .LVU165
+ 724 0014 01D3     		bcc	.L21
+  63:util.cpp      ****         readPos = 0;
+ 725              		.loc 1 63 9 view .LVU166
+ 726              		.loc 1 63 17 is_stmt 0 view .LVU167
+ 727 0016 0023     		movs	r3, #0
+ 728 0018 8360     		str	r3, [r0, #8]
+  64:util.cpp      ****     
+  65:util.cpp      ****     return f;
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 45
+
+
+ 729              		.loc 1 65 5 is_stmt 1 view .LVU168
+ 730              	.L21:
+  66:util.cpp      **** }
+ 731              		.loc 1 66 1 is_stmt 0 view .LVU169
+ 732 001a 7047     		bx	lr
+ 733              		.cfi_endproc
+ 734              	.LFE4391:
+ 736              		.section	.text._ZN14CircularBuffer9writeNextEf,"ax",%progbits
+ 737              		.align	1
+ 738              		.p2align 2,,3
+ 739              		.global	_ZN14CircularBuffer9writeNextEf
+ 740              		.syntax unified
+ 741              		.thumb
+ 742              		.thumb_func
+ 743              		.fpu fpv5-d16
+ 745              	_ZN14CircularBuffer9writeNextEf:
+ 746              	.LVL43:
+ 747              	.LFB4392:
+  67:util.cpp      **** 
+  68:util.cpp      **** void CircularBuffer::writeNext(float f) {
+ 748              		.loc 1 68 41 is_stmt 1 view -0
+ 749              		.cfi_startproc
+ 750              		@ args = 0, pretend = 0, frame = 0
+ 751              		@ frame_needed = 0, uses_anonymous_args = 0
+ 752              		@ link register save eliminated.
+  69:util.cpp      ****     buffer[writePos] = f;
+ 753              		.loc 1 69 5 view .LVU171
+ 754              		.loc 1 69 22 is_stmt 0 view .LVU172
+ 755 0000 D0E90023 		ldrd	r2, r3, [r0]
+  70:util.cpp      ****     writePos++;
+  71:util.cpp      **** 
+  72:util.cpp      ****     if (writePos >= size)
+ 756              		.loc 1 72 5 view .LVU173
+ 757 0004 C168     		ldr	r1, [r0, #12]
+  69:util.cpp      ****     buffer[writePos] = f;
+ 758              		.loc 1 69 22 view .LVU174
+ 759 0006 02EB8302 		add	r2, r2, r3, lsl #2
+  70:util.cpp      ****     writePos++;
+ 760              		.loc 1 70 13 view .LVU175
+ 761 000a 0133     		adds	r3, r3, #1
+ 762              		.loc 1 72 5 view .LVU176
+ 763 000c 8B42     		cmp	r3, r1
+  69:util.cpp      ****     buffer[writePos] = f;
+ 764              		.loc 1 69 22 view .LVU177
+ 765 000e 82ED000A 		vstr.32	s0, [r2]
+  70:util.cpp      ****     writePos++;
+ 766              		.loc 1 70 5 is_stmt 1 view .LVU178
+  70:util.cpp      ****     writePos++;
+ 767              		.loc 1 70 13 is_stmt 0 view .LVU179
+ 768 0012 4360     		str	r3, [r0, #4]
+ 769              		.loc 1 72 5 is_stmt 1 view .LVU180
+ 770 0014 01D3     		bcc	.L23
+  73:util.cpp      ****         writePos = 0;
+ 771              		.loc 1 73 9 view .LVU181
+ 772              		.loc 1 73 18 is_stmt 0 view .LVU182
+ 773 0016 0023     		movs	r3, #0
+ 774 0018 4360     		str	r3, [r0, #4]
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 46
+
+
+ 775              	.L23:
+  74:util.cpp      **** }
+ 776              		.loc 1 74 1 view .LVU183
+ 777 001a 7047     		bx	lr
+ 778              		.cfi_endproc
+ 779              	.LFE4392:
+ 781              		.section	.text._ZN14CircularBuffer5resetEv,"ax",%progbits
+ 782              		.align	1
+ 783              		.p2align 2,,3
+ 784              		.global	_ZN14CircularBuffer5resetEv
+ 785              		.syntax unified
+ 786              		.thumb
+ 787              		.thumb_func
+ 788              		.fpu fpv5-d16
+ 790              	_ZN14CircularBuffer5resetEv:
+ 791              	.LVL44:
+ 792              	.LFB4393:
+  75:util.cpp      **** 
+  76:util.cpp      **** void CircularBuffer::reset() {
+ 793              		.loc 1 76 30 is_stmt 1 view -0
+ 794              		.cfi_startproc
+ 795              		@ args = 0, pretend = 0, frame = 0
+ 796              		@ frame_needed = 0, uses_anonymous_args = 0
+ 797              		@ link register save eliminated.
+  77:util.cpp      ****     writePos = 0; 
+ 798              		.loc 1 77 5 view .LVU185
+ 799              		.loc 1 77 14 is_stmt 0 view .LVU186
+ 800 0000 0023     		movs	r3, #0
+  78:util.cpp      ****     readPos = 0;
+ 801              		.loc 1 78 13 view .LVU187
+ 802 0002 C0E90133 		strd	r3, r3, [r0, #4]
+  79:util.cpp      **** }
+ 803              		.loc 1 79 1 view .LVU188
+ 804 0006 7047     		bx	lr
+ 805              		.cfi_endproc
+ 806              	.LFE4393:
+ 808              		.global	notes
+ 809              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 810              		.align	2
+ 811              	.LC0:
+ 812 0000 4100     		.ascii	"A\000"
+ 813 0002 0000     		.align	2
+ 814              	.LC1:
+ 815 0004 412300   		.ascii	"A#\000"
+ 816 0007 00       		.align	2
+ 817              	.LC2:
+ 818 0008 4200     		.ascii	"B\000"
+ 819 000a 0000     		.align	2
+ 820              	.LC3:
+ 821 000c 4300     		.ascii	"C\000"
+ 822 000e 0000     		.align	2
+ 823              	.LC4:
+ 824 0010 432300   		.ascii	"C#\000"
+ 825 0013 00       		.align	2
+ 826              	.LC5:
+ 827 0014 4400     		.ascii	"D\000"
+ 828 0016 0000     		.align	2
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 47
+
+
+ 829              	.LC6:
+ 830 0018 442300   		.ascii	"D#\000"
+ 831 001b 00       		.align	2
+ 832              	.LC7:
+ 833 001c 4500     		.ascii	"E\000"
+ 834 001e 0000     		.align	2
+ 835              	.LC8:
+ 836 0020 4600     		.ascii	"F\000"
+ 837 0022 0000     		.align	2
+ 838              	.LC9:
+ 839 0024 462300   		.ascii	"F#\000"
+ 840 0027 00       		.align	2
+ 841              	.LC10:
+ 842 0028 4700     		.ascii	"G\000"
+ 843 002a 0000     		.align	2
+ 844              	.LC11:
+ 845 002c 472300   		.ascii	"G#\000"
+ 846              		.section	.data.notes,"aw"
+ 847              		.align	2
+ 848              		.set	.LANCHOR0,. + 0
+ 851              	notes:
+ 852 0000 00000000 		.word	.LC0
+ 853 0004 04000000 		.word	.LC1
+ 854 0008 08000000 		.word	.LC2
+ 855 000c 0C000000 		.word	.LC3
+ 856 0010 10000000 		.word	.LC4
+ 857 0014 14000000 		.word	.LC5
+ 858 0018 18000000 		.word	.LC6
+ 859 001c 1C000000 		.word	.LC7
+ 860 0020 20000000 		.word	.LC8
+ 861 0024 24000000 		.word	.LC9
+ 862 0028 28000000 		.word	.LC10
+ 863 002c 2C000000 		.word	.LC11
+ 864              		.text
+ 865              	.Letext0:
+ 866              		.file 4 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 867              		.file 5 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 868              		.file 6 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
+ 869              		.file 7 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
+ 870              		.file 8 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
+ 871              		.file 9 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
+ 872              		.file 10 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
+ 873              		.file 11 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
+ 874              		.file 12 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
+ 875              		.file 13 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
+ 876              		.file 14 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
+ 877              		.file 15 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
+ 878              		.file 16 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\string_view"
+ 879              		.file 17 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
+ 880              		.file 18 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
+ 881              		.file 19 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
+ 882              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\system_error"
+ 883              		.file 21 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwctype"
+ 884              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\tr1\\special_fun
+ 885              		.file 23 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\functional"
+ 886              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\cpp_type_t
+ 887              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 48
+
+
+ 888              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
+ 889              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
+ 890              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
+ 891              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
+ 892              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
+ 893              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
+ 894              		.file 32 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
+ 895              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
+ 896              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
+ 897              		.file 35 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
+ 898              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wctype.h"
+ 899              		.file 37 "util.hpp"
+ 900              		.file 38 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\pstl\\execution_
+ 901              		.file 39 "<built-in>"
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s 			page 49
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 util.cpp
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:17     .text._Z7ditfft2PfiiPSt7complexIfE:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:26     .text._Z7ditfft2PfiiPSt7complexIfE:00000000 _Z7ditfft2PfiiPSt7complexIfE
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:506    .text._Z7ditfft2PfiiPSt7complexIfE:0000011c $d
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:512    .text._Z15frequencyToNotefPPKcPi:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:520    .text._Z15frequencyToNotefPPKcPi:00000000 _Z15frequencyToNotefPPKcPi
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:619    .text._Z15frequencyToNotefPPKcPi:00000080 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:668    .data.notes:00000000 notes
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:627    .rodata.str1.4:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\cc2bY4Gm.s:664    .data.notes:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:17     .text._Z7ditfft2PfiiPSt7complexIfE:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:26     .text._Z7ditfft2PfiiPSt7complexIfE:00000000 _Z7ditfft2PfiiPSt7complexIfE
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:506    .text._Z7ditfft2PfiiPSt7complexIfE:0000011c $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:512    .text._Z15frequencyToNotefPPKcPi:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:520    .text._Z15frequencyToNotefPPKcPi:00000000 _Z15frequencyToNotefPPKcPi
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:619    .text._Z15frequencyToNotefPPKcPi:00000080 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:626    .text._ZN14CircularBufferC2EPfjj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:634    .text._ZN14CircularBufferC2EPfjj:00000000 _ZN14CircularBufferC2EPfjj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:634    .text._ZN14CircularBufferC2EPfjj:00000000 _ZN14CircularBufferC1EPfjj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:655    .text._ZN14CircularBuffer9setOffsetEj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:663    .text._ZN14CircularBuffer9setOffsetEj:00000000 _ZN14CircularBuffer9setOffsetEj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:688    .text._ZN14CircularBuffer8readNextEv:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:696    .text._ZN14CircularBuffer8readNextEv:00000000 _ZN14CircularBuffer8readNextEv
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:737    .text._ZN14CircularBuffer9writeNextEf:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:745    .text._ZN14CircularBuffer9writeNextEf:00000000 _ZN14CircularBuffer9writeNextEf
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:782    .text._ZN14CircularBuffer5resetEv:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:790    .text._ZN14CircularBuffer5resetEv:00000000 _ZN14CircularBuffer5resetEv
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:851    .data.notes:00000000 notes
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:810    .rodata.str1.4:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccgiDZF8.s:847    .data.notes:00000000 $d
 
 UNDEFINED SYMBOLS
 expf

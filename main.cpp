@@ -2,6 +2,7 @@
 #include "daisy_seed.h"
 #include "dev/oled_ssd130x.h"
 #include "util.hpp"
+#include "effect.hpp"
 
 using namespace daisy;
 
@@ -13,9 +14,7 @@ DaisySeed hw;
 // delay pedal stuff
 #define MAX_DELAY_SECONDS 0.5f
 #define DELAY_SIZE (int)(SAMPLE_RATE * MAX_DELAY_SECONDS)
-
 float delayBuffer[DELAY_SIZE];
-float delayPercent;
 
 // reverb stuff (basically delay but different)
 
@@ -27,12 +26,6 @@ float delayPercent;
 #define MIN_LOOP_SAMPLES SAMPLE_RATE
 
 float DSY_SDRAM_BSS loopBuffer[SAMPLE_RATE * MAX_LOOP_SECONDS];
-
-int loopSamples = 0;
-int currentLoopSample = 0;
-
-bool recording;
-bool looping; 
 
 
 // dft stuff
@@ -49,8 +42,11 @@ std::complex<float> dftFrequencyBuffer[DFT_WINDOW_SAMPLES]; // maybe zero pad, i
 bool newDftReady = false;
 
 bool tunerEnabled = false;
-bool looperEnabled = false;
-bool delayEnabled = false;
+
+#define NUM_EFFECTS 2 // idk maybe the user will be able to add more in the interface
+Effect* effects[NUM_EFFECTS];
+    
+
 
 static void Callback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
@@ -82,46 +78,14 @@ static void Callback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out,
         }
     }
 
-    // looper
-    if (looperEnabled)
-    {
-        if (recording) {
-            
-            if (loopSamples + size < SAMPLE_RATE * MAX_LOOP_SECONDS) {
-                memcpy(&loopBuffer[loopSamples], in[0], size * sizeof(float));
-                loopSamples += size;
-            }
-
-        } else if (looping && loopSamples >= MIN_LOOP_SAMPLES) {
-
-            for (int i = 0; i < size; i++) {
-
-                out[0][i] += loopBuffer[currentLoopSample + i];
-
-            }
-
-            currentLoopSample += size;
-            currentLoopSample %= loopSamples;
-
-        }
+    for (int i = 0; i < NUM_EFFECTS; i++) {
+        if (effects[i]->series)
+            effects[i]->apply(out[0], out[0], size);
+        else
+            effects[i]->apply(in[0], out[0], size);
     }
 
-    
-    // delay
-    if (delayEnabled) {
-        static int writePos = 0;
-        int readPos = (int)(writePos + DELAY_SIZE * delayPercent) % DELAY_SIZE;
-        
-        for (int i = 0; i < size; i++) {
 
-            delayBuffer[(writePos + i) % DELAY_SIZE] = in[0][i];
-            out[0][i] += delayBuffer[(readPos + i) % DELAY_SIZE];
-
-        }
-
-        writePos += size;
-        writePos %= DELAY_SIZE;
-    }   
 }
 
 
@@ -131,13 +95,18 @@ void step(void);
 using Display = OledDisplay<SSD130xI2c128x64Driver>;
 Display display;
 
-Switch recordSwitch;
-Switch playbackSwitch;
 float maxFrequency;
 
-Switch modeButton;
-char mode = 0;
+#define NUM_VARIABLE_CONTROLS 1
+VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
 
+#define NUM_TOGGLE_CONTROLS 4
+ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
+
+#define NUM_BOOL_PARAMETERS 4
+#define NUM_FLOAT_PARAMETERS 1
+EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
+EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS]; 
 
 int main(void)
 {
@@ -147,11 +116,8 @@ int main(void)
     
     hw.StartAudio(Callback);
 
-    AdcChannelConfig adcConfig;
-    adcConfig.InitSingle(seed::A0);
-    hw.adc.Init(&adcConfig, 1);
-    hw.adc.Start();
 
+    // display
     Display::Config disp_cfg;
     disp_cfg.driver_config.transport_config.i2c_address = 0x3C;
     disp_cfg.driver_config.transport_config.i2c_config.periph = I2CHandle::Config::Peripheral::I2C_1;
@@ -162,10 +128,38 @@ int main(void)
     
     display.Init(disp_cfg);
 
-    recordSwitch.Init(seed::D0, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
-    playbackSwitch.Init(seed::D1, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
 
-    modeButton.Init(seed::D2, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_DOWN);
+    // effects
+    Looper* looper = new Looper(true, loopBuffer, SAMPLE_RATE * MAX_LOOP_SECONDS);
+    boolParams[0] = &looper->enabled;
+    boolParams[1] = &looper->recordingEnabled;
+
+    Delay* delay = new Delay(true, delayBuffer, DELAY_SIZE, 0.5f);
+    boolParams[2] = &delay->enabled;
+    floatParams[0] = &delay->delayAmount;
+    
+    effects[0] = looper; // this kinda defeats some of the purpose
+    effects[1] = delay;
+
+
+    // pots
+    AdcChannelConfig configs[NUM_VARIABLE_CONTROLS];
+    for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
+        potentiometers[i] = new VariableControl(&hw, &configs[i], hw.GetPin(21 + i));
+        potentiometers[i]->parameter = floatParams[i];
+    }
+
+    hw.adc.Init(configs, NUM_VARIABLE_CONTROLS);
+    hw.adc.Start();
+
+
+    // buttons
+    for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
+        buttons[i] = new ToggleControl(hw.GetPin(i));
+        buttons[i]->parameter = boolParams[i];
+    }
+
+    buttons[3]->value = &tunerEnabled;
 
     while(true) {
 
@@ -182,39 +176,6 @@ int main(void)
 
 void step(void) { // could return a bool for stopping but idk if thats needed
 
-    modeButton.Debounce();
-    if (modeButton.RisingEdge()) {
-        mode ++;
-        mode %= 0b1000;
-        for (int i = 0; i < mode; i++) {
-            hw.SetLed(true);
-            System::Delay(200);
-            hw.SetLed(false);
-            System::Delay(200);
-        }
-    }
-
-    looperEnabled = mode & (1 << 0);
-    delayEnabled = mode & (1 << 1);
-    tunerEnabled = mode & (1 << 2);
-
-
-    // looper
-
-    if (looperEnabled) {
-        recordSwitch.Debounce();
-        playbackSwitch.Debounce();
-
-        recording = recordSwitch.Pressed();
-        looping = playbackSwitch.Pressed();
-
-        if (recordSwitch.RisingEdge()) 
-            loopSamples = 0; // new recording
-
-        if (playbackSwitch.RisingEdge() || recordSwitch.FallingEdge())
-            currentLoopSample = 0; // play from beginning
-    }
-    
     // dft / tuner
     if (newDftReady && tunerEnabled) { // hopefully this happens between buffer swaps - this isnt completely safe because the buffer could swap twice during this run i think and mess things up
 
@@ -242,20 +203,19 @@ void step(void) { // could return a bool for stopping but idk if thats needed
     
     }
 
-
-    // delay
-    if (delayEnabled) {
-        float pct = hw.adc.GetFloat(0); // 0 - 1
-
-        if (std::abs(delayPercent - pct) > 0.02f) { // ie step in 0.01 increments
-            delayPercent = pct;
-            hw.SetLed(true);
-            System::Delay(200);
-            hw.SetLed(false);
-        }
-    
-        System::Delay(2);
+    for (int i = 0; i < NUM_EFFECTS; i++) {
+        effects[i]->update();
     }
+
+    for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
+        potentiometers[i]->update();
+    }
+
+    for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
+        buttons[i]->update();
+    }
+
+    System::Delay(50);
 
 }
 
@@ -298,11 +258,6 @@ void draw(void) {
         // dial (TODO)
 
     // }
-    // display.SetCursor(2, 0);
-    // display.WriteChar('0' + recording, Font_11x18, true);
-    // display.WriteChar('0' + looping, Font_11x18, true);
 
-    // display.SetCursor(2, 16);
-    // display.WriteString(freqStr, Font_6x8, true);
 
 }
