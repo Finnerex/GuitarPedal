@@ -9,13 +9,19 @@ using namespace std::complex_literals;
 DSY_SDRAM_BSS uint8_t sdramBuffer[MEMORY_SIZE];
 size_t nextOffset = 0;
 
-void* sdram_alloc(size_t size) {
+void* sdram_alloc(size_t size, bool zero) {
     if (nextOffset + size >= MEMORY_SIZE)
         return nullptr;
 
     void* ptr = sdramBuffer + nextOffset;
     nextOffset += size;
     
+    if (zero) {
+        for (size_t i = 0; i < size; i++) {
+            ((uint8_t*)ptr)[i] = 0;
+        }
+    }
+
     return ptr;
 }
 
@@ -64,11 +70,14 @@ float frequencyToNote(float freq, const char** note, int* octave)
 
 // bloatware / premature abstraction / idrc / idrk
 
-CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), writePos(offset), readPos(0), size(size) {}
-    // CircularBuffer(float* buffer, size_t size, size_t readPos, size_t writePos) : buffer(buffer), size(size), readPos(readPos), writePos(writePos) {}
+CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), writePos(offset % size), readPos(0), size(size) {}
 
-void CircularBuffer::setOffset(size_t offset) {
-    writePos = (readPos + offset) % size;
+void CircularBuffer::setWriteOffset(size_t offset) {
+    writePos = (readPos + offset + size) % size;
+}
+
+void CircularBuffer::setReadOffset(size_t offset) {
+    readPos = (writePos - offset + size * 2) % size;
 }
 
 float CircularBuffer::readNext() {

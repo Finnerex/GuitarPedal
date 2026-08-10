@@ -3,118 +3,64 @@
 
 #include "util.hpp"
 #include "daisy_seed.h"
+#include "daisysp.h"
 
 using namespace daisy;
 
 
-// class Control {
-//     virtual void update() = 0;
-// };
+class Control : Serializable<int> { // store single int for control's parameter id
+protected:
+    int id;
+    static int nextId;
+public:
+    virtual void update() = 0;
+    void load();
+    void save();
+};
 
-template <typename T> struct EffectParameter {
+template <typename T> struct ParameterSettings { T value; int controlId };
+
+template <typename T> struct EffectParameter : Serializable<ParameterSettings<T>> {
     T value;
     const char* name;
+    Control* control;
+
+    int id;
+    static int nextId;
 
     EffectParameter() {};
-    EffectParameter(const char* name) : name(name) {};
+    EffectParameter(const char* name, T initialValue) : value(initialValue), name(name) { id = nextId++; };
 };
 
 
-class ToggleControl /* : Control */ {
+class ToggleControl : public Control {
 
     Switch button;
 
 public:
     EffectParameter<bool>* parameter; // menu to set this per control
 
+    // ToggleControl() {};
     ToggleControl(dsy_gpio_pin pin);
     void update();
 };
 
 
-class VariableControl /* : Control */ {
+
+class VariableControl : public Control {
     int channel;
     DaisySeed* hw;
 
 public:
     EffectParameter<float>* parameter;
 
+    // VariableControl() {};
     VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin);
 
     // THESE HAVE TO BE DONE when this and all others are initialized
     // hw->adc.Init(configs, n);
     // hw->adc.Start();
     
-    void update();
-
-};
-
-class Effect {
-
-public:
-    
-    EffectParameter<bool> enabled = EffectParameter<bool>("Enable");
-    bool series; // i guess more if it captures output as input (like from other effects) - if this is true, the output will be given as the in for apply
-
-    Effect(bool series) : series(series) {}
-    virtual void apply(const float* in, float* out, size_t samples) = 0;
-    virtual void update() = 0;
-
-};
-
-class Looper : public Effect {
-
-    float* buffer; // coulda used a circular buffer but its not good
-    int loopSamples;
-    int currentLoopSample;
-    size_t maxSize;
-    bool lastRecEnabled; // this is dumb because falling and rising edge exist
-    bool lastPlaybackEnabled;
-
-public:
-    EffectParameter<bool> recordingEnabled = EffectParameter<bool>("Enable Recording");
-
-    Looper(bool series, float* buffer, size_t size) : Effect(series), buffer(buffer), maxSize(size) {}
-    void apply(const float* in, float* out, size_t samples);
-    void update();
-
-};
-
-class Delay : public Effect {
-
-    CircularBuffer buffer;
-
-public:
-    EffectParameter<float> delayAmount = EffectParameter<float>("Delay Amount");
-
-    Delay(bool series, float* buffer, size_t size, size_t offset) : Effect(series), buffer(buffer, size, offset) {} // might not need offset because itll be gotten
-
-    void apply(const float* in, float* out, size_t samples);
-    void update() {}
-};
-
-
-
-#define DFT_NEW_WINDOW_SAMPLES 16384 //(int)(0.5f * SAMPLE_RATE) // (not right now) quarter second updates for now
-#define DFT_OVERLAP_SAMPLES DFT_NEW_WINDOW_SAMPLES //(int)(0.7f * DFT_NEW_WINDOW_SAMPLES) // (not right now) half overlap (or is it a third)
-#define DFT_WINDOW_SAMPLES (DFT_NEW_WINDOW_SAMPLES + DFT_OVERLAP_SAMPLES)
-
-class Tuner : public Effect {
-
-    float* dftTimeBufferA;
-    float* dftTimeBufferB;
-
-    bool usingBufferA = false;
-    int currentDftWindowSamples = 0;
-    std::complex<float> dftFrequencyBuffer[DFT_WINDOW_SAMPLES]; // maybe zero pad, idk. (f = k*fs/N)
-    bool newDftReady = false;
-
-public:
-    float maxFrequency = 0;
-
-    Tuner(bool series, size_t windowSize);
-
-    void apply(const float* in, float* out, size_t samples);
     void update();
 
 };
@@ -126,20 +72,179 @@ public:
 
 // };
 
-// class CombFilter /* : Filter */ {
+class CombFilter /* : Filter */ {
 
-//     CircularBuffer buffer;
+    CircularBuffer buffer;
 
-//     float gain;
+    float gain;
+    float depth;
+    float mix;
+    size_t max_samples;
 
-//     CombFilter(float* buffer, float delay, float gain) : buffer(buffer, ), gain(gain) {}
-//     void apply(float* in, float* out, size_t samples);
+public:
+    CombFilter() {}
+    CombFilter(float delay, float gain);
+    void apply(const float* in, float* out, size_t samples);
 
-// };
+    void setParams(float depth, float mix);
 
-// class AllPassFilter /* : Filter */ {
+};
 
-// };
+class AllPassFilter /* : Filter */ {
+
+    CircularBuffer feedbackBuffer;
+    CircularBuffer inputBuffer;
+
+    float gain;
+    // float depth;
+    // float mix;
+
+public:
+    AllPassFilter() {}
+    AllPassFilter(float delay, float gain);
+    void apply(const float* in, float* out, size_t samples);
+
+    // void setParams(float depth, float mix);
+
+};
+
+template <typename Settings>
+class Effect : Serializable<Settings> {
+
+public:
+    // const char* name;    
+
+    EffectParameter<bool> enabled; //= EffectParameter<bool>("Enable", false);
+    bool series; // i guess more if it captures output as input (like from other effects) - if this is true, the output will be given as the in for apply
+
+    Effect(bool series) : series(series) {}
+    virtual void apply(const float* in, float* out, size_t samples) = 0;
+    virtual void update() = 0;
+
+};
+
+// these kinds of things might be replaced by constructor defaults in the future idk how flexible i want to make it
+#define MAX_LOOP_SECONDS 60
+#define MAX_LOOP_SAMPLES (SAMPLE_RATE * MAX_LOOP_SECONDS)
+#define MIN_LOOP_SAMPLES SAMPLE_RATE
+
+class Looper : public Effect {
+
+    float* buffer; // coulda used a circular buffer but its not good
+    int loopSamples = 0;
+    int currentLoopSample;
+
+    bool lastRecEnabled; // this is dumb because falling and rising edge exist
+    bool lastPlaybackEnabled;
+
+public:
+    EffectParameter<bool> recordingEnabled = EffectParameter<bool>("Loop Record", false);
+
+    Looper(bool series);
+    void apply(const float* in, float* out, size_t samples);
+    void update();
+
+};
+
+
+#define MAX_DELAY_SECONDS 0.5f
+#define DELAY_SIZE (int)(SAMPLE_RATE * MAX_DELAY_SECONDS)
+
+class Delay : public Effect {
+
+    CircularBuffer buffer;
+
+public:
+    EffectParameter<float> delayAmount = EffectParameter<float>("Delay Time", false);
+
+    Delay(bool series); // might not need offset because itll be gotten
+
+    void apply(const float* in, float* out, size_t samples);
+    void update() {}
+};
+
+
+
+#define DFT_NEW_WINDOW_SAMPLES 16384 // maybe increase this (already pretty big)
+#define DFT_OVERLAP_SAMPLES DFT_NEW_WINDOW_SAMPLES 
+#define DFT_WINDOW_SAMPLES (DFT_NEW_WINDOW_SAMPLES + DFT_OVERLAP_SAMPLES)
+
+class Tuner : public Effect {
+
+    float* dftTimeBufferA;
+    float* dftTimeBufferB;
+
+    bool usingBufferA = false;
+    int currentDftWindowSamples = 0;
+    std::complex<float> dftFrequencyBuffer[DFT_WINDOW_SAMPLES]; // maybe zero pad, idk. (f = k*fs/N) // TODO: sdram_alloc this (i think)
+    bool newDftReady = false;
+
+public:
+    float maxFrequency = 0;
+
+    Tuner(bool series/* , size_t windowSize */);
+
+    void apply(const float* in, float* out, size_t samples);
+    void update();
+
+};
+
+// referenced https://medium.com/the-seekers-project/coding-a-basic-reverb-algorithm-part-2-an-introduction-to-audio-programming-4db79dd4e325
+#define NUM_COMB_FILTERS 4
+#define NUM_AP_FILTERS 2
+class Reverb : public Effect {
+
+    CombFilter combFilters[NUM_COMB_FILTERS]; // potential optimization: these can share a delay line / circular buffer i think
+    AllPassFilter allPassFilters[NUM_AP_FILTERS];
+
+public:
+    EffectParameter<float> depth = EffectParameter<float>("Reverb Depth", 0.5f);
+    EffectParameter<float> mix = EffectParameter<float>("Reverb Mix", 1);
+
+    Reverb(bool series);
+
+    void apply(const float* in, float* out, size_t samples);
+    void update();
+
+};
+
+
+// referenced https://upcommons.upc.edu/server/api/core/bitstreams/2324a4c3-e11c-42fe-b50a-bbefaa6fb2d0/content
+class Chorus : public Effect {
+
+    daisysp::Oscillator osc;
+    CircularBuffer buffer;
+    size_t maxDelaySamples;
+    size_t delaySamples;
+
+public:
+    EffectParameter<float> frequency = EffectParameter<float>("Chorus Rate", 0.3f);
+    EffectParameter<float> depth = EffectParameter<float>("Chorus Depth", 0.4f);
+    EffectParameter<float> mix = EffectParameter<float>("Chorus Mix", 1); 
+
+    Chorus(bool series, float maxDelay); // todo: waveform should be changed with buttons / rotary encoder (int parameter)
+
+    void apply(const float* in, float* out, size_t samples);
+    void update();
+
+
+};
+
+#define CRUSH_AMOUNT_SCALE 200 // 1000.0f
+class BitCrusher : public Effect {
+
+    float heldValue;
+    int heldSamples;
+
+public:
+    EffectParameter<float> amount = EffectParameter<float>("Bit Crush Amnt", 0.8f);
+
+    BitCrusher(bool series);
+
+    void apply(const float* in, float* out, size_t samples);
+    void update() {}
+
+};
 
 
 
