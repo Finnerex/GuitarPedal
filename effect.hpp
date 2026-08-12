@@ -8,54 +8,58 @@
 using namespace daisy;
 
 
-class Control : Serializable<int> { // store single int for control's parameter id
-protected:
-    int id;
-    static int nextId;
+// template <typename T>
+class Control { // store single int for control's parameter id   
+
 public:
+    // EffectParameter<T>* parameter;
+
     virtual void update() = 0;
-    void load();
-    void save();
 };
 
-template <typename T> struct ParameterSettings { T value; int controlId };
+template <typename T> class EffectParameter {
 
-template <typename T> struct EffectParameter : Serializable<ParameterSettings<T>> {
+public:
     T value;
     const char* name;
     Control* control;
 
-    int id;
-    static int nextId;
-
     EffectParameter() {};
-    EffectParameter(const char* name, T initialValue) : value(initialValue), name(name) { id = nextId++; };
+    void Init(const char* name, T initialValue);
+    EffectParameter(const char* name, T initialValue) { Init(name, initialValue); }
+
+    ParameterSetting<T> save();
+    void load(ParameterSetting<T> setting);
+
 };
 
 
-class ToggleControl : public Control {
+class ToggleControl : public Control/* <bool> */ {
 
     Switch button;
 
 public:
+    int id;
     EffectParameter<bool>* parameter; // menu to set this per control
 
-    // ToggleControl() {};
-    ToggleControl(dsy_gpio_pin pin);
+    ToggleControl() {};
+    ToggleControl(dsy_gpio_pin pin, int index);
     void update();
+
 };
 
 
 
-class VariableControl : public Control {
+class VariableControl : public Control/* <float> */ {
     int channel;
     DaisySeed* hw;
 
 public:
+    int id;
     EffectParameter<float>* parameter;
 
-    // VariableControl() {};
-    VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin);
+    VariableControl() {};
+    VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin, int index);
 
     // THESE HAVE TO BE DONE when this and all others are initialized
     // hw->adc.Init(configs, n);
@@ -108,8 +112,8 @@ public:
 
 };
 
-template <typename Settings>
-class Effect : Serializable<Settings> {
+
+class Effect {
 
 public:
     // const char* name;    

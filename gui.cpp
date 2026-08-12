@@ -15,9 +15,10 @@ void ScrollWindow::update(bool encoderPress, int encoderMove, Window** currentWi
         elements[currentElement]->OnSelect(currentWindow);
 
         Window* next = elements[currentElement]->subWindow; // maybe change to have window scroll element which does this in its onselect
-        next->previous = *currentWindow;
+        next->previous = *currentWindow; // happens for things i dont want it to (control scroll elements), making back go to bad screens, TODO: fix
         *currentWindow = next;
         
+        mainWindow.previous = nullptr; // what a solution for ^^
         return;
     }
 
@@ -130,6 +131,7 @@ template<> void ParameterScrollElement<bool>::OnSelect(Window** currentWindow) {
 }
 
 void ToggleControlScrollElement::OnSelect(Window** currentWindow) {
+
     ToggleControl* oldControl = static_cast<ToggleControl*>(selectedBoolParam->control); 
     if (oldControl != nullptr) {
         oldControl->parameter = nullptr;
@@ -137,8 +139,6 @@ void ToggleControlScrollElement::OnSelect(Window** currentWindow) {
 
     control->parameter = selectedBoolParam;
     selectedBoolParam->control = control;
-
-    *currentWindow = &mainWindow;
 }
 
 void VariableControlScrollElement::OnSelect(Window** currentWindow) {
@@ -150,8 +150,33 @@ void VariableControlScrollElement::OnSelect(Window** currentWindow) {
      
     control->parameter = selectedFloatParam; 
     selectedFloatParam->control = control;
+}
 
-    *currentWindow = &mainWindow;
+void SaveWindow::draw(Display* d) {
+
+    d->DrawRect(15, 10, 127-15, 63-10, true);
+    d->WriteStringAligned("Save?", Font_16x26, Rectangle(15, 10, 127-30, 63-20), Alignment::centered, true);
+
+}
+
+void SaveWindow::update(bool encoderPress, int encoderMove, Window** currentWindow) {
+
+    if (!encoderPress) return;
+
+    PersistentSettings& localSettings = persistentData.GetSettings();
+
+    for (int i = 0; i < NUM_BOOL_PARAMETERS; i++) {
+        localSettings.boolParams[i] = boolParams[i]->save();
+    }
+
+    for (int i = 0; i < NUM_FLOAT_PARAMETERS; i++) {
+        localSettings.floatParams[i] = floatParams[i]->save();
+    }
+
+    persistentData.Save();
+
+    *currentWindow = &mainWindow; 
+
 }
 
 
@@ -159,7 +184,9 @@ ScrollElement* parameterOptions[NUM_FLOAT_PARAMETERS + NUM_BOOL_PARAMETERS];
 
 ScrollWindow parametersWindow = ScrollWindow(NUM_BOOL_PARAMETERS + NUM_FLOAT_PARAMETERS, parameterOptions);
 
-ScrollElement mainOptions[3] = { {&parametersWindow, "Parameters"}, { nullptr, "Save Settings"}, {nullptr, "RGB LED"} };
-ScrollElement* a[3];
-ScrollWindow mainWindow = ScrollWindow(3, mainOptions, a);
+SaveWindow saveWindow;
+
+ScrollElement mainOptions[6] = { {&parametersWindow, "Parameters"}, {&saveWindow, "Save Settings"}, {nullptr, "Metronome"}, {nullptr, "Tuner"}, {nullptr, "RGB LED"}, {nullptr, "Debug"} };
+ScrollElement* a[6];
+ScrollWindow mainWindow = ScrollWindow(6, mainOptions, a);
 

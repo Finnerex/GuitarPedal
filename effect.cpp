@@ -1,13 +1,9 @@
 #include "effect.hpp"
 
 
-
-
 // ToggleControl
 
-ToggleControl::ToggleControl(dsy_gpio_pin pin) {
-    id = nextId++;
-
+ToggleControl::ToggleControl(dsy_gpio_pin pin, int index) : id(index) {
     button.Init(pin, 0, Switch::TYPE_MOMENTARY, Switch::POLARITY_NORMAL, Switch::PULL_NONE);
 }
 
@@ -19,15 +15,12 @@ void ToggleControl::update() {
     parameter->value = button.Pressed();
 }   
 
-
 // VariableControl
 int numChannels; // would love to make this static but its dumb and doesnt work
 
-VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin) {
+VariableControl::VariableControl(DaisySeed* hw, AdcChannelConfig* config, dsy_gpio_pin pin, int index) : id(index) {
     config->InitSingle(pin);
     channel = numChannels++;
-
-    id = nextId++;
 }
 
 void VariableControl::update() {
@@ -39,6 +32,62 @@ void VariableControl::update() {
     if (std::abs(currentVal - parameter->value) >= 0.005f) // has changed by > 0.5 percent
         parameter->value = currentVal;
     
+}
+
+// Effect Parameter
+
+template <typename T> // TODO: REMOVE AND GO BACK TO JUST CONSTRUCTOR
+void EffectParameter<T>::Init(const char* name, T initialValue) {
+    value = initialValue;
+    this->name = name;
+}
+
+
+template <>
+ParameterSetting<bool> EffectParameter<bool>::save() {
+
+    if (control != nullptr) {
+        return { value, (static_cast<ToggleControl*>(control))->id };
+    }
+
+    return { value, -1 };
+}
+
+// excellent duplicated code!!
+template <>
+ParameterSetting<float> EffectParameter<float>::save() {
+
+    if (control != nullptr) {
+        return { value, (static_cast<VariableControl*>(control))->id };
+    }
+
+    return { value, -1 };
+}
+
+
+template <>
+void EffectParameter<bool>::load(ParameterSetting<bool> setting) {
+
+    int cId = setting.controlId;
+    if (cId >= 0 && cId < NUM_TOGGLE_CONTROLS) {
+        control = buttons[cId];
+        buttons[cId]->parameter = this;
+    }
+
+    value = setting.value;
+}
+
+// currently these are held at zero and dont do anything idk why
+template <>
+void EffectParameter<float>::load(ParameterSetting<float> setting) {
+
+    int cId = setting.controlId;
+    if (cId >= 0 && cId < NUM_VARIABLE_CONTROLS) {
+        control = potentiometers[cId];
+        potentiometers[cId]->parameter = this;
+    }
+
+    value = std::clamp(setting.value, 0.f, 1.f);
 }
 
 
@@ -103,7 +152,7 @@ void AllPassFilter::apply(const float* in, float* out, size_t samples) {
 // Looper
 
 Looper::Looper(bool series) : Effect(series), buffer((float*)sdram_alloc(MAX_LOOP_SAMPLES)) {
-    enabled = EffectParameter<bool>("Loop Playback", false);
+    enabled.Init("Loop Playback", false);
 }
 
 void Looper::apply(const float* in, float* out, size_t samples) {
@@ -151,7 +200,7 @@ void Looper::update() {
 
 Delay::Delay(bool series) : Effect(series) {
     buffer = CircularBuffer((float*)sdram_alloc(DELAY_SIZE * sizeof(float), true), DELAY_SIZE, 0);
-    enabled = EffectParameter<bool>("> Delay", false);
+    enabled.Init("> Delay", false);
 }
 
 void Delay::apply(const float* in, float* out, size_t samples) {
@@ -175,7 +224,7 @@ void Delay::apply(const float* in, float* out, size_t samples) {
 Tuner::Tuner(bool series/* , size_t windowSize = DFT_WINDOW_SAMPLES */) : Effect(series) {
     dftTimeBufferA = (float*)sdram_alloc(DFT_WINDOW_SAMPLES * sizeof(float));
     dftTimeBufferB = (float*)sdram_alloc(DFT_WINDOW_SAMPLES * sizeof(float));
-    enabled = EffectParameter<bool>("> Tuner", false);
+    enabled.Init("> Tuner", false);
 }
 
 void Tuner::apply(const float *in, float *out, size_t samples) {
@@ -243,7 +292,7 @@ Reverb::Reverb(bool series) : Effect(false) { // maybe change apply so it copys 
     allPassFilters[0] = AllPassFilter(0.0219f, 0.7f);
     allPassFilters[1] = AllPassFilter(0.007021f, 0.7f);
 
-    enabled = EffectParameter<bool>("> Reverb", false);
+    enabled.Init("> Reverb", false);
 
 }
 
@@ -282,7 +331,7 @@ Chorus::Chorus(bool series, float maxDelay) : Effect(series) {
 
     delaySamples = maxDelaySamples;
 
-    enabled = EffectParameter<bool>("> Chorus", false);
+    enabled.Init("> Chorus", false);
     
 }
 
@@ -310,7 +359,7 @@ void Chorus::update() {
 // BitCrusher
 
 BitCrusher::BitCrusher(bool series) : Effect(series) {
-    enabled = EffectParameter<bool>("> Bit Crusher", false);
+    enabled.Init("> Bit Crusher", false);
 }
 
 void BitCrusher::apply(const float* in, float* out, size_t samples) {
@@ -340,4 +389,5 @@ void BitCrusher::apply(const float* in, float* out, size_t samples) {
     }
 
 }
+
 

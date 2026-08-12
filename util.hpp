@@ -45,20 +45,44 @@ public:
 
 };
 
+template <typename T> struct ParameterSetting {
+    T value;
+    int controlId;
+};
 
-template<typename Settings>
-class Serializable {
+struct PersistentSettings {
 
-protected:
-    PersistentStorage<Settings> settings;
+    ParameterSetting<bool> boolParams[NUM_BOOL_PARAMETERS];
+    ParameterSetting<float> floatParams[NUM_FLOAT_PARAMETERS];
 
-public:
+    bool operator!=(const PersistentSettings a) const {
+        bool ne = false;
+        
+        for (int i = 0; i < NUM_BOOL_PARAMETERS; i++) {
+            ne |= (boolParams[i].value != a.boolParams[i].value) || (boolParams[i].controlId != a.boolParams[i].controlId);
+        }
 
-    virtual void save() = 0;
-    virtual void load() = 0;
+        for (int i = 0; i < NUM_FLOAT_PARAMETERS; i++) {
+            ne |= (floatParams[i].value != a.floatParams[i].value) || (floatParams[i].controlId != a.floatParams[i].controlId);
+        }
+
+        return ne;
+    }
 
 };
 
+extern daisy::DaisySeed hw;
 
+extern daisy::PersistentStorage<PersistentSettings> persistentData;
+
+class VariableControl;
+class ToggleControl;
+template <typename T> class EffectParameter;
+
+extern VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
+extern ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
+
+extern EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
+extern EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS];
 
 #endif

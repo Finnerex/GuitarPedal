@@ -102,3 +102,13 @@ void CircularBuffer::reset() {
     writePos = 0; 
     readPos = 0;
 }
+
+daisy::DaisySeed hw;
+
+daisy::PersistentStorage<PersistentSettings> persistentData = daisy::PersistentStorage<PersistentSettings>(hw.qspi);
+
+VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
+ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
+
+EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
+EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS];

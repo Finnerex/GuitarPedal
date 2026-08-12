@@ -6,7 +6,6 @@
 
 using namespace daisy;
 
-DaisySeed hw;
 
 #define NUM_EFFECTS 6 // idk maybe the user (I) will be able to add more in the interface
 Effect* effects[NUM_EFFECTS];
@@ -26,7 +25,6 @@ static void Callback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out,
     }
 
 }
-
 
 #define CONTOLS_UPDATE_RATE 1000
 
@@ -81,19 +79,12 @@ void step(void);
 
 float* maxFrequency;
 
-VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
-ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
-
-EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
-EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS]; 
-
 Display display;
 
 Window* currentWindow;
 Window* startWindow; // this will be defined somewhere so idk for right now (probably wont be a pointer but idk)
 
 TimerHandle controlsTimerHandle;
-
 
 int main(void)
 {
@@ -117,8 +108,8 @@ int main(void)
 
     int bp = 0, fp = 0;
 
-
-    // PersistentStorage<
+    // TODO: FINALIZE PLACEMENT and initial values
+    persistentData.Init({});
 
     // effects
     Looper* looper = new Looper(true);
@@ -136,7 +127,6 @@ int main(void)
     Reverb* reverb = new Reverb(false);
     boolParams[bp++] = &reverb->enabled;
     floatParams[fp++] = &reverb->depth;
-    //reverb->depth.value = 0.6; // TODO: maybe add default values in constructors
     floatParams[fp++] = &reverb->mix;
 
     Chorus* chorus = new Chorus(true, 0.01f);
@@ -161,13 +151,14 @@ int main(void)
     // pots
     AdcChannelConfig configs[NUM_VARIABLE_CONTROLS];
     for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
-        potentiometers[i] = new VariableControl(&hw, &configs[i], hw.GetPin(15 + i));
-        potentiometers[i]->parameter = floatParams[i];
-        floatParams[i]->control = potentiometers[i];
+        potentiometers[i] = new VariableControl(&hw, &configs[i], hw.GetPin(15 + i), i);
+        potentiometers[i]->parameter = nullptr;//floatParams[i];
+        // floatParams[i]->control = nullptr;//potentiometers[i];
 
         snprintf(controlNameBuf, 7, "Knob %d", i);
 
         VariableControlScrollElement* el = new VariableControlScrollElement(potentiometers[i]);
+        el->subWindow = startWindow;
         strcpy(el->nameBuf, controlNameBuf);
         varControlOptions[i] = el;
     }
@@ -177,24 +168,35 @@ int main(void)
 
     // buttons
     for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
-        buttons[i] = new ToggleControl(hw.GetPin(i + 22));
-        buttons[i]->parameter = boolParams[i];
-        boolParams[i]->control = buttons[i];
+        buttons[i] = new ToggleControl(hw.GetPin(i + 22), i);
+        buttons[i]->parameter = nullptr;//boolParams[i];
+        // boolParams[i]->control = nullptr;//buttons[i];
 
         snprintf(controlNameBuf, 9, "Button %d", i);
 
         ToggleControlScrollElement* el = new ToggleControlScrollElement(buttons[i]);
+        el->subWindow = startWindow;
         strcpy(el->nameBuf, controlNameBuf);
         toggleControlOptions[i] = el;
         
     }
 
+    PersistentSettings& localSettings = persistentData.GetSettings();
+
     for (int i = 0; i < NUM_FLOAT_PARAMETERS; i++) {
         parameterOptions[i] = new ParameterScrollElement(floatParams[i], floatParams[i]->name);
+        floatParams[i]->control = nullptr;
+        floatParams[i]->load(localSettings.floatParams[i]);
+        // floatParams[i]->value = 0.f;
+        // floatParams[i]->potentiometers = (Control**)potentiometers;
     }
 
     for (int i = 0; i < NUM_BOOL_PARAMETERS; i++) {
         parameterOptions[i + NUM_FLOAT_PARAMETERS] = new ParameterScrollElement(boolParams[i], boolParams[i]->name);
+        boolParams[i]->control = nullptr;
+        boolParams[i]->load(localSettings.boolParams[i]);
+        // boolParams[i]->value = false;
+        // boolParams[i]->buttons = (Control**)buttons;
     }
 
 
@@ -237,7 +239,12 @@ void step(void) { // could return a bool for stopping but idk if thats needed
     }
 
     // TODO: maybe merge pots and buttons because i have polymorphism now
+    
     for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
+        // genuinely what the flip, when i remove this line it stops working
+        // if (potentiometers[i]->parameter != nullptr)
+        //     potentiometers[i]->parameter->value = 0.42f;
+
         potentiometers[i]->update();
     }
 
@@ -280,6 +287,9 @@ void draw(void) {
 
     for (int i = 0; i < NUM_TOGGLE_CONTROLS; i ++) {
       
+        if (buttons[i]->parameter == nullptr)
+            continue;
+
         display.WriteChar('0' + buttons[i]->parameter->value, Font_7x10, true);
         display.WriteString("    ", Font_7x10, true);
 
@@ -289,6 +299,9 @@ void draw(void) {
     char idk[5];
 
     for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
+
+        if (potentiometers[i]->parameter == nullptr)
+            continue;
 
         snprintf(idk, 5, "%d", (int)(potentiometers[i]->parameter->value * 255));
         display.WriteString(idk, Font_7x10, true);

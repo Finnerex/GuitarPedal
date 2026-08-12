@@ -61,7 +61,7 @@ public:
     Window* subWindow;
     const char* name;   
 
-    ScrollElement() {}
+    ScrollElement() : subWindow(nullptr), name(nullptr) {}
     ScrollElement(Window* subWindow, const char* name) : subWindow(subWindow), name(name) {}
 
     virtual void OnSelect(Window** currentWindow) {};
@@ -141,6 +141,11 @@ public:
 
 };
 
+
+class SaveWindow : public Window {
+    void update(bool encoderPress, int encoderMove, Window** currentWindow);
+    void draw(Display* d);
+};
 // maybe button/ pot assignment window
 // waveform, spectrum, and control debug windows
 
