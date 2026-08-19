@@ -20,13 +20,13 @@ public:
 template <typename T> class EffectParameter {
 
 public:
+    T initialValue; 
     T value;
     const char* name;
     Control* control;
 
-    EffectParameter() {};
-    void Init(const char* name, T initialValue);
-    EffectParameter(const char* name, T initialValue) { Init(name, initialValue); }
+    EffectParameter() : initialValue(0), value(0), name(nullptr), control(nullptr) {};
+    EffectParameter(const char* name, T initialValue) : initialValue(initialValue), value(initialValue), name(name) {}
 
     ParameterSetting<T> save();
     void load(ParameterSetting<T> setting);
@@ -83,7 +83,7 @@ class CombFilter /* : Filter */ {
     float gain;
     float depth;
     float mix;
-    size_t max_samples;
+    size_t maxSamples;
 
 public:
     CombFilter() {}
@@ -100,15 +100,17 @@ class AllPassFilter /* : Filter */ {
     CircularBuffer inputBuffer;
 
     float gain;
-    // float depth;
-    // float mix;
+    int maxSamples;
 
 public:
     AllPassFilter() {}
     AllPassFilter(float delay, float gain);
+    float applyOne(float in);
     void apply(const float* in, float* out, size_t samples);
 
-    // void setParams(float depth, float mix);
+    void setParams(float gain, float depth);
+    void setGain(float gain);
+    void offsetSamples(int samples);
 
 };
 
@@ -194,16 +196,17 @@ public:
 };
 
 // referenced https://medium.com/the-seekers-project/coding-a-basic-reverb-algorithm-part-2-an-introduction-to-audio-programming-4db79dd4e325
-#define NUM_COMB_FILTERS 4
-#define NUM_AP_FILTERS 2
+#define REVERB_NUM_COMB_FILTERS 4
+#define REVERB_NUM_AP_FILTERS 2
 class Reverb : public Effect {
 
-    CombFilter combFilters[NUM_COMB_FILTERS]; // potential optimization: these can share a delay line / circular buffer i think
-    AllPassFilter allPassFilters[NUM_AP_FILTERS];
+    CombFilter combFilters[REVERB_NUM_COMB_FILTERS]; // potential optimization: these can share a delay line / circular buffer i think
+    AllPassFilter allPassFilters[REVERB_NUM_AP_FILTERS];
 
 public:
     EffectParameter<float> depth = EffectParameter<float>("Reverb Depth", 0.5f);
     EffectParameter<float> mix = EffectParameter<float>("Reverb Mix", 1);
+    EffectParameter<float> gain = EffectParameter<float>("Reverb Gain", 0.7f);
 
     Reverb(bool series);
 
@@ -237,8 +240,8 @@ public:
 #define CRUSH_AMOUNT_SCALE 200 // 1000.0f
 class BitCrusher : public Effect {
 
-    float heldValue;
-    int heldSamples;
+    float heldValue = 0;
+    int heldSamples = 0;
 
 public:
     EffectParameter<float> amount = EffectParameter<float>("Bit Crush Amnt", 0.8f);
@@ -247,6 +250,61 @@ public:
 
     void apply(const float* in, float* out, size_t samples);
     void update() {}
+
+};
+
+
+class AllPassFilter2 {
+
+    float inputSample = 0;
+    float outputSample = 0;
+    
+public:
+    float coefficient = 0;
+
+    AllPassFilter2() {};
+    float process(float in);
+
+};
+
+
+#define PHASER_NUM_AP_FILTERS 12
+class Phaser : public Effect {
+
+    // daisysp::Oscillator osc;
+    float oscPhase = 0;
+    float heldSample = 0;
+
+    AllPassFilter2 allPassFilters[PHASER_NUM_AP_FILTERS];
+
+public:
+    EffectParameter<float> rate = EffectParameter<float>("Phaser Rate", 0.1f);
+    EffectParameter<float> depth = EffectParameter<float>("Phaser Depth", 0.7f);
+    EffectParameter<float> feedback = EffectParameter<float>("Phaser Feedback", 0.5f);
+
+    Phaser(bool series);    
+
+    void apply(const float* in, float* out, size_t samples);
+    void update() {};
+
+};
+
+class Metronome : public Effect {
+
+    int waitCount = 0;
+    int playbackSample = 0;
+    int downsampleCount = 0;
+    bool shouldPlay = false;
+
+public:
+
+    int bpm = 100;
+    EffectParameter<float> volume = EffectParameter<float>("Metronome Mix", 0.5f);
+
+    Metronome();
+
+    void apply(const float* in, float* out, size_t samples);
+    void update() {};
 
 };
 

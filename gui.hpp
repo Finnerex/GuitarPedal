@@ -75,7 +75,7 @@ public:
     EffectParameter<T>* parameter;
 
     ParameterScrollElement() : ScrollElement(), parameter(nullptr) {}
-    ParameterScrollElement(EffectParameter<T>* parameter, const char* name) : ScrollElement(nullptr, name), parameter(parameter) {}
+    ParameterScrollElement(EffectParameter<T>* parameter/* , const char* name */) : ScrollElement(nullptr, parameter->name), parameter(parameter) {}
 
     void OnSelect(Window** currentWindow) override;
 
@@ -146,12 +146,51 @@ class SaveWindow : public Window {
     void update(bool encoderPress, int encoderMove, Window** currentWindow);
     void draw(Display* d);
 };
+
+class ResetWindow : public Window {
+    void update(bool encoderPress, int encoderMove, Window** currentWindow);
+    void draw(Display* d);
+};
+
+class TunerWindow : public Window {
+
+public:
+    Effect* tuner;
+
+    void update(bool encoderPress, int encoderMove, Window** currentWindow);
+    void draw(Display* d);
+};
+
+class InfoWindow : public Window {
+    void update(bool encoderPress, int encoderMove, Window** currentWindow);
+    void draw(Display* d);
+};
+
+class MetronomeWindow : public Window {
+
+public:
+    Metronome* metronome;
+
+    void update(bool encoderPress, int encoderMove, Window** currentWindow);
+    void draw(Display* d);
+};
+
 // maybe button/ pot assignment window
 // waveform, spectrum, and control debug windows
+
+extern EffectParameter<float> ledRed;
+extern EffectParameter<float> ledGreen;
+extern EffectParameter<float> ledBlue;
 
 extern ScrollElement* varControlOptions[NUM_VARIABLE_CONTROLS]; 
 extern ScrollElement* toggleControlOptions[NUM_TOGGLE_CONTROLS];
 extern ScrollElement* parameterOptions[NUM_BOOL_PARAMETERS + NUM_FLOAT_PARAMETERS];
 extern ScrollWindow mainWindow;
+
+extern TunerWindow tunerWindow;
+extern float* maxFrequency;
+
+extern MetronomeWindow metronomeWindow;
+
 
 #endif

@@ -6,12 +6,12 @@
 #include "daisy_seed.h"
 
 #define SAMPLE_RATE 48000
-#define BLOCK_SIZE 32
+#define BLOCK_SIZE 16
 
 #define MEMORY_SIZE (60 * 1024 * 1024)
 
-#define NUM_BOOL_PARAMETERS 7 // 7
-#define NUM_FLOAT_PARAMETERS 7 // 7
+#define NUM_BOOL_PARAMETERS 9
+#define NUM_FLOAT_PARAMETERS 12
 
 #define NUM_VARIABLE_CONTROLS 4
 #define NUM_TOGGLE_CONTROLS 4
@@ -55,6 +55,11 @@ struct PersistentSettings {
     ParameterSetting<bool> boolParams[NUM_BOOL_PARAMETERS];
     ParameterSetting<float> floatParams[NUM_FLOAT_PARAMETERS];
 
+    float ledR;
+    float ledG;
+    float ledB;
+    int metronomeBpm;
+
     bool operator!=(const PersistentSettings a) const {
         bool ne = false;
         
@@ -84,5 +89,8 @@ extern ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
 
 extern EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
 extern EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS];
+
+#define METRONOME_CLICK_SIZE 689
+extern float metronomeClick[METRONOME_CLICK_SIZE];
 
 #endif

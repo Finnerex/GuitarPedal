@@ -173,20 +173,190 @@ void SaveWindow::update(bool encoderPress, int encoderMove, Window** currentWind
         localSettings.floatParams[i] = floatParams[i]->save();
     }
 
+    localSettings.ledR = ledRed.value;
+    localSettings.ledG = ledGreen.value;
+    localSettings.ledB = ledBlue.value;
+
+    localSettings.metronomeBpm = metronomeWindow.metronome->bpm;
+
     persistentData.Save();
 
     *currentWindow = &mainWindow; 
 
 }
 
+void ResetWindow::draw(Display* d) {
+
+    d->DrawRect(15, 15, 127-15, 63-15, true);
+    d->WriteStringAligned("Reset?", Font_11x18, Rectangle(15, 15, 127-30, 63-30), Alignment::centered, true);
+
+}
+
+void ResetWindow::update(bool encoderPress, int encoderMove, Window** currentWindow) {
+
+    if (!encoderPress) return;
+        
+    for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
+        buttons[i]->parameter = nullptr;
+    }
+
+    for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
+        potentiometers[i]->parameter = nullptr;
+    }
+
+    for (int i = 0; i < NUM_BOOL_PARAMETERS; i++) {
+        boolParams[i]->value = boolParams[i]->initialValue;
+        boolParams[i]->control = nullptr;
+    }
+
+    for (int i = 0; i < NUM_FLOAT_PARAMETERS; i++) {
+        floatParams[i]->value = floatParams[i]->initialValue;
+        floatParams[i]->control = nullptr;
+    }
+
+    metronomeWindow.metronome->bpm = 100;
+    ledRed.value = 0.5f;
+    ledGreen.value = 0.5f;
+    ledBlue.value = 0.5f;
+
+    *currentWindow = &mainWindow; 
+
+}
+
+
+float* maxFrequency;
+
+void TunerWindow::draw(Display* d) {
+    int octave;
+    const char* note;
+    float error = frequencyToNote(*maxFrequency, &note, &octave);
+
+    char frequencyString[8] = "";
+    snprintf(frequencyString, 8, "%d", (int)*maxFrequency);
+    
+    char octaveString[2] = "";
+    if (octave >= 0 && octave <= 9)
+        snprintf(octaveString, 2, "%d", octave);
+    
+    char errorString[4] = "";
+    if (error > -1 && error < 1)
+        snprintf(errorString, 4, "%d", (int)(error * 100));
+
+    d->Fill(false);
+
+    // tuner
+    // bounding boxes
+    d->DrawRect(3, 3, 82, 61, true, false);
+    d->DrawRect(85, 3, 124, 61, true, false);
+
+    // text
+    d->WriteStringAligned(note, Font_16x26, Rectangle(85, 3, 39, 38), Alignment::centered, true);
+    d->WriteStringAligned(octaveString, Font_11x18, Rectangle(85, 41, 39, 20), Alignment::centered, true);
+    d->WriteStringAligned(errorString, Font_11x18, Rectangle(3, 41, 77, 20), Alignment::centered, true);
+    d->WriteStringAligned(frequencyString, Font_11x18, Rectangle(3, 8, 77, 20), Alignment::centered, true);
+
+    // dial (TODO)
+}
+
+void TunerWindow::update(bool encoderPress, int encoderMove, Window** currentWindow) {
+
+    if (encoderPress)
+        tuner->enabled.value = !tuner->enabled.value;
+
+}
+
+char numStringBuf[4];
+void InfoWindow::draw(Display* d) {
+
+    for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
+
+        int y = i * 8;
+
+        d->SetCursor(0, y);
+        d->WriteChar('0' + potentiometers[i]->id, Font_6x8, true);
+
+        d->SetCursor(10, y);
+        d->WriteString(potentiometers[i]->parameter != nullptr ? potentiometers[i]->parameter->name : "Unassigned", Font_6x8, true);
+
+        d->SetCursor(110, y);
+        if (potentiometers[i]->parameter != nullptr) {
+            snprintf(numStringBuf, 4, "%d", (int)(100 * potentiometers[i]->parameter->value));
+            d->WriteString(numStringBuf, Font_6x8, true);
+        } else {
+            d->WriteString("---", Font_6x8, true);
+        }
+
+    }
+
+    for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
+
+        int y = i * 8 + 8 * 4;
+
+        d->SetCursor(0, y);
+        d->WriteChar('0' + buttons[i]->id, Font_6x8, true);
+
+        d->SetCursor(10, y);
+        d->WriteString(buttons[i]->parameter != nullptr ? buttons[i]->parameter->name : "Unassigned", Font_6x8, true);
+
+        d->SetCursor(110, y);
+        if (buttons[i]->parameter != nullptr) {
+            d->WriteString(buttons[i]->parameter->value ? "On" : "Off", Font_6x8, true);
+        } else {
+            d->WriteString("---", Font_6x8, true);
+        }
+
+    }
+
+}
+
+void InfoWindow::update(bool encoderPress, int encoderMove, Window** currentWindow) {
+    // umm idk nothing needs to happen
+}
+
+char drawBpmBuf[8];
+void MetronomeWindow::draw(Display* d) {
+
+    d->WriteStringAligned("Metronome", Font_7x10, Rectangle(2, 2, 124, 20), Alignment::centered, true);
+    d->DrawLine(0, 20, 127, 20, true);
+    
+    snprintf(drawBpmBuf, 8, "%d bpm", metronome->bpm);
+
+    d->WriteStringAligned(drawBpmBuf, Font_11x18, Rectangle(0, 21, 127, 21), Alignment::centered, true);
+
+    d->WriteStringAligned(metronome->enabled.value ? "ON" : "OFF", Font_11x18, Rectangle(0, 42, 127, 21), Alignment::centered, true);
+
+}
+
+
+void MetronomeWindow::update(bool encoderPress, int encoderMove, Window** currentWindow) {
+
+    if (encoderPress)
+        metronome->enabled.value = !metronome->enabled.value;
+
+    metronome->bpm = std::clamp(metronome->bpm + encoderMove, 1, 500);
+
+}
+
+
+EffectParameter<float> ledRed = EffectParameter<float>("Red", 0.5f);
+EffectParameter<float> ledGreen = EffectParameter<float>("Green", 0.5f);
+EffectParameter<float> ledBlue = EffectParameter<float>("Blue", 0.5f);
+
+ParameterScrollElement er = ParameterScrollElement(&ledRed), eg =  ParameterScrollElement(&ledGreen), eb = ParameterScrollElement(&ledBlue);
+ScrollElement* ledOptions[3] = { &er, &eg, &eb };
+ScrollWindow ledWindow = ScrollWindow(3, ledOptions);
 
 ScrollElement* parameterOptions[NUM_FLOAT_PARAMETERS + NUM_BOOL_PARAMETERS];
 
 ScrollWindow parametersWindow = ScrollWindow(NUM_BOOL_PARAMETERS + NUM_FLOAT_PARAMETERS, parameterOptions);
 
 SaveWindow saveWindow;
+ResetWindow resetWindow;
+TunerWindow tunerWindow;
+InfoWindow infoWindow;
+MetronomeWindow metronomeWindow;
 
-ScrollElement mainOptions[6] = { {&parametersWindow, "Parameters"}, {&saveWindow, "Save Settings"}, {nullptr, "Metronome"}, {nullptr, "Tuner"}, {nullptr, "RGB LED"}, {nullptr, "Debug"} };
-ScrollElement* a[6];
-ScrollWindow mainWindow = ScrollWindow(6, mainOptions, a);
+ScrollElement mainOptions[7] = { {&parametersWindow, "Parameters"}, {&saveWindow, "Save Settings"}, {&infoWindow, "Info"}, {&metronomeWindow, "Metronome"}, {&tunerWindow, "Tuner"}, {&resetWindow, "Reset"}, {&ledWindow, "RGB LED"} };
+ScrollElement* a[7];
+ScrollWindow mainWindow = ScrollWindow(7, mainOptions, a);
 

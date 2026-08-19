@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   34              		@ link register save eliminated.
   35              	.LBB151:
   36              	.LBI151:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 2
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 2
 
 
   37              		.file 2 "../../libDaisy/src/sys/system.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   54:../../libDaisy/src/sys/system.h **** 
   55:../../libDaisy/src/sys/system.h ****         SysClkFreq cpu_freq;
   56:../../libDaisy/src/sys/system.h ****         bool       use_dcache;
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 3
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 3
 
 
   57:../../libDaisy/src/sys/system.h ****         bool       use_icache;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
    8:../../libDaisy/src/hid/usb.h **** /** @addtogroup human_interface
    9:../../libDaisy/src/hid/usb.h ****     @{
   10:../../libDaisy/src/hid/usb.h **** */
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 4
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 4
 
 
   11:../../libDaisy/src/hid/usb.h **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   17:../../libDaisy/src/per/adc.h **** /* While there may not be many configuration options here,
   18:../../libDaisy/src/per/adc.h **** using a struct like this allows us to add more configuration
   19:../../libDaisy/src/per/adc.h **** later without breaking existing functionality.
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 5
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 5
 
 
   20:../../libDaisy/src/per/adc.h **** */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   74:../../libDaisy/src/per/adc.h ****     void InitMux(dsy_gpio_pin    adc_pin,
   75:../../libDaisy/src/per/adc.h ****                  size_t          mux_channels,
   76:../../libDaisy/src/per/adc.h ****                  dsy_gpio_pin    mux_0,
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 6
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 6
 
 
   77:../../libDaisy/src/per/adc.h ****                  dsy_gpio_pin    mux_1 = {DSY_GPIOX, 0},
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   15:../../libDaisy/src/hid/audio.h ****  *           you will have to take the following steps:
   16:../../libDaisy/src/hid/audio.h ****  *             1. Create and Initialize an SaiHandle or two depending on your requirements
   17:../../libDaisy/src/hid/audio.h ****  *             2. Initialize the Audio Handle with the desired settings and the Initialized SaiHand
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 7
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 7
 
 
   18:../../libDaisy/src/hid/audio.h ****  *             3. If the connected codec requires special configuration or initialization, do so
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   72:../../libDaisy/src/hid/audio.h ****      */
   73:../../libDaisy/src/hid/audio.h ****     typedef void (*AudioCallback)(InputBuffer  in,
   74:../../libDaisy/src/hid/audio.h ****                                   OutputBuffer out,
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 8
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 8
 
 
   75:../../libDaisy/src/hid/audio.h ****                                   size_t       size);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   12:util.cpp      **** void* sdram_alloc(size_t size, bool zero) {
   79              		.loc 6 12 43 is_stmt 1 view -0
   80              		.cfi_startproc
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 9
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 9
 
 
   81              		@ args = 0, pretend = 0, frame = 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  124              	.LVL7:
  125              	.L3:
  126              		.loc 6 21 32 view .LVU26
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 10
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 10
 
 
  127              	.LBE156:
@@ -583,24 +583,25 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   28:util.cpp      **** 
   29:util.cpp      **** 
   30:util.cpp      **** // thanks wikipedia
-  31:util.cpp      **** void ditfft2(float* x, int N, int s, std::complex<float>* X)
-  32:util.cpp      **** {
- 161              		.loc 6 32 1 is_stmt 1 view -0
+  31:util.cpp      **** // TODO: maybe make it work with zero padding (without hopefully using too much more memory)
+  32:util.cpp      **** void ditfft2(float* x, int N, int s, std::complex<float>* X)
+  33:util.cpp      **** {
+ 161              		.loc 6 33 1 is_stmt 1 view -0
  162              		.cfi_startproc
  163              		@ args = 0, pretend = 0, frame = 8
  164              		@ frame_needed = 0, uses_anonymous_args = 0
-  33:util.cpp      **** 
-  34:util.cpp      ****     if (N == 1){
- 165              		.loc 6 34 5 is_stmt 0 view .LVU32
+  34:util.cpp      **** 
+  35:util.cpp      ****     if (N == 1){
+ 165              		.loc 6 35 5 is_stmt 0 view .LVU32
  166 0000 0129     		cmp	r1, #1
-  32:util.cpp      **** 
- 167              		.loc 6 32 1 view .LVU33
+  33:util.cpp      **** 
+ 167              		.loc 6 33 1 view .LVU33
  168 0002 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
  169              		.cfi_def_cfa_offset 28
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 11
+
+
  170              		.cfi_offset 4, -28
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 11
-
-
  171              		.cfi_offset 5, -24
  172              		.cfi_offset 6, -20
  173              		.cfi_offset 7, -16
@@ -608,9 +609,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  175              		.cfi_offset 9, -8
  176              		.cfi_offset 14, -4
  177 0006 8046     		mov	r8, r0
- 178              		.loc 6 34 5 is_stmt 1 view .LVU34
-  32:util.cpp      **** 
- 179              		.loc 6 32 1 is_stmt 0 view .LVU35
+ 178              		.loc 6 35 5 is_stmt 1 view .LVU34
+  33:util.cpp      **** 
+ 179              		.loc 6 33 1 is_stmt 0 view .LVU35
  180 0008 1C46     		mov	r4, r3
  181 000a 2DED068B 		vpush.64	{d8, d9, d10}
  182              		.cfi_def_cfa_offset 52
@@ -622,74 +623,74 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  188              		.cfi_offset 85, -32
  189 000e 83B0     		sub	sp, sp, #12
  190              		.cfi_def_cfa_offset 64
- 191              		.loc 6 34 5 view .LVU36
+ 191              		.loc 6 35 5 view .LVU36
  192 0010 6ED0     		beq	.L24
-  35:util.cpp      ****         X[0] = x[0];
-  36:util.cpp      ****         return;
-  37:util.cpp      ****     }
-  38:util.cpp      **** 
-  39:util.cpp      ****     ditfft2(x, N/2, 2 * s, X);
- 193              		.loc 6 39 12 view .LVU37
+  36:util.cpp      ****         X[0] = x[0];
+  37:util.cpp      ****         return;
+  38:util.cpp      ****     }
+  39:util.cpp      **** 
+  40:util.cpp      ****     ditfft2(x, N/2, 2 * s, X);
+ 193              		.loc 6 40 12 view .LVU37
  194 0012 0029     		cmp	r1, #0
  195 0014 0F46     		mov	r7, r1
  196 0016 9146     		mov	r9, r2
- 197              		.loc 6 39 5 is_stmt 1 view .LVU38
- 198              		.loc 6 39 12 is_stmt 0 view .LVU39
+ 197              		.loc 6 40 5 is_stmt 1 view .LVU38
+ 198              		.loc 6 40 12 is_stmt 0 view .LVU39
  199 0018 4FEA4202 		lsl	r2, r2, #1
  200              	.LVL11:
- 201              		.loc 6 39 12 view .LVU40
+ 201              		.loc 6 40 12 view .LVU40
  202 001c B8BF     		it	lt
  203 001e 4F1C     		addlt	r7, r1, #1
  204 0020 0E46     		mov	r6, r1
  205 0022 0192     		str	r2, [sp, #4]
  206 0024 7F10     		asrs	r7, r7, #1
-  40:util.cpp      ****     ditfft2(x + s, N/2, 2 * s, X + N/2);
- 207              		.loc 6 40 12 view .LVU41
+  41:util.cpp      ****     ditfft2(x + s, N/2, 2 * s, X + N/2);
+ 207              		.loc 6 41 12 view .LVU41
  208 0026 03EBC705 		add	r5, r3, r7, lsl #3
-  39:util.cpp      ****     ditfft2(x + s, N/2, 2 * s, X + N/2);
- 209              		.loc 6 39 12 view .LVU42
+  40:util.cpp      ****     ditfft2(x + s, N/2, 2 * s, X + N/2);
+ 209              		.loc 6 40 12 view .LVU42
  210 002a 3946     		mov	r1, r7
  211              	.LVL12:
-  39:util.cpp      ****     ditfft2(x + s, N/2, 2 * s, X + N/2);
- 212              		.loc 6 39 12 view .LVU43
+  40:util.cpp      ****     ditfft2(x + s, N/2, 2 * s, X + N/2);
+ 212              		.loc 6 40 12 view .LVU43
  213 002c FFF7FEFF 		bl	_Z7ditfft2PfiiPSt7complexIfE
  214              	.LVL13:
- 215              		.loc 6 40 5 is_stmt 1 view .LVU44
- 216              		.loc 6 40 12 is_stmt 0 view .LVU45
+ 215              		.loc 6 41 5 is_stmt 1 view .LVU44
+ 216              		.loc 6 41 12 is_stmt 0 view .LVU45
  217 0030 019A     		ldr	r2, [sp, #4]
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 12
+
+
  218 0032 08EB8900 		add	r0, r8, r9, lsl #2
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 12
-
-
  219 0036 2B46     		mov	r3, r5
  220 0038 3946     		mov	r1, r7
  221 003a FFF7FEFF 		bl	_Z7ditfft2PfiiPSt7complexIfE
  222              	.LVL14:
-  41:util.cpp      **** 
-  42:util.cpp      ****     for (int k = 0; k < N/2; k++) {
- 223              		.loc 6 42 5 is_stmt 1 view .LVU46
+  42:util.cpp      **** 
+  43:util.cpp      ****     for (int k = 0; k < N/2; k++) {
+ 223              		.loc 6 43 5 is_stmt 1 view .LVU46
  224              	.LBB202:
- 225              		.loc 6 42 23 view .LVU47
+ 225              		.loc 6 43 23 view .LVU47
  226 003e 012E     		cmp	r6, #1
  227 0040 51DD     		ble	.L15
  228              	.LBB203:
-  43:util.cpp      ****         std::complex<float> p = X[k];
-  44:util.cpp      ****         std::complex<float> q = exp(-2 * (float)My_PI * 1if * (float)k / (float)N) * X[k + N / 2];
- 229              		.loc 6 44 74 is_stmt 0 view .LVU48
+  44:util.cpp      ****         std::complex<float> p = X[k];
+  45:util.cpp      ****         std::complex<float> q = exp(-2 * (float)My_PI * 1if * (float)k / (float)N) * X[k + N / 2];
+ 229              		.loc 6 45 74 is_stmt 0 view .LVU48
  230 0042 07EE906A 		vmov	s15, r6	@ int
  231              	.LBE203:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 232              		.loc 6 42 14 view .LVU49
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 232              		.loc 6 43 14 view .LVU49
  233 0046 0026     		movs	r6, #0
  234              	.LVL15:
  235              	.LBB274:
- 236              		.loc 6 44 74 view .LVU50
+ 236              		.loc 6 45 74 view .LVU50
  237 0048 B8EEE7AA 		vcvt.f32.s32	s20, s15
  238              	.LVL16:
  239              	.L22:
-  43:util.cpp      ****         std::complex<float> p = X[k];
- 240              		.loc 6 43 9 is_stmt 1 discriminator 2 view .LVU51
- 241              		.loc 6 44 63 is_stmt 0 discriminator 2 view .LVU52
+  44:util.cpp      ****         std::complex<float> p = X[k];
+ 240              		.loc 6 44 9 is_stmt 1 discriminator 2 view .LVU51
+ 241              		.loc 6 45 63 is_stmt 0 discriminator 2 view .LVU52
  242 004c 07EE906A 		vmov	s15, r6	@ int
  243              	.LBB204:
  244              	.LBB205:
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   19:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
   20:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** // You should have received a copy of the GNU General Public License and
   21:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** // a copy of the GCC Runtime Library Exception along with this program;
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 13
+
+
   22:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 13
-
-
   23:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** // <http://www.gnu.org/licenses/>.
   24:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
   25:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** /** @file include/complex
@@ -777,10 +778,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   76:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   ///  Return @a z magnitude squared.
   77:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp> _Tp _GLIBCXX20_CONSTEXPR norm(const complex<_Tp>&);
   78:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 14
+
+
   79:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   ///  Return complex conjugate of @a z.
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 14
-
-
   80:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
   81:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     _GLIBCXX20_CONSTEXPR complex<_Tp> conj(const complex<_Tp>&);
   82:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   ///  Return complex with magnitude @a rho and angle @a theta.
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  133:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       ///  Unspecified parameters default to 0.
  134:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _GLIBCXX_CONSTEXPR complex(const _Tp& __r = _Tp(), const _Tp& __i = _Tp())
  135:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       : _M_real(__r), _M_imag(__i) { }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 15
+
+
  136:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 15
-
-
  137:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       // Let the compiler synthesize the copy constructor
  138:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #if __cplusplus >= 201103L
  139:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       constexpr complex(const complex&) = default;
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  190:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       {
  191:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	_M_real += __t;
  192:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	return *this;
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 16
+
+
  193:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 16
-
-
  194:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  195:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       /// Subtract a scalar from this complex number.
  196:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       // 26.2.5/3
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  247:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.5/5
  248:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  249:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     _GLIBCXX20_CONSTEXPR complex<_Tp>&
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 17
+
+
  250:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     complex<_Tp>::operator*=(const _Tp& __t)
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 17
-
-
  251:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
  252:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _M_real *= __t;
  253:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _M_imag *= __t;
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  304:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     complex<_Tp>::operator*=(const complex<_Up>& __z)
  305:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
  306:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       const _Tp __r = _M_real * __z.real() - _M_imag * __z.imag();
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 18
+
+
  307:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _M_imag = _M_real * __z.imag() + _M_imag * __z.real();
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 18
-
-
  308:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       _M_real = __r;
  309:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       return *this;
  310:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     }
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  361:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     operator-(const complex<_Tp>& __x, const complex<_Tp>& __y)
  362:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
  363:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       complex<_Tp> __r = __x;
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 19
+
+
  364:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       __r -= __y;
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 19
-
-
  365:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       return __r;
  366:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     }
  367:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  418:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   ///  Return new complex value @a x divided by @a y.
  419:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  420:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _GLIBCXX20_CONSTEXPR complex<_Tp>
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 20
+
+
  421:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     operator/(const complex<_Tp>& __x, const complex<_Tp>& __y)
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 20
-
-
  422:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
  423:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       complex<_Tp> __r = __x;
  424:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       __r /= __y;
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  475:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     { return __x == __y.real() && _Tp() == __y.imag(); }
  476:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   //@}
  477:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 21
+
+
  478:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   //@{
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 21
-
-
  479:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   ///  Return false if @a x is equal to @a y.
  480:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  481:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _GLIBCXX_CONSTEXPR bool
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  532:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 		    __is.putback(__ch);
  533:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 		}
  534:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	    }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 22
+
+
  535:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	  else
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 22
-
-
  536:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	    {
  537:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	      __is.putback(__ch);
  538:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	      _Tp __u;
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  589:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     { return __z.imag(); }
  590:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  591:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 23
+
+
  592:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline const _Tp&
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 23
-
-
  593:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     imag(const complex<_Tp>& __z)
  594:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     { return __z.imag(); }
  595:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #endif
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  646:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline long double
  647:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_arg(const __complex__ long double& __z)
  648:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   { return __builtin_cargl(__z); }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 24
+
+
  649:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 24
-
-
  650:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  651:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _Tp
  652:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     arg(const complex<_Tp>& __z) { return __complex_arg(__z.__rep()); }
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  703:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       return complex<_Tp>(__rho * cos(__theta), __rho * sin(__theta));
  704:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     }
  705:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 25
+
+
  706:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 25
-
-
  707:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline _GLIBCXX20_CONSTEXPR complex<_Tp>
  708:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     conj(const complex<_Tp>& __z)
  709:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     { return complex<_Tp>(__z.real(), -__z.imag()); }
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  760:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline __complex__ long double
  761:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_cosh(const __complex__ long double& __z)
  762:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   { return __builtin_ccoshl(__z); }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 26
+
+
  763:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 26
-
-
  764:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  765:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
  766:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     cosh(const complex<_Tp>& __z) { return __complex_cosh(__z.__rep()); }
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  817:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  818:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
  819:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     log(const complex<_Tp>& __z) { return __complex_log(__z.__rep()); }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 27
+
+
  820:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #else
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 27
-
-
  821:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
  822:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
  823:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     log(const complex<_Tp>& __z) { return __complex_log(__z); }
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  874:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  875:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline __complex__ double
  876:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_sinh(__complex__ double __z) { return __builtin_csinh(__z); }
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 28
+
+
  877:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 28
-
-
  878:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline __complex__ long double
  879:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_sinh(const __complex__ long double& __z)
  880:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   { return __builtin_csinhl(__z); }
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  931:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     inline complex<_Tp>
  932:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     sqrt(const complex<_Tp>& __z) { return __complex_sqrt(__z); }
  933:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #endif
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 29
+
+
  934:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 29
-
-
  935:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.8/14 tan(__z):  Return the complex tangent of __z.
  936:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  937:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  988:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #endif
  989:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
  990:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 30
+
+
  991:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   // 26.2.8/9  pow(__x, __y): Returns the complex power base of __x
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 30
-
-
  992:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   //                          raised to the __y-th power.  The branch
  993:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   //                          cut is on the negative axis.
  994:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   template<typename _Tp>
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
 1045:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #if _GLIBCXX_USE_C99_COMPLEX
 1046:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline __complex__ float
 1047:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_pow(__complex__ float __x, __complex__ float __y)
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 31
+
+
 1048:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   { return __builtin_cpowf(__x, __y); }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 31
-
-
 1049:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
 1050:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   inline __complex__ double
 1051:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****   __complex_pow(__complex__ double __x, __complex__ double __y)
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
 1102:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** #if __cplusplus >= 201103L
 1103:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       // _GLIBCXX_RESOLVE_LIB_DEFECTS
 1104:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       // DR 387. std::complex over-encapsulated.
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 32
+
+
 1105:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       __attribute ((__abi_tag__ ("cxx11")))
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 32
-
-
 1106:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       constexpr float
 1107:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       real() const { return __real__ _M_value; }
 1108:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
@@ -1917,20 +1918,20 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  248              		.loc 7 1158 11 discriminator 2 view .LVU53
  249 0050 9FED327A 		vldr.32	s14, .L26
  250 0054 D4ED009A 		vldr.32	s19, [r4]
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 33
+
+
  251              	.LBE207:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 33
-
-
  252              	.LBE206:
  253              	.LBE205:
  254              	.LBE204:
  255              	.LBE274:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 256              		.loc 6 42 5 discriminator 2 view .LVU54
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 256              		.loc 6 43 5 discriminator 2 view .LVU54
  257 0058 0136     		adds	r6, r6, #1
  258              	.LVL17:
  259              	.LBB275:
- 260              		.loc 6 44 63 discriminator 2 view .LVU55
+ 260              		.loc 6 45 63 discriminator 2 view .LVU55
  261 005a B8EEE70A 		vcvt.f32.s32	s0, s15
  262              	.LBB217:
  263              	.LBB214:
@@ -1947,8 +1948,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  274              	.LBE211:
  275              	.LBE214:
  276              	.LBE217:
- 277              		.loc 6 44 9 is_stmt 1 discriminator 2 view .LVU59
- 278              		.loc 6 44 9 is_stmt 0 discriminator 2 view .LVU60
+ 277              		.loc 6 45 9 is_stmt 1 discriminator 2 view .LVU59
+ 278              		.loc 6 45 9 is_stmt 0 discriminator 2 view .LVU60
  279              	.LBE275:
  280              	.LBE202:
  281              		.loc 7 1158 2 is_stmt 1 discriminator 2 view .LVU61
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  300              	.LBB219:
  301              	.LBI219:
  430:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 34
+
+
  302              		.loc 7 430 5 is_stmt 1 discriminator 2 view .LVU68
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 34
-
-
  303              	.LBB220:
  304              	.LBB221:
  305              	.LBI221:
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  345              	.LBE228:
  346              	.LBE276:
  347              	.LBE285:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 35
+
+
 1107:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 35
-
-
  348              		.loc 7 1107 22 is_stmt 1 discriminator 2 view .LVU78
  349              	.LBB286:
  350              	.LBB277:
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   46:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
   47:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #include <bits/std_abs.h>
   48:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 36
+
+
   49:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef _GLIBCXX_CMATH
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 36
-
-
   50:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #define _GLIBCXX_CMATH 1
   51:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
   52:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  103:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  104:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
  105:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 37
+
+
  106:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   asin(float __x)
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 37
-
-
  107:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_asinf(__x); }
  108:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  109:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  160:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  161:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::ceil;
  162:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 38
+
+
  163:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 38
-
-
  164:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
  165:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   ceil(float __x)
  166:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_ceilf(__x); }
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  217:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  218:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::exp;
  219:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 39
+
+
  220:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 39
-
-
  221:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
  222:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   exp(float __x)
  356              		.loc 8 222 3 discriminator 2 view .LVU79
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  228:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
  229:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  230:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 40
+
+
  231:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 40
-
-
  232:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
  233:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
  234:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     exp(_Tp __x)
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  285:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
  286:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
  287:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp, typename _Up>
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 41
+
+
  288:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 41
-
-
  289:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
  290:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     fmod(_Tp __x, _Up __y)
  291:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     {
@@ -2457,10 +2458,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  342:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   log(long double __x)
  343:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_logl(__x); }
  344:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 42
+
+
  345:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 42
-
-
  346:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
  347:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
  348:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  399:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(double __x, int __i)
  400:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powi(__x, __i); }
  401:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 43
+
+
  402:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   inline float
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 43
-
-
  403:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(float __x, int __n)
  404:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powif(__x, __n); }
  405:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\cmath **** 
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  421              	.LBE242:
  422              	.LBE244:
  423              	.LBB245:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 44
+
+
  424              	.LBI245:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 44
-
-
  391:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
  425              		.loc 7 391 5 is_stmt 1 discriminator 2 view .LVU96
  426              	.LBB246:
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
 1208:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 
 1209:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****       template<class _Tp>
 1210:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****         _GLIBCXX20_CONSTEXPR complex&
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 45
+
+
 1211:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****         operator/=(const complex<_Tp>& __z)
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 45
-
-
 1212:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	{
 1213:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	  const _ComplexT __t = __z.__rep();
 1214:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	  _M_value /= __t;
@@ -2676,8 +2677,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  459              	.LBE249:
  460              	.LBE250:
  461              	.LBE251:
-  45:util.cpp      ****         X[k] = p + q;
- 462              		.loc 6 45 9 is_stmt 1 discriminator 2 view .LVU103
+  46:util.cpp      ****         X[k] = p + q;
+ 462              		.loc 6 46 9 is_stmt 1 discriminator 2 view .LVU103
  463              	.LBB252:
  464              	.LBI252:
  331:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex ****     {
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  476              		.loc 7 1218 52 is_stmt 1 discriminator 2 view .LVU107
  477              	.LBB289:
  478              	.LBB280:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 46
+
+
  479              	.LBB261:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 46
-
-
  480              	.LBB259:
  481              	.LBB257:
  482              	.LBB255:
@@ -2712,8 +2713,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  487              	.LBE259:
  488              	.LBE261:
  489              	.LBE280:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 490              		.loc 6 42 23 discriminator 2 view .LVU109
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 490              		.loc 6 43 23 discriminator 2 view .LVU109
  491 00c0 0835     		adds	r5, r5, #8
  492              	.LBB281:
  493              	.LBB262:
@@ -2728,8 +2729,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  501              	.LBE260:
  502              	.LBE262:
  503              	.LBE281:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 504              		.loc 6 42 23 discriminator 2 view .LVU111
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 504              		.loc 6 43 23 discriminator 2 view .LVU111
  505 00c6 B742     		cmp	r7, r6
  506              	.LBB282:
  507              	.LBB263:
@@ -2747,8 +2748,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  517              	.LBE264:
  518              	.LBE263:
  519              	.LBE282:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 520              		.loc 6 42 23 discriminator 2 view .LVU114
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 520              		.loc 6 43 23 discriminator 2 view .LVU114
  521 00cc 04F10804 		add	r4, r4, #8
  522              	.LBB283:
  523              	.LBB272:
@@ -2757,19 +2758,19 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  526              	.LBB267:
 1196:c:\program files\daisytoolchain\arm-none-eabi\include\c++\10.2.1\complex **** 	  return *this;
  527              		.loc 7 1196 13 discriminator 2 view .LVU115
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 47
+
+
  528 00d0 79EE677A 		vsub.f32	s15, s18, s15
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 47
-
-
  529              	.LBE267:
  530              	.LBE268:
  531              	.LBE270:
  532              	.LBE272:
- 533              		.loc 6 45 20 discriminator 2 view .LVU116
+ 533              		.loc 6 46 20 discriminator 2 view .LVU116
  534 00d4 04ED026A 		vstr.32	s12, [r4, #-8]
  535 00d8 44ED016A 		vstr.32	s13, [r4, #-4]
-  46:util.cpp      ****         X[k + N / 2] = p - q;
- 536              		.loc 6 46 9 is_stmt 1 discriminator 2 view .LVU117
+  47:util.cpp      ****         X[k + N / 2] = p - q;
+ 536              		.loc 6 47 9 is_stmt 1 discriminator 2 view .LVU117
  537              	.LVL29:
  538              	.LBB273:
  539              	.LBI263:
@@ -2790,26 +2791,26 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  551              		.loc 7 1218 52 is_stmt 1 discriminator 2 view .LVU121
  552              	.LBB290:
  553              	.LBB284:
- 554              		.loc 6 46 28 is_stmt 0 discriminator 2 view .LVU122
+ 554              		.loc 6 47 28 is_stmt 0 discriminator 2 view .LVU122
  555 00dc 05ED027A 		vstr.32	s14, [r5, #-8]
  556 00e0 45ED017A 		vstr.32	s15, [r5, #-4]
  557              	.LVL30:
- 558              		.loc 6 46 28 discriminator 2 view .LVU123
+ 558              		.loc 6 47 28 discriminator 2 view .LVU123
  559              	.LBE284:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 560              		.loc 6 42 5 is_stmt 1 discriminator 2 view .LVU124
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 561              		.loc 6 42 23 discriminator 2 view .LVU125
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 560              		.loc 6 43 5 is_stmt 1 discriminator 2 view .LVU124
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 561              		.loc 6 43 23 discriminator 2 view .LVU125
  562 00e4 B2DC     		bgt	.L22
  563              	.LVL31:
  564              	.L15:
-  42:util.cpp      ****         std::complex<float> p = X[k];
- 565              		.loc 6 42 23 is_stmt 0 discriminator 2 view .LVU126
+  43:util.cpp      ****         std::complex<float> p = X[k];
+ 565              		.loc 6 43 23 is_stmt 0 discriminator 2 view .LVU126
  566              	.LBE290:
-  47:util.cpp      ****     }
-  48:util.cpp      **** 
-  49:util.cpp      **** }
- 567              		.loc 6 49 1 view .LVU127
+  48:util.cpp      ****     }
+  49:util.cpp      **** 
+  50:util.cpp      **** }
+ 567              		.loc 6 50 1 view .LVU127
  568 00e6 03B0     		add	sp, sp, #12
  569              		.cfi_remember_state
  570              		.cfi_def_cfa_offset 52
@@ -2817,10 +2818,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  572 00e8 BDEC068B 		vldm	sp!, {d8-d10}
  573              		.cfi_restore 84
  574              		.cfi_restore 85
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 48
+
+
  575              		.cfi_restore 82
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 48
-
-
  576              		.cfi_restore 83
  577              		.cfi_restore 80
  578              		.cfi_restore 81
@@ -2829,10 +2830,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  581              	.LVL32:
  582              	.L24:
  583              		.cfi_restore_state
-  35:util.cpp      ****         return;
- 584              		.loc 6 35 9 is_stmt 1 view .LVU128
-  35:util.cpp      ****         return;
- 585              		.loc 6 35 19 is_stmt 0 view .LVU129
+  36:util.cpp      ****         return;
+ 584              		.loc 6 36 9 is_stmt 1 view .LVU128
+  36:util.cpp      ****         return;
+ 585              		.loc 6 36 19 is_stmt 0 view .LVU129
  586 00f0 0268     		ldr	r2, [r0]	@ float
  587              	.LVL33:
  588              	.LBB291:
@@ -2857,9 +2858,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  601              		.loc 7 1138 2 is_stmt 0 view .LVU135
  602              	.LBE292:
  603              	.LBE291:
-  36:util.cpp      ****     }
- 604              		.loc 6 36 9 is_stmt 1 view .LVU136
- 605              		.loc 6 49 1 is_stmt 0 view .LVU137
+  37:util.cpp      ****     }
+ 604              		.loc 6 37 9 is_stmt 1 view .LVU136
+ 605              		.loc 6 50 1 is_stmt 0 view .LVU137
  606 00f8 03B0     		add	sp, sp, #12
  607              		.cfi_remember_state
  608              		.cfi_def_cfa_offset 52
@@ -2876,18 +2877,18 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  619              	.LVL36:
  620              	.L25:
  621              		.cfi_restore_state
- 622              		.loc 6 49 1 view .LVU138
+ 622              		.loc 6 50 1 view .LVU138
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 49
+
+
  623 0102 F0EE401A 		vmov.f32	s3, s0
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 49
-
-
  624 0106 B0EE681A 		vmov.f32	s2, s17
  625 010a B0EE660A 		vmov.f32	s0, s13
  626              	.LVL37:
- 627              		.loc 6 49 1 view .LVU139
+ 627              		.loc 6 50 1 view .LVU139
  628 010e FFF7FEFF 		bl	__mulsc3
  629              	.LVL38:
- 630              		.loc 6 49 1 view .LVU140
+ 630              		.loc 6 50 1 view .LVU140
  631 0112 B0EE407A 		vmov.f32	s14, s0
  632 0116 F0EE607A 		vmov.f32	s15, s1
  633 011a CFE7     		b	.L20
@@ -2909,146 +2910,146 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  651              	_Z15frequencyToNotefPPKcPi:
  652              	.LVL39:
  653              	.LFB5568:
-  50:util.cpp      **** 
-  51:util.cpp      **** const char* notes[] = { "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
-  52:util.cpp      **** #define C0 16.3515978313f
-  53:util.cpp      **** 
-  54:util.cpp      **** // TODO: wrong octave still
-  55:util.cpp      **** // returns error from closest note (+- 0.5 from note usually)
-  56:util.cpp      **** float frequencyToNote(float freq, const char** note, int* octave)
-  57:util.cpp      **** {
- 654              		.loc 6 57 1 is_stmt 1 view -0
+  51:util.cpp      **** 
+  52:util.cpp      **** const char* notes[] = { "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
+  53:util.cpp      **** #define C0 16.3515978313f
+  54:util.cpp      **** 
+  55:util.cpp      **** // TODO: wrong octave still
+  56:util.cpp      **** // returns error from closest note (+- 0.5 from note usually)
+  57:util.cpp      **** float frequencyToNote(float freq, const char** note, int* octave)
+  58:util.cpp      **** {
+ 654              		.loc 6 58 1 is_stmt 1 view -0
  655              		.cfi_startproc
  656              		@ args = 0, pretend = 0, frame = 0
  657              		@ frame_needed = 0, uses_anonymous_args = 0
-  58:util.cpp      **** 
-  59:util.cpp      ****     // idk i think i did this weird
-  60:util.cpp      ****     float n = 12 * std::log2f(freq / C0);
- 658              		.loc 6 60 5 view .LVU142
- 659              		.loc 6 60 30 is_stmt 0 view .LVU143
+  59:util.cpp      **** 
+  60:util.cpp      ****     // idk i think i did this weird
+  61:util.cpp      ****     float n = 12 * std::log2f(freq / C0);
+ 658              		.loc 6 61 5 view .LVU142
+ 659              		.loc 6 61 30 is_stmt 0 view .LVU143
  660 0000 DFED1F7A 		vldr.32	s15, .L30
-  57:util.cpp      **** 
- 661              		.loc 6 57 1 view .LVU144
+  58:util.cpp      **** 
+ 661              		.loc 6 58 1 view .LVU144
  662 0004 38B5     		push	{r3, r4, r5, lr}
  663              		.cfi_def_cfa_offset 16
  664              		.cfi_offset 3, -16
  665              		.cfi_offset 4, -12
  666              		.cfi_offset 5, -8
  667              		.cfi_offset 14, -4
- 668              		.loc 6 60 30 view .LVU145
+ 668              		.loc 6 61 30 view .LVU145
  669 0006 80EE270A 		vdiv.f32	s0, s0, s15
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 50
+
+
  670              	.LVL40:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 50
-
-
-  57:util.cpp      **** 
- 671              		.loc 6 57 1 view .LVU146
+  58:util.cpp      **** 
+ 671              		.loc 6 58 1 view .LVU146
  672 000a 0546     		mov	r5, r0
  673 000c 0C46     		mov	r4, r1
  674 000e 2DED028B 		vpush.64	{d8}
  675              		.cfi_def_cfa_offset 24
  676              		.cfi_offset 80, -24
  677              		.cfi_offset 81, -20
- 678              		.loc 6 60 30 view .LVU147
+ 678              		.loc 6 61 30 view .LVU147
  679 0012 FFF7FEFF 		bl	log2f
  680              	.LVL41:
-  61:util.cpp      ****     float tone = fmodf(n - 9, 12);
- 681              		.loc 6 61 23 view .LVU148
+  62:util.cpp      ****     float tone = fmodf(n - 9, 12);
+ 681              		.loc 6 62 23 view .LVU148
  682 0016 B2EE088A 		vmov.f32	s16, #1.2e+1
  683 001a FAEE027A 		vmov.f32	s15, #-9.0e+0
-  60:util.cpp      ****     float tone = fmodf(n - 9, 12);
- 684              		.loc 6 60 30 view .LVU149
+  61:util.cpp      ****     float tone = fmodf(n - 9, 12);
+ 684              		.loc 6 61 30 view .LVU149
  685 001e F0EE408A 		vmov.f32	s17, s0
  686              	.LVL42:
- 687              		.loc 6 61 5 is_stmt 1 view .LVU150
- 688              		.loc 6 61 23 is_stmt 0 view .LVU151
+ 687              		.loc 6 62 5 is_stmt 1 view .LVU150
+ 688              		.loc 6 62 23 is_stmt 0 view .LVU151
  689 0022 F0EE480A 		vmov.f32	s1, s16
  690 0026 E0EE087A 		vfma.f32	s15, s0, s16
  691 002a B0EE670A 		vmov.f32	s0, s15
  692              	.LVL43:
- 693              		.loc 6 61 23 view .LVU152
+ 693              		.loc 6 62 23 view .LVU152
  694 002e FFF7FEFF 		bl	fmodf
  695              	.LVL44:
-  62:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
-  63:util.cpp      **** 
-  64:util.cpp      ****     *note = notes[noteNumber];
-  65:util.cpp      ****     *octave = roundf((n - 5) / 12);
- 696              		.loc 6 65 25 view .LVU153
+  63:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+  64:util.cpp      **** 
+  65:util.cpp      ****     *note = notes[noteNumber];
+  66:util.cpp      ****     *octave = roundf((n - 5) / 12);
+ 696              		.loc 6 66 25 view .LVU153
  697 0032 B9EE047A 		vmov.f32	s14, #-5.0e+0
-  62:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
- 698              		.loc 6 62 42 view .LVU154
+  63:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+ 698              		.loc 6 63 42 view .LVU154
  699 0036 F8FE407A 		vrinta.f32	s15, s0
-  62:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
- 700              		.loc 6 62 31 view .LVU155
+  63:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+ 700              		.loc 6 63 31 view .LVU155
  701 003a FDEEE76A 		vcvt.s32.f32	s13, s15
-  66:util.cpp      **** 
-  67:util.cpp      ****     return tone - roundf(tone);
-  68:util.cpp      **** 
-  69:util.cpp      **** }
- 702              		.loc 6 69 1 view .LVU156
+  67:util.cpp      **** 
+  68:util.cpp      ****     return tone - roundf(tone);
+  69:util.cpp      **** 
+  70:util.cpp      **** }
+ 702              		.loc 6 70 1 view .LVU156
  703 003e 30EE670A 		vsub.f32	s0, s0, s15
-  62:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
- 704              		.loc 6 62 9 view .LVU157
+  63:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+ 704              		.loc 6 63 9 view .LVU157
  705 0042 104B     		ldr	r3, .L30+4
-  62:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
- 706              		.loc 6 62 5 is_stmt 1 view .LVU158
+  63:util.cpp      ****     int noteNumber = std::abs((int)roundf(tone)) % 12;
+ 706              		.loc 6 63 5 is_stmt 1 view .LVU158
  707              	.LVL45:
-  64:util.cpp      ****     *octave = roundf((n - 5) / 12);
- 708              		.loc 6 64 5 view .LVU159
-  65:util.cpp      **** 
- 709              		.loc 6 65 25 is_stmt 0 view .LVU160
+  65:util.cpp      ****     *octave = roundf((n - 5) / 12);
+ 708              		.loc 6 65 5 view .LVU159
+  66:util.cpp      **** 
+ 709              		.loc 6 66 25 is_stmt 0 view .LVU160
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 51
+
+
  710 0044 A8EE887A 		vfma.f32	s14, s17, s16
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 51
-
-
-  64:util.cpp      ****     *octave = roundf((n - 5) / 12);
- 711              		.loc 6 64 29 view .LVU161
+  65:util.cpp      ****     *octave = roundf((n - 5) / 12);
+ 711              		.loc 6 65 29 view .LVU161
  712 0048 0F49     		ldr	r1, .L30+8
-  62:util.cpp      **** 
- 713              		.loc 6 62 31 view .LVU162
+  63:util.cpp      **** 
+ 713              		.loc 6 63 31 view .LVU162
  714 004a 16EE902A 		vmov	r2, s13	@ int
-  62:util.cpp      **** 
- 715              		.loc 6 62 30 view .LVU163
+  63:util.cpp      **** 
+ 715              		.loc 6 63 30 view .LVU163
  716 004e 002A     		cmp	r2, #0
  717 0050 B8BF     		it	lt
  718 0052 5242     		rsblt	r2, r2, #0
-  65:util.cpp      **** 
- 719              		.loc 6 65 21 view .LVU164
+  66:util.cpp      **** 
+ 719              		.loc 6 66 21 view .LVU164
  720 0054 C7EE087A 		vdiv.f32	s15, s14, s16
  721              	.LVL46:
-  62:util.cpp      **** 
- 722              		.loc 6 62 9 view .LVU165
+  63:util.cpp      **** 
+ 722              		.loc 6 63 9 view .LVU165
  723 0058 A3FB0203 		umull	r0, r3, r3, r2
  724 005c DB08     		lsrs	r3, r3, #3
  725 005e 03EB4303 		add	r3, r3, r3, lsl #1
  726 0062 A2EB8303 		sub	r3, r2, r3, lsl #2
- 727              		.loc 6 69 1 view .LVU166
+ 727              		.loc 6 70 1 view .LVU166
  728 0066 BDEC028B 		vldm	sp!, {d8}
  729              		.cfi_restore 80
  730              		.cfi_restore 81
  731              		.cfi_def_cfa_offset 16
-  64:util.cpp      ****     *octave = roundf((n - 5) / 12);
- 732              		.loc 6 64 29 view .LVU167
+  65:util.cpp      ****     *octave = roundf((n - 5) / 12);
+ 732              		.loc 6 65 29 view .LVU167
  733 006a 51F82330 		ldr	r3, [r1, r3, lsl #2]
-  64:util.cpp      ****     *octave = roundf((n - 5) / 12);
- 734              		.loc 6 64 11 view .LVU168
+  65:util.cpp      ****     *octave = roundf((n - 5) / 12);
+ 734              		.loc 6 65 11 view .LVU168
  735 006e 2B60     		str	r3, [r5]
-  65:util.cpp      **** 
- 736              		.loc 6 65 5 is_stmt 1 view .LVU169
-  65:util.cpp      **** 
- 737              		.loc 6 65 21 is_stmt 0 view .LVU170
+  66:util.cpp      **** 
+ 736              		.loc 6 66 5 is_stmt 1 view .LVU169
+  66:util.cpp      **** 
+ 737              		.loc 6 66 21 is_stmt 0 view .LVU170
  738 0070 F8FE677A 		vrinta.f32	s15, s15
-  65:util.cpp      **** 
- 739              		.loc 6 65 13 view .LVU171
+  66:util.cpp      **** 
+ 739              		.loc 6 66 13 view .LVU171
  740 0074 FDEEE77A 		vcvt.s32.f32	s15, s15
  741 0078 C4ED007A 		vstr.32	s15, [r4]	@ int
-  67:util.cpp      **** 
- 742              		.loc 6 67 5 is_stmt 1 view .LVU172
- 743              		.loc 6 69 1 is_stmt 0 view .LVU173
+  68:util.cpp      **** 
+ 742              		.loc 6 68 5 is_stmt 1 view .LVU172
+ 743              		.loc 6 70 1 is_stmt 0 view .LVU173
  744 007c 38BD     		pop	{r3, r4, r5, pc}
  745              	.LVL47:
  746              	.L31:
- 747              		.loc 6 69 1 view .LVU174
+ 747              		.loc 6 70 1 view .LVU174
  748 007e 00BF     		.align	2
  749              	.L30:
  750 0080 13D08241 		.word	1099091987
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  753              		.cfi_endproc
  754              	.LFE5568:
  756              		.section	.text._ZN14CircularBufferC2EPfjj,"ax",%progbits
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 52
+
+
  757              		.align	1
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 52
-
-
  758              		.p2align 2,,3
  759              		.global	_ZN14CircularBufferC2EPfjj
  760              		.syntax unified
@@ -3070,32 +3071,32 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  765              	_ZN14CircularBufferC2EPfjj:
  766              	.LVL48:
  767              	.LFB5570:
-  70:util.cpp      **** 
-  71:util.cpp      **** // bloatware / premature abstraction / idrc / idrk
-  72:util.cpp      **** 
-  73:util.cpp      **** CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), writePo
- 768              		.loc 6 73 1 is_stmt 1 view -0
+  71:util.cpp      **** 
+  72:util.cpp      **** // bloatware / premature abstraction / idrc / idrk
+  73:util.cpp      **** 
+  74:util.cpp      **** CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), writePo
+ 768              		.loc 6 74 1 is_stmt 1 view -0
  769              		.cfi_startproc
  770              		@ args = 0, pretend = 0, frame = 0
  771              		@ frame_needed = 0, uses_anonymous_args = 0
  772              		@ link register save eliminated.
  773              	.LBB293:
- 774              		.loc 6 73 139 is_stmt 0 view .LVU176
+ 774              		.loc 6 74 139 is_stmt 0 view .LVU176
  775 0000 0160     		str	r1, [r0]
  776 0002 C260     		str	r2, [r0, #12]
- 777              		.loc 6 73 109 view .LVU177
+ 777              		.loc 6 74 109 view .LVU177
  778 0004 B3FBF2F1 		udiv	r1, r3, r2
  779              	.LVL49:
- 780              		.loc 6 73 109 view .LVU178
+ 780              		.loc 6 74 109 view .LVU178
  781 0008 01FB1232 		mls	r2, r1, r2, r3
  782              	.LVL50:
- 783              		.loc 6 73 139 view .LVU179
+ 783              		.loc 6 74 139 view .LVU179
  784 000c 0023     		movs	r3, #0
  785              	.LVL51:
- 786              		.loc 6 73 139 view .LVU180
+ 786              		.loc 6 74 139 view .LVU180
  787 000e C0E90123 		strd	r2, r3, [r0, #4]
  788              	.LBE293:
- 789              		.loc 6 73 142 view .LVU181
+ 789              		.loc 6 74 142 view .LVU181
  790 0012 7047     		bx	lr
  791              		.cfi_endproc
  792              	.LFE5570:
@@ -3112,30 +3113,30 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  805              	_ZN14CircularBuffer14setWriteOffsetEj:
  806              	.LVL52:
  807              	.LFB5572:
-  74:util.cpp      **** 
-  75:util.cpp      **** void CircularBuffer::setWriteOffset(size_t offset) {
- 808              		.loc 6 75 52 is_stmt 1 view -0
+  75:util.cpp      **** 
+  76:util.cpp      **** void CircularBuffer::setWriteOffset(size_t offset) {
+ 808              		.loc 6 76 52 is_stmt 1 view -0
  809              		.cfi_startproc
  810              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 53
+
+
  811              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 53
-
-
  812              		@ link register save eliminated.
-  76:util.cpp      ****     writePos = (readPos + offset + size) % size;
- 813              		.loc 6 76 5 view .LVU183
- 814              		.loc 6 76 34 is_stmt 0 view .LVU184
+  77:util.cpp      ****     writePos = (readPos + offset + size) % size;
+ 813              		.loc 6 77 5 view .LVU183
+ 814              		.loc 6 77 34 is_stmt 0 view .LVU184
  815 0000 D0E90232 		ldrd	r3, r2, [r0, #8]
  816 0004 1344     		add	r3, r3, r2
  817 0006 1944     		add	r1, r1, r3
  818              	.LVL53:
- 819              		.loc 6 76 42 view .LVU185
+ 819              		.loc 6 77 42 view .LVU185
  820 0008 B1FBF2F3 		udiv	r3, r1, r2
  821 000c 02FB1311 		mls	r1, r2, r3, r1
- 822              		.loc 6 76 14 view .LVU186
+ 822              		.loc 6 77 14 view .LVU186
  823 0010 4160     		str	r1, [r0, #4]
-  77:util.cpp      **** }
- 824              		.loc 6 77 1 view .LVU187
+  78:util.cpp      **** }
+ 824              		.loc 6 78 1 view .LVU187
  825 0012 7047     		bx	lr
  826              		.cfi_endproc
  827              	.LFE5572:
@@ -3150,37 +3151,37 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  838              	_ZN14CircularBuffer13setReadOffsetEj:
  839              	.LVL54:
  840              	.LFB5573:
-  78:util.cpp      **** 
-  79:util.cpp      **** void CircularBuffer::setReadOffset(size_t offset) {
- 841              		.loc 6 79 51 is_stmt 1 view -0
+  79:util.cpp      **** 
+  80:util.cpp      **** void CircularBuffer::setReadOffset(size_t offset) {
+ 841              		.loc 6 80 51 is_stmt 1 view -0
  842              		.cfi_startproc
  843              		@ args = 0, pretend = 0, frame = 0
  844              		@ frame_needed = 0, uses_anonymous_args = 0
  845              		@ link register save eliminated.
-  80:util.cpp      ****     readPos = (writePos - offset + size * 2) % size;
- 846              		.loc 6 80 5 view .LVU189
- 847              		.loc 6 80 25 is_stmt 0 view .LVU190
+  81:util.cpp      ****     readPos = (writePos - offset + size * 2) % size;
+ 846              		.loc 6 81 5 view .LVU189
+ 847              		.loc 6 81 25 is_stmt 0 view .LVU190
  848 0000 4368     		ldr	r3, [r0, #4]
- 849              		.loc 6 80 36 view .LVU191
+ 849              		.loc 6 81 36 view .LVU191
  850 0002 C268     		ldr	r2, [r0, #12]
- 851              		.loc 6 80 25 view .LVU192
+ 851              		.loc 6 81 25 view .LVU192
  852 0004 591A     		subs	r1, r3, r1
  853              	.LVL55:
- 854              		.loc 6 80 34 view .LVU193
+ 854              		.loc 6 81 34 view .LVU193
  855 0006 01EB4201 		add	r1, r1, r2, lsl #1
- 856              		.loc 6 80 46 view .LVU194
+ 856              		.loc 6 81 46 view .LVU194
  857 000a B1FBF2F3 		udiv	r3, r1, r2
  858 000e 02FB1311 		mls	r1, r2, r3, r1
- 859              		.loc 6 80 13 view .LVU195
+ 859              		.loc 6 81 13 view .LVU195
  860 0012 8160     		str	r1, [r0, #8]
-  81:util.cpp      **** }
- 861              		.loc 6 81 1 view .LVU196
+  82:util.cpp      **** }
+ 861              		.loc 6 82 1 view .LVU196
  862 0014 7047     		bx	lr
  863              		.cfi_endproc
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 54
+
+
  864              	.LFE5573:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 54
-
-
  866 0016 00BF     		.section	.text._ZN14CircularBuffer8readNextEv,"ax",%progbits
  867              		.align	1
  868              		.p2align 2,,3
@@ -3192,57 +3193,57 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  875              	_ZN14CircularBuffer8readNextEv:
  876              	.LVL56:
  877              	.LFB5574:
-  82:util.cpp      **** 
-  83:util.cpp      **** float CircularBuffer::readNext() {
- 878              		.loc 6 83 34 is_stmt 1 view -0
+  83:util.cpp      **** 
+  84:util.cpp      **** float CircularBuffer::readNext() {
+ 878              		.loc 6 84 34 is_stmt 1 view -0
  879              		.cfi_startproc
  880              		@ args = 0, pretend = 0, frame = 0
  881              		@ frame_needed = 0, uses_anonymous_args = 0
  882              		@ link register save eliminated.
-  84:util.cpp      ****     float f = buffer[readPos];
- 883              		.loc 6 84 5 view .LVU198
- 884              		.loc 6 84 22 is_stmt 0 view .LVU199
+  85:util.cpp      ****     float f = buffer[readPos];
+ 883              		.loc 6 85 5 view .LVU198
+ 884              		.loc 6 85 22 is_stmt 0 view .LVU199
  885 0000 8368     		ldr	r3, [r0, #8]
- 886              		.loc 6 84 11 view .LVU200
+ 886              		.loc 6 85 11 view .LVU200
  887 0002 0268     		ldr	r2, [r0]
-  85:util.cpp      ****     readPos++;
-  86:util.cpp      **** 
-  87:util.cpp      ****     if (readPos >= size) // this might be faster than mod idk if it matters tho
- 888              		.loc 6 87 5 view .LVU201
+  86:util.cpp      ****     readPos++;
+  87:util.cpp      **** 
+  88:util.cpp      ****     if (readPos >= size) // this might be faster than mod idk if it matters tho
+ 888              		.loc 6 88 5 view .LVU201
  889 0004 C168     		ldr	r1, [r0, #12]
-  84:util.cpp      ****     float f = buffer[readPos];
- 890              		.loc 6 84 11 view .LVU202
+  85:util.cpp      ****     float f = buffer[readPos];
+ 890              		.loc 6 85 11 view .LVU202
  891 0006 02EB8302 		add	r2, r2, r3, lsl #2
-  85:util.cpp      ****     readPos++;
- 892              		.loc 6 85 12 view .LVU203
+  86:util.cpp      ****     readPos++;
+ 892              		.loc 6 86 12 view .LVU203
  893 000a 0133     		adds	r3, r3, #1
- 894              		.loc 6 87 5 view .LVU204
+ 894              		.loc 6 88 5 view .LVU204
  895 000c 8B42     		cmp	r3, r1
-  84:util.cpp      ****     float f = buffer[readPos];
- 896              		.loc 6 84 11 view .LVU205
+  85:util.cpp      ****     float f = buffer[readPos];
+ 896              		.loc 6 85 11 view .LVU205
  897 000e 92ED000A 		vldr.32	s0, [r2]
  898              	.LVL57:
-  85:util.cpp      ****     readPos++;
- 899              		.loc 6 85 5 is_stmt 1 view .LVU206
-  85:util.cpp      ****     readPos++;
- 900              		.loc 6 85 12 is_stmt 0 view .LVU207
+  86:util.cpp      ****     readPos++;
+ 899              		.loc 6 86 5 is_stmt 1 view .LVU206
+  86:util.cpp      ****     readPos++;
+ 900              		.loc 6 86 12 is_stmt 0 view .LVU207
  901 0012 8360     		str	r3, [r0, #8]
- 902              		.loc 6 87 5 is_stmt 1 view .LVU208
+ 902              		.loc 6 88 5 is_stmt 1 view .LVU208
  903 0014 01D3     		bcc	.L35
-  88:util.cpp      ****         readPos = 0;
- 904              		.loc 6 88 9 view .LVU209
- 905              		.loc 6 88 17 is_stmt 0 view .LVU210
+  89:util.cpp      ****         readPos = 0;
+ 904              		.loc 6 89 9 view .LVU209
+ 905              		.loc 6 89 17 is_stmt 0 view .LVU210
  906 0016 0023     		movs	r3, #0
  907 0018 8360     		str	r3, [r0, #8]
-  89:util.cpp      ****     
-  90:util.cpp      ****     return f;
- 908              		.loc 6 90 5 is_stmt 1 view .LVU211
+  90:util.cpp      ****     
+  91:util.cpp      ****     return f;
+ 908              		.loc 6 91 5 is_stmt 1 view .LVU211
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 55
+
+
  909              	.L35:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 55
-
-
-  91:util.cpp      **** }
- 910              		.loc 6 91 1 is_stmt 0 view .LVU212
+  92:util.cpp      **** }
+ 910              		.loc 6 92 1 is_stmt 0 view .LVU212
  911 001a 7047     		bx	lr
  912              		.cfi_endproc
  913              	.LFE5574:
@@ -3257,51 +3258,51 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  924              	_ZN14CircularBuffer9writeNextEf:
  925              	.LVL58:
  926              	.LFB5575:
-  92:util.cpp      **** 
-  93:util.cpp      **** void CircularBuffer::writeNext(float f) {
- 927              		.loc 6 93 41 is_stmt 1 view -0
+  93:util.cpp      **** 
+  94:util.cpp      **** void CircularBuffer::writeNext(float f) {
+ 927              		.loc 6 94 41 is_stmt 1 view -0
  928              		.cfi_startproc
  929              		@ args = 0, pretend = 0, frame = 0
  930              		@ frame_needed = 0, uses_anonymous_args = 0
  931              		@ link register save eliminated.
-  94:util.cpp      ****     buffer[writePos] = f;
- 932              		.loc 6 94 5 view .LVU214
- 933              		.loc 6 94 22 is_stmt 0 view .LVU215
+  95:util.cpp      ****     buffer[writePos] = f;
+ 932              		.loc 6 95 5 view .LVU214
+ 933              		.loc 6 95 22 is_stmt 0 view .LVU215
  934 0000 D0E90023 		ldrd	r2, r3, [r0]
-  95:util.cpp      ****     writePos++;
-  96:util.cpp      **** 
-  97:util.cpp      ****     if (writePos >= size)
- 935              		.loc 6 97 5 view .LVU216
+  96:util.cpp      ****     writePos++;
+  97:util.cpp      **** 
+  98:util.cpp      ****     if (writePos >= size)
+ 935              		.loc 6 98 5 view .LVU216
  936 0004 C168     		ldr	r1, [r0, #12]
-  94:util.cpp      ****     buffer[writePos] = f;
- 937              		.loc 6 94 22 view .LVU217
+  95:util.cpp      ****     buffer[writePos] = f;
+ 937              		.loc 6 95 22 view .LVU217
  938 0006 02EB8302 		add	r2, r2, r3, lsl #2
-  95:util.cpp      ****     writePos++;
- 939              		.loc 6 95 13 view .LVU218
+  96:util.cpp      ****     writePos++;
+ 939              		.loc 6 96 13 view .LVU218
  940 000a 0133     		adds	r3, r3, #1
- 941              		.loc 6 97 5 view .LVU219
+ 941              		.loc 6 98 5 view .LVU219
  942 000c 8B42     		cmp	r3, r1
-  94:util.cpp      ****     buffer[writePos] = f;
- 943              		.loc 6 94 22 view .LVU220
+  95:util.cpp      ****     buffer[writePos] = f;
+ 943              		.loc 6 95 22 view .LVU220
  944 000e 82ED000A 		vstr.32	s0, [r2]
-  95:util.cpp      ****     writePos++;
- 945              		.loc 6 95 5 is_stmt 1 view .LVU221
-  95:util.cpp      ****     writePos++;
- 946              		.loc 6 95 13 is_stmt 0 view .LVU222
+  96:util.cpp      ****     writePos++;
+ 945              		.loc 6 96 5 is_stmt 1 view .LVU221
+  96:util.cpp      ****     writePos++;
+ 946              		.loc 6 96 13 is_stmt 0 view .LVU222
  947 0012 4360     		str	r3, [r0, #4]
- 948              		.loc 6 97 5 is_stmt 1 view .LVU223
+ 948              		.loc 6 98 5 is_stmt 1 view .LVU223
  949 0014 01D3     		bcc	.L37
-  98:util.cpp      ****         writePos = 0;
- 950              		.loc 6 98 9 view .LVU224
- 951              		.loc 6 98 18 is_stmt 0 view .LVU225
+  99:util.cpp      ****         writePos = 0;
+ 950              		.loc 6 99 9 view .LVU224
+ 951              		.loc 6 99 18 is_stmt 0 view .LVU225
  952 0016 0023     		movs	r3, #0
  953 0018 4360     		str	r3, [r0, #4]
  954              	.L37:
-  99:util.cpp      **** }
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 56
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 56
 
 
- 955              		.loc 6 99 1 view .LVU226
+ 100:util.cpp      **** }
+ 955              		.loc 6 100 1 view .LVU226
  956 001a 7047     		bx	lr
  957              		.cfi_endproc
  958              	.LFE5575:
@@ -3316,22 +3317,22 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  969              	_ZN14CircularBuffer5resetEv:
  970              	.LVL59:
  971              	.LFB5576:
- 100:util.cpp      **** 
- 101:util.cpp      **** void CircularBuffer::reset() {
- 972              		.loc 6 101 30 is_stmt 1 view -0
+ 101:util.cpp      **** 
+ 102:util.cpp      **** void CircularBuffer::reset() {
+ 972              		.loc 6 102 30 is_stmt 1 view -0
  973              		.cfi_startproc
  974              		@ args = 0, pretend = 0, frame = 0
  975              		@ frame_needed = 0, uses_anonymous_args = 0
  976              		@ link register save eliminated.
- 102:util.cpp      ****     writePos = 0; 
- 977              		.loc 6 102 5 view .LVU228
- 978              		.loc 6 102 14 is_stmt 0 view .LVU229
+ 103:util.cpp      ****     writePos = 0; 
+ 977              		.loc 6 103 5 view .LVU228
+ 978              		.loc 6 103 14 is_stmt 0 view .LVU229
  979 0000 0023     		movs	r3, #0
- 103:util.cpp      ****     readPos = 0;
- 980              		.loc 6 103 13 view .LVU230
+ 104:util.cpp      ****     readPos = 0;
+ 980              		.loc 6 104 13 view .LVU230
  981 0002 C0E90133 		strd	r3, r3, [r0, #4]
- 104:util.cpp      **** }
- 982              		.loc 6 104 1 view .LVU231
+ 105:util.cpp      **** }
+ 982              		.loc 6 105 1 view .LVU231
  983 0006 7047     		bx	lr
  984              		.cfi_endproc
  985              	.LFE5576:
@@ -3344,26 +3345,66 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  993              		.fpu fpv5-d16
  995              	_GLOBAL__sub_I_sdramBuffer:
  996              	.LFB6254:
- 105:util.cpp      **** 
- 106:util.cpp      **** daisy::DaisySeed hw;
- 107:util.cpp      **** 
- 108:util.cpp      **** daisy::PersistentStorage<PersistentSettings> persistentData = daisy::PersistentStorage<PersistentSe
- 109:util.cpp      **** 
- 110:util.cpp      **** VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
- 111:util.cpp      **** ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
- 112:util.cpp      **** 
- 113:util.cpp      **** EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
- 114:util.cpp      **** EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS];
- 997              		.loc 6 114 58 is_stmt 1 view -0
+ 106:util.cpp      **** 
+ 107:util.cpp      **** daisy::DaisySeed hw;
+ 108:util.cpp      **** 
+ 109:util.cpp      **** daisy::PersistentStorage<PersistentSettings> persistentData = daisy::PersistentStorage<PersistentSe
+ 110:util.cpp      **** 
+ 111:util.cpp      **** VariableControl* potentiometers[NUM_VARIABLE_CONTROLS];
+ 112:util.cpp      **** ToggleControl* buttons[NUM_TOGGLE_CONTROLS];
+ 113:util.cpp      **** 
+ 114:util.cpp      **** EffectParameter<bool>* boolParams[NUM_BOOL_PARAMETERS];
+ 115:util.cpp      **** EffectParameter<float>* floatParams[NUM_FLOAT_PARAMETERS];
+ 116:util.cpp      **** 
+ 117:util.cpp      **** 
+ 118:util.cpp      **** // this is kinda funny
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 57
+
+
+ 119:util.cpp      **** float metronomeClick[METRONOME_CLICK_SIZE] = {
+ 120:util.cpp      ****     -0.010623467159747829f, -0.01692029648317038f, 0.08606621627047016f, 0.06391824039813049f, -0.1
+ 121:util.cpp      ****     -0.6477149131930037f, -0.2696001530949027f, 0.2868511082077637f, 0.6868552568773065f, 0.5607286
+ 122:util.cpp      ****     -0.19336426267091383f, -0.03237802909332236f, 0.07163165513036385f, 0.07108289751740307f, -0.02
+ 123:util.cpp      ****     -0.017589341857279346f, -0.022675227384397402f, -0.008462528702087016f, -0.07071793082669281f, 
+ 124:util.cpp      ****     -0.08542227749033937f, -0.08683497462739934f, -0.05162549766321923f, 0.028640881194100194f, 0.0
+ 125:util.cpp      ****     0.1462757588114011f, 0.08718552444464785f, -0.00477362098394596f, -0.04703688623711322f, -0.045
+ 126:util.cpp      ****     -0.024243526172006282f, 0.002826757730369809f, 0.01401055232342824f, 0.008218072358620387f, -0.
+ 127:util.cpp      ****     -0.04890145363700644f, 0.010809448552694846f, 0.052579697246001894f, 0.05457148703493713f, 0.03
+ 128:util.cpp      ****     -0.01138185058319096f, -0.008063995283126828f, -0.01161268726532007f, -0.01852396690217963f, -0
+ 129:util.cpp      ****     0.027546416980934525f, 0.030259769423985748f, 0.017934748911268426f, -0.010012453426612753f, -0
+ 130:util.cpp      ****     -0.014491852379633045f, -0.003907282372893431f, 0.001606391277912255f, -0.01069094334295529f, -
+ 131:util.cpp      ****     -0.04302596302843931f, -0.047253761462519764f, -0.023060716699371448f, 0.007620930675240667f, 0
+ 132:util.cpp      ****     -0.021020669499887467f, -0.03155961634198186f, -0.024828372534750204f, -0.00029350584386545506f
+ 133:util.cpp      ****     0.01945025661003322f, 0.028296779854361333f, 0.025271676492538152f, 0.021295430148623617f, 0.00
+ 134:util.cpp      ****     0.05099708589305966f, 0.06657573583842057f, 0.04190413655801869f, -0.008551221344876672f, -0.04
+ 135:util.cpp      ****     0.022706264640533488f, 0.014419836930194795f, 0.005353193732608666f, -0.0019747326159732102f, 0
+ 136:util.cpp      ****     -0.01452187263151718f, -0.024026907991630448f, -0.027878589941132157f, -0.014281038201544917f, 
+ 137:util.cpp      ****     0.013652028522292166f, 0.008484468799310023f, -0.006842452570256988f, -0.002241286915839318f, 0
+ 138:util.cpp      ****     0.023220384504283025f, 0.016903763644818107f, 0.013503233908444287f, -0.006378699097027396f, -0
+ 139:util.cpp      ****     0.025211883720574847f, 0.010280610998291808f, -0.008510841060667691f, -0.025538969796867563f, -
+ 140:util.cpp      ****     0.012975079013488757f, 0.022790899510863657f, 0.010952299465868762f, -0.017149446540116076f, -0
+ 141:util.cpp      ****     0.03533888982391865f, 0.031731344774240326f, 0.006667458455389114f, -0.02250548639451409f, -0.0
+ 142:util.cpp      ****     0.007295803170323281f, 0.006470811556312634f, -0.004023759162064529f, -0.0030326396241004763f, 
+ 143:util.cpp      ****     -0.010045504202156098f, -0.01391931903265385f, -0.013033892965425687f, -0.010006858971904432f, 
+ 144:util.cpp      ****     -0.002825316974346208f, -0.00029543461291838186f, 0.0018081623137966554f, 0.002482721117549912f
+ 145:util.cpp      ****     0.014870366088519976f, 0.02106906288353217f, 0.012135270988631654f, 0.0028150938464398933f, -0.
+ 146:util.cpp      ****     0.02744630911734249f, 0.01930850186353014f, 0.006087495016906175f, -0.005421020093104346f, -0.0
+ 147:util.cpp      ****     0.00582240568745062f, 0.004657211715661554f, 0.0037324549647664907f, 0.0009453915995291395f, -0
+ 148:util.cpp      ****     0.004596732558960436f, 0.008804326881097783f, 0.0082296915390667f, 0.0046152966118488915f, -0.0
+ 149:util.cpp      ****     -0.006421887784461439f, -0.0021981541077597784f, 0.0016418183230058375f, 0.0008572177034137853f
+ 150:util.cpp      ****     -0.0015993178829547567f, -0.0035787131653999505f, -0.0049419975862568235f, -0.00396781414932003
+ 151:util.cpp      ****     -0.002870140598560749f, -0.004021705130125259f, -0.002993491479658285f, -0.0004649581389804176f
+ 152:util.cpp      ****     -0.0061525860829989365f, -0.002524356358928772f, 0.00029874360202753153f, 0.0037208423035782028
+ 153:util.cpp      ****     -0.00865228195146298f, -0.004775797950465138f, 0.0025015254516627295f, 0.008254715245335695f, 0
+ 154:util.cpp      ****     -0.0016236817471793302f, -0.0018727006399411245f, -0.001635670662687938f, -0.000135573092911193
+ 155:util.cpp      **** };
+ 997              		.loc 6 155 2 is_stmt 1 view -0
  998              		.cfi_startproc
  999              		@ args = 0, pretend = 0, frame = 0
  1000              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 57
-
-
  1001              	.LBB318:
  1002              	.LBI318:
- 1003              		.loc 6 114 58 view .LVU233
+ 1003              		.loc 6 155 2 view .LVU233
  1004              	.LVL60:
  1005              	.LBB319:
  1006              	.LBB320:
@@ -3377,6 +3418,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
    1:../../libDaisy/src/per/qspi.h **** #ifndef DSY_QSPI
    2:../../libDaisy/src/per/qspi.h **** #define DSY_QSPI /**< Macro */
    3:../../libDaisy/src/per/qspi.h **** 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 58
+
+
    4:../../libDaisy/src/per/qspi.h **** #ifndef UNIT_TEST // for unit tests, a dummy implementation
    5:../../libDaisy/src/per/qspi.h **** 
    6:../../libDaisy/src/per/qspi.h **** #include <cstdint>
@@ -3418,9 +3462,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   42:../../libDaisy/src/per/qspi.h ****          * 
   43:../../libDaisy/src/per/qspi.h ****          *  \param GOOD - No errors have been reported.
   44:../../libDaisy/src/per/qspi.h ****          *  \param E_HAL_ERROR - HAL code did not return HAL_OK.
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 58
-
-
   45:../../libDaisy/src/per/qspi.h ****          *  \param E_SWITCHING_MODES - An error was encountered while switching QSPI peripheral mod
   46:../../libDaisy/src/per/qspi.h ****          *  \param E_INVALID_MODE - QSPI should not be written to while the program is executing fr
   47:../../libDaisy/src/per/qspi.h ****          */
@@ -3437,6 +3478,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   58:../../libDaisy/src/per/qspi.h ****     {
   59:../../libDaisy/src/per/qspi.h ****         /** Flash Devices supported. (Both of these are more-or-less the same, just different sizes
   60:../../libDaisy/src/per/qspi.h ****         enum Device
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 59
+
+
   61:../../libDaisy/src/per/qspi.h ****         {
   62:../../libDaisy/src/per/qspi.h ****             IS25LP080D,  /**< & */
   63:../../libDaisy/src/per/qspi.h ****             IS25LP064A,  /**< & */
@@ -3478,9 +3522,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   99:../../libDaisy/src/per/qspi.h ****         \return Result::OK or Result::ERR
  100:../../libDaisy/src/per/qspi.h ****         */
  101:../../libDaisy/src/per/qspi.h ****     Result Init(const Config& config);
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 59
-
-
  102:../../libDaisy/src/per/qspi.h **** 
  103:../../libDaisy/src/per/qspi.h ****     /** Returns the current config. */
  104:../../libDaisy/src/per/qspi.h ****     const Config& GetConfig() const;
@@ -3497,6 +3538,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  115:../../libDaisy/src/per/qspi.h ****     /** 
  116:../../libDaisy/src/per/qspi.h ****         Writes a single page to to the specified address on the QSPI chip.
  117:../../libDaisy/src/per/qspi.h ****         For IS25LP*, page size is 256 bytes.
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 60
+
+
  118:../../libDaisy/src/per/qspi.h ****         \param address Address to write to
  119:../../libDaisy/src/per/qspi.h ****         \param size Buffer size
  120:../../libDaisy/src/per/qspi.h ****         \param buffer Buffer to write
@@ -3538,9 +3582,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  156:../../libDaisy/src/per/qspi.h **** 
  157:../../libDaisy/src/per/qspi.h ****     /** Returns a pointer to the actual memory used 
  158:../../libDaisy/src/per/qspi.h ****      *  The memory at this address is read-only
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 60
-
-
  159:../../libDaisy/src/per/qspi.h ****      *  to write to it use the Write function.
  160:../../libDaisy/src/per/qspi.h ****      * 
  161:../../libDaisy/src/per/qspi.h ****      *  \param offset returns the pointer starting this 
@@ -3555,8 +3596,11 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1016              	.LBE320:
  1017              	.LBE319:
  1018              	.LBE318:
- 1019              		.loc 6 114 58 is_stmt 0 view .LVU236
+ 1019              		.loc 6 155 2 is_stmt 0 view .LVU236
  1020 0000 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 61
+
+
  1021              		.cfi_def_cfa_offset 16
  1022              		.cfi_offset 4, -16
  1023              		.cfi_offset 5, -12
@@ -3598,9 +3642,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   15:../../libDaisy/src/util/PersistentStorage.h ****  * 
   16:../../libDaisy/src/util/PersistentStorage.h ****  *  \todo - Make Save() non-blocking
   17:../../libDaisy/src/util/PersistentStorage.h ****  *  \todo - Add wear leveling
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 61
-
-
   18:../../libDaisy/src/util/PersistentStorage.h ****  * 
   19:../../libDaisy/src/util/PersistentStorage.h ****  **/
   20:../../libDaisy/src/util/PersistentStorage.h **** template <typename SettingStruct>
@@ -3617,6 +3658,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   31:../../libDaisy/src/util/PersistentStorage.h ****      *  target address, the defaults will be written to that location,
   32:../../libDaisy/src/util/PersistentStorage.h ****      *  and the state will be set to FACTORY.
   33:../../libDaisy/src/util/PersistentStorage.h ****      * 
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 62
+
+
   34:../../libDaisy/src/util/PersistentStorage.h ****      *  Once the first user-trigger save has been made, the state will be 
   35:../../libDaisy/src/util/PersistentStorage.h ****      *  updated to USER to indicate that the defaults have overwritten.
   36:../../libDaisy/src/util/PersistentStorage.h ****      */
@@ -3641,8 +3685,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1047              	.LBE346:
  1048              	.LBE345:
  1049              	.LBE344:
- 106:util.cpp      **** 
- 1050              		.loc 6 106 18 view .LVU239
+ 107:util.cpp      **** 
+ 1050              		.loc 6 107 18 view .LVU239
  1051 0008 0E4A     		ldr	r2, .L42+8
  1052 000a 2846     		mov	r0, r5
  1053 000c 0E49     		ldr	r1, .L42+12
@@ -3658,9 +3702,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1063              	.LBE325:
  1064              	.LBE326:
  1065              	.LBE328:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 62
-
-
  1066              	.LBB329:
  1067              	.LBI329:
   95:../../libDaisy/src/hid/audio.h ****     ~AudioHandle() {}
@@ -3677,6 +3718,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1076              	.LBE330:
  1077              	.LBE329:
  1078              	.LBB332:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 63
+
+
  1079              	.LBI332:
  109:../../libDaisy/src/per/adc.h ****     ~AdcHandle() {}
  1080              		.loc 4 109 5 is_stmt 1 view .LVU245
@@ -3718,9 +3762,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   30:../../libDaisy/src/per/dac.h **** 
   31:../../libDaisy/src/per/dac.h ****     /** Selects which channel(s) will be configured for use. */
   32:../../libDaisy/src/per/dac.h ****     enum class Channel
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 63
-
-
   33:../../libDaisy/src/per/dac.h ****     {
   34:../../libDaisy/src/per/dac.h ****         ONE,
   35:../../libDaisy/src/per/dac.h ****         TWO,
@@ -3737,6 +3778,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   46:../../libDaisy/src/per/dac.h ****     enum class Mode
   47:../../libDaisy/src/per/dac.h ****     {
   48:../../libDaisy/src/per/dac.h ****         POLLING,
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 64
+
+
   49:../../libDaisy/src/per/dac.h ****         DMA,
   50:../../libDaisy/src/per/dac.h ****     };
   51:../../libDaisy/src/per/dac.h **** 
@@ -3778,9 +3822,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1088              	.LBB335:
  1089              		.loc 11 84 33 is_stmt 0 view .LVU248
  1090 0012 2C62     		str	r4, [r5, #32]
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 64
-
-
  1091              	.LVL63:
  1092              		.loc 11 84 33 view .LVU249
  1093              	.LBE335:
@@ -3797,6 +3838,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1102              	.LBI337:
   96:../../libDaisy/src/sys/system.h ****     ~System() {}
  1103              		.loc 2 96 5 is_stmt 1 view .LVU252
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 65
+
+
   96:../../libDaisy/src/sys/system.h ****     ~System() {}
  1104              		.loc 2 96 5 is_stmt 0 view .LVU253
  1105              	.LBE337:
@@ -3838,9 +3882,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   33:../../libDaisy/src/per/sai.h ****  *  sai_config.pin_config.sck  = {DSY_GPIOE, 5};
   34:../../libDaisy/src/per/sai.h ****  *  sai_config.pin_config.sa   = {DSY_GPIOE, 6};
   35:../../libDaisy/src/per/sai.h ****  *  sai_config.pin_config.sb   = {DSY_GPIOE, 3};
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 65
-
-
   36:../../libDaisy/src/per/sai.h ****  *  // Then Initialize
   37:../../libDaisy/src/per/sai.h ****  *  SaiHandle sai;
   38:../../libDaisy/src/per/sai.h ****  *  sai.Init(sai_config);
@@ -3857,6 +3898,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   49:../../libDaisy/src/per/sai.h ****         enum class Peripheral
   50:../../libDaisy/src/per/sai.h ****         {
   51:../../libDaisy/src/per/sai.h ****             SAI_1,
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 66
+
+
   52:../../libDaisy/src/per/sai.h ****             SAI_2,
   53:../../libDaisy/src/per/sai.h ****         };
   54:../../libDaisy/src/per/sai.h **** 
@@ -3898,9 +3942,6 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
   90:../../libDaisy/src/per/sai.h ****         Peripheral periph;
   91:../../libDaisy/src/per/sai.h ****         struct
   92:../../libDaisy/src/per/sai.h ****         {
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 66
-
-
   93:../../libDaisy/src/per/sai.h ****             dsy_gpio_pin mclk, fs, sck, sa, sb;
   94:../../libDaisy/src/per/sai.h ****         } pin_config;
   95:../../libDaisy/src/per/sai.h ****         SampleRate sr;
@@ -3917,6 +3958,9 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  106:../../libDaisy/src/per/sai.h ****     };
  107:../../libDaisy/src/per/sai.h **** 
  108:../../libDaisy/src/per/sai.h ****     SaiHandle() : pimpl_(nullptr) {}
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 67
+
+
  1109              		.loc 12 108 5 is_stmt 1 view .LVU254
  1110              	.LBB339:
  1111              	.LBB340:
@@ -3929,8 +3973,8 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1118              	.LBE338:
  1119              	.LBE342:
  1120              	.LBE349:
- 106:util.cpp      **** 
- 1121              		.loc 6 106 18 view .LVU257
+ 107:util.cpp      **** 
+ 1121              		.loc 6 107 18 view .LVU257
  1122 0016 FFF7FEFF 		bl	__aeabi_atexit
  1123              	.LVL65:
  1124              	.LBB350:
@@ -3940,29 +3984,26 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1127              	.LBB348:
  1128              	.LBB347:
  1129              		.loc 10 52 28 is_stmt 0 view .LVU259
- 1130 001a 7022     		movs	r2, #112
+ 1130 001a B822     		movs	r2, #184
  1131 001c 2146     		mov	r1, r4
  1132 001e 06F10800 		add	r0, r6, #8
  1133 0022 C6E90054 		strd	r5, r4, [r6]
  1134 0026 FFF7FEFF 		bl	memset
  1135              	.LVL66:
- 1136 002a 7022     		movs	r2, #112
+ 1136 002a B822     		movs	r2, #184
  1137 002c 2146     		mov	r1, r4
- 1138 002e 06F17800 		add	r0, r6, #120
+ 1138 002e 06F1C000 		add	r0, r6, #192
  1139 0032 FFF7FEFF 		bl	memset
  1140              	.LVL67:
- 1141 0036 C6F8E840 		str	r4, [r6, #232]
+ 1141 0036 C6F87841 		str	r4, [r6, #376]
  1142              	.LVL68:
  1143              		.loc 10 52 28 view .LVU260
  1144              	.LBE347:
  1145              	.LBE348:
  1146              	.LBE350:
  1147              	.LBE351:
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 67
-
-
  1148              	.LBE352:
- 1149              		.loc 6 114 58 view .LVU261
+ 1149              		.loc 6 155 2 view .LVU261
  1150 003a 70BD     		pop	{r4, r5, r6, pc}
  1151              	.L43:
  1152              		.align	2
@@ -3976,250 +4017,984 @@ ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 1
  1161              		.section	.init_array,"aw",%init_array
  1162              		.align	2
  1163 0000 00000000 		.word	_GLOBAL__sub_I_sdramBuffer(target1)
- 1164              		.global	floatParams
- 1165              		.global	boolParams
- 1166              		.global	buttons
- 1167              		.global	potentiometers
- 1168              		.global	persistentData
- 1169              		.global	hw
- 1170              		.global	notes
- 1171              		.section	.rodata.str1.4,"aMS",%progbits,1
- 1172              		.align	2
- 1173              	.LC0:
- 1174 0000 4100     		.ascii	"A\000"
- 1175 0002 0000     		.align	2
- 1176              	.LC1:
- 1177 0004 412300   		.ascii	"A#\000"
- 1178 0007 00       		.align	2
- 1179              	.LC2:
- 1180 0008 4200     		.ascii	"B\000"
- 1181 000a 0000     		.align	2
- 1182              	.LC3:
- 1183 000c 4300     		.ascii	"C\000"
- 1184 000e 0000     		.align	2
- 1185              	.LC4:
- 1186 0010 432300   		.ascii	"C#\000"
- 1187 0013 00       		.align	2
- 1188              	.LC5:
- 1189 0014 4400     		.ascii	"D\000"
- 1190 0016 0000     		.align	2
- 1191              	.LC6:
- 1192 0018 442300   		.ascii	"D#\000"
- 1193 001b 00       		.align	2
- 1194              	.LC7:
- 1195 001c 4500     		.ascii	"E\000"
- 1196 001e 0000     		.align	2
- 1197              	.LC8:
- 1198 0020 4600     		.ascii	"F\000"
- 1199 0022 0000     		.align	2
- 1200              	.LC9:
- 1201 0024 462300   		.ascii	"F#\000"
- 1202 0027 00       		.align	2
- 1203              	.LC10:
- 1204 0028 4700     		.ascii	"G\000"
- 1205 002a 0000     		.align	2
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 68
+ 1164              		.global	metronomeClick
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 68
 
 
- 1206              	.LC11:
- 1207 002c 472300   		.ascii	"G#\000"
- 1208              		.global	nextOffset
- 1209              		.global	sdramBuffer
- 1210              		.section	.bss.boolParams,"aw",%nobits
- 1211              		.align	2
- 1214              	boolParams:
- 1215 0000 00000000 		.space	28
- 1215      00000000 
- 1215      00000000 
- 1215      00000000 
- 1215      00000000 
- 1216              		.section	.bss.buttons,"aw",%nobits
- 1217              		.align	2
- 1220              	buttons:
- 1221 0000 00000000 		.space	16
- 1221      00000000 
- 1221      00000000 
- 1221      00000000 
- 1222              		.section	.bss.floatParams,"aw",%nobits
- 1223              		.align	2
- 1226              	floatParams:
- 1227 0000 00000000 		.space	28
- 1227      00000000 
- 1227      00000000 
- 1227      00000000 
- 1227      00000000 
- 1228              		.section	.bss.hw,"aw",%nobits
- 1229              		.align	2
- 1230              		.set	.LANCHOR2,. + 0
- 1233              	hw:
- 1234 0000 00000000 		.space	64
- 1234      00000000 
- 1234      00000000 
- 1234      00000000 
- 1234      00000000 
- 1235              		.section	.bss.nextOffset,"aw",%nobits
- 1236              		.align	2
- 1237              		.set	.LANCHOR0,. + 0
- 1240              	nextOffset:
- 1241 0000 00000000 		.space	4
- 1242              		.section	.bss.persistentData,"aw",%nobits
- 1243              		.align	2
- 1244              		.set	.LANCHOR3,. + 0
- 1247              	persistentData:
- 1248 0000 00000000 		.space	236
- 1248      00000000 
- 1248      00000000 
- 1248      00000000 
- 1248      00000000 
- 1249              		.section	.bss.potentiometers,"aw",%nobits
- 1250              		.align	2
- 1253              	potentiometers:
- 1254 0000 00000000 		.space	16
- 1254      00000000 
- 1254      00000000 
- 1254      00000000 
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 69
+ 1165              		.global	floatParams
+ 1166              		.global	boolParams
+ 1167              		.global	buttons
+ 1168              		.global	potentiometers
+ 1169              		.global	persistentData
+ 1170              		.global	hw
+ 1171              		.global	notes
+ 1172              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1173              		.align	2
+ 1174              	.LC0:
+ 1175 0000 4100     		.ascii	"A\000"
+ 1176 0002 0000     		.align	2
+ 1177              	.LC1:
+ 1178 0004 412300   		.ascii	"A#\000"
+ 1179 0007 00       		.align	2
+ 1180              	.LC2:
+ 1181 0008 4200     		.ascii	"B\000"
+ 1182 000a 0000     		.align	2
+ 1183              	.LC3:
+ 1184 000c 4300     		.ascii	"C\000"
+ 1185 000e 0000     		.align	2
+ 1186              	.LC4:
+ 1187 0010 432300   		.ascii	"C#\000"
+ 1188 0013 00       		.align	2
+ 1189              	.LC5:
+ 1190 0014 4400     		.ascii	"D\000"
+ 1191 0016 0000     		.align	2
+ 1192              	.LC6:
+ 1193 0018 442300   		.ascii	"D#\000"
+ 1194 001b 00       		.align	2
+ 1195              	.LC7:
+ 1196 001c 4500     		.ascii	"E\000"
+ 1197 001e 0000     		.align	2
+ 1198              	.LC8:
+ 1199 0020 4600     		.ascii	"F\000"
+ 1200 0022 0000     		.align	2
+ 1201              	.LC9:
+ 1202 0024 462300   		.ascii	"F#\000"
+ 1203 0027 00       		.align	2
+ 1204              	.LC10:
+ 1205 0028 4700     		.ascii	"G\000"
+ 1206 002a 0000     		.align	2
+ 1207              	.LC11:
+ 1208 002c 472300   		.ascii	"G#\000"
+ 1209              		.global	nextOffset
+ 1210              		.global	sdramBuffer
+ 1211              		.section	.bss.boolParams,"aw",%nobits
+ 1212              		.align	2
+ 1215              	boolParams:
+ 1216 0000 00000000 		.space	36
+ 1216      00000000 
+ 1216      00000000 
+ 1216      00000000 
+ 1216      00000000 
+ 1217              		.section	.bss.buttons,"aw",%nobits
+ 1218              		.align	2
+ 1221              	buttons:
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 69
 
 
- 1255              		.section	.data.notes,"aw"
- 1256              		.align	2
- 1257              		.set	.LANCHOR1,. + 0
- 1260              	notes:
- 1261 0000 00000000 		.word	.LC0
- 1262 0004 04000000 		.word	.LC1
- 1263 0008 08000000 		.word	.LC2
- 1264 000c 0C000000 		.word	.LC3
- 1265 0010 10000000 		.word	.LC4
- 1266 0014 14000000 		.word	.LC5
- 1267 0018 18000000 		.word	.LC6
- 1268 001c 1C000000 		.word	.LC7
- 1269 0020 20000000 		.word	.LC8
- 1270 0024 24000000 		.word	.LC9
- 1271 0028 28000000 		.word	.LC10
- 1272 002c 2C000000 		.word	.LC11
- 1273              		.section	.sdram_bss,"aw"
- 1274              		.align	2
- 1277              	sdramBuffer:
- 1278 0000 00000000 		.space	62914560
- 1278      00000000 
- 1278      00000000 
- 1278      00000000 
- 1278      00000000 
- 1279              		.text
- 1280              	.Letext0:
- 1281              		.file 13 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
- 1282              		.file 14 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
- 1283              		.file 15 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
- 1284              		.file 16 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
- 1285              		.file 17 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
- 1286              		.file 18 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
- 1287              		.file 19 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
- 1288              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
- 1289              		.file 21 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
- 1290              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
- 1291              		.file 23 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
- 1292              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
- 1293              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\string_view"
- 1294              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
- 1295              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
- 1296              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
- 1297              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\system_error"
- 1298              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwctype"
- 1299              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\tr1\\special_fun
- 1300              		.file 32 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\functional"
- 1301              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdarg"
- 1302              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstring"
- 1303              		.file 35 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\cpp_type_t
- 1304              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
- 1305              		.file 37 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
- 1306              		.file 38 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
- 1307              		.file 39 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
- 1308              		.file 40 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
- 1309              		.file 41 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
- 1310              		.file 42 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
- 1311              		.file 43 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 70
+ 1222 0000 00000000 		.space	16
+ 1222      00000000 
+ 1222      00000000 
+ 1222      00000000 
+ 1223              		.section	.bss.floatParams,"aw",%nobits
+ 1224              		.align	2
+ 1227              	floatParams:
+ 1228 0000 00000000 		.space	48
+ 1228      00000000 
+ 1228      00000000 
+ 1228      00000000 
+ 1228      00000000 
+ 1229              		.section	.bss.hw,"aw",%nobits
+ 1230              		.align	2
+ 1231              		.set	.LANCHOR2,. + 0
+ 1234              	hw:
+ 1235 0000 00000000 		.space	64
+ 1235      00000000 
+ 1235      00000000 
+ 1235      00000000 
+ 1235      00000000 
+ 1236              		.section	.bss.nextOffset,"aw",%nobits
+ 1237              		.align	2
+ 1238              		.set	.LANCHOR0,. + 0
+ 1241              	nextOffset:
+ 1242 0000 00000000 		.space	4
+ 1243              		.section	.bss.persistentData,"aw",%nobits
+ 1244              		.align	2
+ 1245              		.set	.LANCHOR3,. + 0
+ 1248              	persistentData:
+ 1249 0000 00000000 		.space	380
+ 1249      00000000 
+ 1249      00000000 
+ 1249      00000000 
+ 1249      00000000 
+ 1250              		.section	.bss.potentiometers,"aw",%nobits
+ 1251              		.align	2
+ 1254              	potentiometers:
+ 1255 0000 00000000 		.space	16
+ 1255      00000000 
+ 1255      00000000 
+ 1255      00000000 
+ 1256              		.section	.data.metronomeClick,"aw"
+ 1257              		.align	2
+ 1260              	metronomeClick:
+ 1261 0000 0D0E2EBC 		.word	-1137832435
+ 1262 0004 6F9C8ABC 		.word	-1131766673
+ 1263 0008 7C43B03D 		.word	1034961788
+ 1264 000c 91E7823D 		.word	1031989137
+ 1265 0010 08E51BBE 		.word	-1105468152
+ 1266 0014 86DF4BBE 		.word	-1102323834
+ 1267 0018 A5B54EBD 		.word	-1118915163
+ 1268 001c CA470F3E 		.word	1041188810
+ 1269 0020 1B139E3E 		.word	1050546971
+ 1270 0024 90E0A13E 		.word	1050796176
+ 1271 0028 202C033E 		.word	1040395296
+ 1272 002c 2AB778BE 		.word	-1099385046
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 70
 
 
- 1312              		.file 44 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
- 1313              		.file 45 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
- 1314              		.file 46 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
- 1315              		.file 47 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wctype.h"
- 1316              		.file 48 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\stdlib.h"
- 1317              		.file 49 "../../libDaisy/src/daisy_core.h"
- 1318              		.file 50 "../../libDaisy/src/per/tim.h"
- 1319              		.file 51 "../../libDaisy/src/util/wav_format.h"
- 1320              		.file 52 "../../libDaisy/src/dev/max11300.h"
- 1321              		.file 53 "../../libDaisy/src/per/gpio.h"
- 1322              		.file 54 "../../libDaisy/src/dev/sdram.h"
- 1323              		.file 55 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\pstl\\execution_
- 1324              		.file 56 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\string.h"
- 1325              		.file 57 "util.hpp"
- 1326              		.file 58 "../../libDaisy/src/dev/sr_595.h"
- 1327              		.file 59 "<built-in>"
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 71
+ 1273 0030 6C042BBF 		.word	-1087699860
+ 1274 0034 753E17BF 		.word	-1088995723
+ 1275 0038 75B25DBD 		.word	-1117932939
+ 1276 003c 1066D73E 		.word	1054303760
+ 1277 0040 74C1363F 		.word	1060553076
+ 1278 0044 8AC12F3F 		.word	1060094346
+ 1279 0048 D512553E 		.word	1045762773
+ 1280 004c 76EFD3BE 		.word	-1093406858
+ 1281 0050 9C8237BF 		.word	-1086881124
+ 1282 0054 A5D025BF 		.word	-1088040795
+ 1283 0058 08098ABE 		.word	-1098249976
+ 1284 005c 26DE923E 		.word	1049812518
+ 1285 0060 BFD52F3F 		.word	1060099519
+ 1286 0064 E98B0F3F 		.word	1057983465
+ 1287 0068 01918B3C 		.word	1015779585
+ 1288 006c 10C0AEBE 		.word	-1095843824
+ 1289 0070 98B69CBE 		.word	-1097025896
+ 1290 0074 38BD9EBD 		.word	-1113670344
+ 1291 0078 BA98E63D 		.word	1038522554
+ 1292 007c 17FD083E 		.word	1040776471
+ 1293 0080 5C16ABBC 		.word	-1129638308
+ 1294 0084 F4544DBE 		.word	-1102228236
+ 1295 0088 B52D47BE 		.word	-1102631499
+ 1296 008c 546B81BD 		.word	-1115591852
+ 1297 0090 975CC43D 		.word	1036278935
+ 1298 0094 2FC1813E 		.word	1048690991
+ 1299 0098 609A9F3E 		.word	1050647136
+ 1300 009c 9A2D363E 		.word	1043738010
+ 1301 00a0 EFAED5BD 		.word	-1110069521
+ 1302 00a4 A7208CBE 		.word	-1098112857
+ 1303 00a8 480146BE 		.word	-1102708408
+ 1304 00ac D39E04BD 		.word	-1123770669
+ 1305 00b0 9EB3923D 		.word	1033024414
+ 1306 00b4 E993913D 		.word	1032950761
+ 1307 00b8 D761B5BC 		.word	-1128963625
+ 1308 00bc 36EDDBBD 		.word	-1109660362
+ 1309 00c0 565CDDBD 		.word	-1109566378
+ 1310 00c4 CD8B3B3C 		.word	1010535373
+ 1311 00c8 A42B9D3D 		.word	1033710500
+ 1312 00cc 05CDDC3D 		.word	1037880581
+ 1313 00d0 B7495B3E 		.word	1046170039
+ 1314 00d4 DA5B5D3E 		.word	1046305754
+ 1315 00d8 FA78E3BC 		.word	-1125943046
+ 1316 00dc 41755EBE 		.word	-1101105855
+ 1317 00e0 649758BE 		.word	-1101490332
+ 1318 00e4 44F936BE 		.word	-1103693500
+ 1319 00e8 7BAD7FBD 		.word	-1115705989
+ 1320 00ec 2E69023E 		.word	1040345390
+ 1321 00f0 E274483E 		.word	1044935906
+ 1322 00f4 8B30AD3D 		.word	1034760331
+ 1323 00f8 F920B93B 		.word	1001988345
+ 1324 00fc 861790BC 		.word	-1131407482
+ 1325 0100 66C1B9BC 		.word	-1128677018
+ 1326 0104 6BA60ABC 		.word	-1140152725
+ 1327 0108 90D490BD 		.word	-1114581872
+ 1328 010c 43E310BE 		.word	-1106189501
+ 1329 0110 01AEC7BD 		.word	-1110987263
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 71
+
+
+ 1330 0114 6DF3693D 		.word	1030353773
+ 1331 0118 B124333E 		.word	1043539121
+ 1332 011c C07F4E3E 		.word	1045331904
+ 1333 0120 67E1073E 		.word	1040703847
+ 1334 0124 DD9966BD 		.word	-1117349411
+ 1335 0128 6A6068BE 		.word	-1100455830
+ 1336 012c 87DA82BE 		.word	-1098720633
+ 1337 0130 B193F4BD 		.word	-1108044879
+ 1338 0134 CADCA43D 		.word	1034214602
+ 1339 0138 BEE4503E 		.word	1045488830
+ 1340 013c BF18613E 		.word	1046550719
+ 1341 0140 557E133E 		.word	1041464917
+ 1342 0144 D80FE3BC 		.word	-1125969960
+ 1343 0148 8D3623BE 		.word	-1104988531
+ 1344 014c 7B5F0EBE 		.word	-1106354309
+ 1345 0150 E0F1AEBD 		.word	-1112608288
+ 1346 0154 89D6B1BD 		.word	-1112418679
+ 1347 0158 427553BD 		.word	-1118603966
+ 1348 015c 48A0EA3C 		.word	1022009416
+ 1349 0160 01E1903D 		.word	1032904961
+ 1350 0164 9F35963D 		.word	1033254303
+ 1351 0168 37F3073E 		.word	1040708407
+ 1352 016c 4A333C3E 		.word	1044132682
+ 1353 0170 AA7D8F3D 		.word	1032813994
+ 1354 0174 BBE7FABD 		.word	-1107630149
+ 1355 0178 22893DBE 		.word	-1103263454
+ 1356 017c D601E8BD 		.word	-1108868650
+ 1357 0180 F88A39BD 		.word	-1120302344
+ 1358 0184 F665D93C 		.word	1020880374
+ 1359 0188 EE8ED93D 		.word	1037668078
+ 1360 018c 82C5E03D 		.word	1038140802
+ 1361 0190 6C1DD7BB 		.word	-1143530132
+ 1362 0194 CECF03BE 		.word	-1107046450
+ 1363 0198 C9950EBE 		.word	-1106340407
+ 1364 019c 97380ABD 		.word	-1123403625
+ 1365 01a0 C8BECB3D 		.word	1036762824
+ 1366 01a4 50C9153E 		.word	1041615184
+ 1367 01a8 538EB23D 		.word	1035112019
+ 1368 01ac 096C9CBB 		.word	-1147376631
+ 1369 01b0 C0A940BD 		.word	-1119835712
+ 1370 01b4 72BB3BBD 		.word	-1120158862
+ 1371 01b8 AB1955BC 		.word	-1135273557
+ 1372 01bc 4D6C8A3C 		.word	1015704653
+ 1373 01c0 4F3FF53B 		.word	1005928271
+ 1374 01c4 24E18FBC 		.word	-1131421404
+ 1375 01c8 06991DBD 		.word	-1122133754
+ 1376 01cc 6E131BBD 		.word	-1122299026
+ 1377 01d0 6FEB2DBC 		.word	-1137841297
+ 1378 01d4 AAC19A3C 		.word	1016775082
+ 1379 01d8 71A9C23C 		.word	1019390321
+ 1380 01dc F526C83C 		.word	1019750133
+ 1381 01e0 8006B33C 		.word	1018365568
+ 1382 01e4 2475393C 		.word	1010398500
+ 1383 01e8 5CF3023C 		.word	1006826332
+ 1384 01ec B3D16BBC 		.word	-1133784653
+ 1385 01f0 E92A17BD 		.word	-1122555159
+ 1386 01f4 5C9AC6BC 		.word	-1127835044
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 72
+
+
+ 1387 01f8 2041393B 		.word	993607968
+ 1388 01fc 848C653C 		.word	1013288068
+ 1389 0200 18A5063C 		.word	1007068440
+ 1390 0204 8C0115BC 		.word	-1139474036
+ 1391 0208 0CC33DBC 		.word	-1136803060
+ 1392 020c 6DF8A43C 		.word	1017444461
+ 1393 0210 3072143D 		.word	1024750128
+ 1394 0214 D344D93C 		.word	1020871891
+ 1395 0218 101950BA 		.word	-1169155824
+ 1396 021c EED92DBD 		.word	-1121068562
+ 1397 0220 4FDC69BD 		.word	-1117135793
+ 1398 0224 AECC0BBD 		.word	-1123300178
+ 1399 0228 8BD3D73B 		.word	1004000139
+ 1400 022c 018A6B3D 		.word	1030457857
+ 1401 0230 5E6AA63D 		.word	1034316382
+ 1402 0234 5365153D 		.word	1024812371
+ 1403 0238 0F52CEBC 		.word	-1127329265
+ 1404 023c 748975BD 		.word	-1116370572
+ 1405 0240 2E7A99BD 		.word	-1114015186
+ 1406 0244 E44C48BD 		.word	-1119335196
+ 1407 0248 1D1A313C 		.word	1009850909
+ 1408 024c CF5D573D 		.word	1029135823
+ 1409 0250 5A865F3D 		.word	1029670490
+ 1410 0254 D77E053D 		.word	1023770327
+ 1411 0258 A44A803C 		.word	1015040676
+ 1412 025c 8A2F9B3B 		.word	1000025994
+ 1413 0260 C16304BC 		.word	-1140563007
+ 1414 0264 2C6A54BC 		.word	-1135318484
+ 1415 0268 E50F9ABC 		.word	-1130754075
+ 1416 026c 14BB14BD 		.word	-1122714860
+ 1417 0270 DDCB50BD 		.word	-1118778403
+ 1418 0274 F02911BD 		.word	-1122948624
+ 1419 0278 FDC2B03B 		.word	1001439997
+ 1420 027c 4FB5103D 		.word	1024505167
+ 1421 0280 99A25E3D 		.word	1029612185
+ 1422 0284 F2A4663D 		.word	1030137074
+ 1423 0288 132CC83C 		.word	1019751443
+ 1424 028c 7E0B8ABC 		.word	-1131803778
+ 1425 0290 9AF2D3BC 		.word	-1126960486
+ 1426 0294 F17A3ABC 		.word	-1137018127
+ 1427 0298 D91E04BC 		.word	-1140580647
+ 1428 029c 24433EBC 		.word	-1136770268
+ 1429 02a0 93BF97BC 		.word	-1130905709
+ 1430 02a4 B3BCF6BC 		.word	-1124680525
+ 1431 02a8 728604BD 		.word	-1123776910
+ 1432 02ac 48B7333B 		.word	993245000
+ 1433 02b0 0C802E3D 		.word	1026457612
+ 1434 02b4 8CAE313D 		.word	1026666124
+ 1435 02b8 C21A0E3D 		.word	1024334530
+ 1436 02bc E140DD3C 		.word	1021133025
+ 1437 02c0 7866C43A 		.word	985949816
+ 1438 02c4 7A87F1BC 		.word	-1125021830
+ 1439 02c8 1E2525BD 		.word	-1121639138
+ 1440 02cc 20D215BD 		.word	-1122643424
+ 1441 02d0 2500C2BC 		.word	-1128136667
+ 1442 02d4 65B819BC 		.word	-1139165083
+ 1443 02d8 C5F3EC3B 		.word	1005384645
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 73
+
+
+ 1444 02dc B956D43C 		.word	1020548793
+ 1445 02e0 93E5DB3C 		.word	1021044115
+ 1446 02e4 06A9E13C 		.word	1021421830
+ 1447 02e8 56E3F73C 		.word	1022878550
+ 1448 02ec E5EB923C 		.word	1016261605
+ 1449 02f0 460B24BC 		.word	-1138488506
+ 1450 02f4 D6FF0EBD 		.word	-1123090474
+ 1451 02f8 8BAC3FBD 		.word	-1119900533
+ 1452 02fc 871A27BD 		.word	-1121510777
+ 1453 0300 479754BC 		.word	-1135306937
+ 1454 0304 7286D33C 		.word	1020495474
+ 1455 0308 CAC54B3D 		.word	1028376010
+ 1456 030c 7F881D3D 		.word	1025345663
+ 1457 0310 F992193C 		.word	1008308985
+ 1458 0314 7B7A99BC 		.word	-1130792325
+ 1459 0318 487820BD 		.word	-1121945528
+ 1460 031c 91330ABD 		.word	-1123404911
+ 1461 0320 50B8DA39 		.word	970635344
+ 1462 0324 FB11E53C 		.word	1021645307
+ 1463 0328 6E69003D 		.word	1023437166
+ 1464 032c 7862813C 		.word	1015112312
+ 1465 0330 4A2BD0BB 		.word	-1143985334
+ 1466 0334 3C6F6DBC 		.word	-1133678788
+ 1467 0338 A90880BB 		.word	-1149237079
+ 1468 033c 8C8DD23A 		.word	986877324
+ 1469 0340 11292FBC 		.word	-1137759983
+ 1470 0344 0D8F82BC 		.word	-1132294387
+ 1471 0348 D6CE87BC 		.word	-1131950378
+ 1472 034c 242825BC 		.word	-1138415580
+ 1473 0350 BF4F2E3C 		.word	1009668031
+ 1474 0354 E253003D 		.word	1023431650
+ 1475 0358 AC140C3D 		.word	1024201900
+ 1476 035c D768713C 		.word	1014065367
+ 1477 0360 FF5D11BC 		.word	-1139712513
+ 1478 0364 7462D8BC 		.word	-1126669708
+ 1479 0368 2BC923BD 		.word	-1121728213
+ 1480 036c 41B322BD 		.word	-1121799359
+ 1481 0370 DCA8093B 		.word	990488796
+ 1482 0374 29F14E3D 		.word	1028583721
+ 1483 0378 E399683D 		.word	1030265315
+ 1484 037c 8239FD3C 		.word	1023228290
+ 1485 0380 140514BC 		.word	-1139538668
+ 1486 0384 FE3B30BD 		.word	-1120912386
+ 1487 0388 298D41BD 		.word	-1119777495
+ 1488 038c D4E9BCBC 		.word	-1128470060
+ 1489 0390 00B9F93B 		.word	1006221568
+ 1490 0394 0698A73C 		.word	1017616390
+ 1491 0398 8002D1B8 		.word	-1194261888
+ 1492 039c C1472BBC 		.word	-1138014271
+ 1493 03a0 B832203C 		.word	1008743096
+ 1494 03a4 4069CF3C 		.word	1020225856
+ 1495 03a8 F4681E3D 		.word	1025403124
+ 1496 03ac 8C69293D 		.word	1026124172
+ 1497 03b0 38944D3B 		.word	994939960
+ 1498 03b4 49BA45BD 		.word	-1119503799
+ 1499 03b8 443C92BD 		.word	-1114489788
+ 1500 03bc BB2373BD 		.word	-1116527685
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 74
+
+
+ 1501 03c0 63655BBC 		.word	-1134860957
+ 1502 03c4 9A062F3D 		.word	1026492058
+ 1503 03c8 02C0853D 		.word	1032175618
+ 1504 03cc 6D3E463D 		.word	1028013677
+ 1505 03d0 56494B3C 		.word	1011566934
+ 1506 03d4 8A33ACBC 		.word	-1129565302
+ 1507 03d8 A84401BD 		.word	-1123990360
+ 1508 03dc DF64CBBC 		.word	-1127521057
+ 1509 03e0 B0E199B9 		.word	-1181097552
+ 1510 03e4 3C76833C 		.word	1015248444
+ 1511 03e8 68DCEA3A 		.word	988470376
+ 1512 03ec 367086BC 		.word	-1132040138
+ 1513 03f0 D52B8FBC 		.word	-1131467819
+ 1514 03f4 1274353B 		.word	993358866
+ 1515 03f8 C408393C 		.word	1010370756
+ 1516 03fc 19082D3C 		.word	1009584153
+ 1517 0400 8EAC833C 		.word	1015262350
+ 1518 0404 7FC85D3C 		.word	1012779135
+ 1519 0408 30EB20BB 		.word	-1155470544
+ 1520 040c 6475CFBB 		.word	-1144031900
+ 1521 0410 A2D3863B 		.word	998691746
+ 1522 0414 727C09BC 		.word	-1140229006
+ 1523 0418 3F48BEBC 		.word	-1128380353
+ 1524 041c CBC8F1BC 		.word	-1125005109
+ 1525 0420 F81656BC 		.word	-1135208712
+ 1526 0424 25569F3C 		.word	1017075237
+ 1527 0428 A6CEE73C 		.word	1021824678
+ 1528 042c 8C06CF3C 		.word	1020200588
+ 1529 0430 C173AE3C 		.word	1018065857
+ 1530 0434 527BD13B 		.word	1003584338
+ 1531 0438 D0C648BC 		.word	-1136081200
+ 1532 043c 8AD461BC 		.word	-1134439286
+ 1533 0440 4C58D0BC 		.word	-1127196596
+ 1534 0444 F2CD1ABD 		.word	-1122316814
+ 1535 0448 EFB2B0BC 		.word	-1129270545
+ 1536 044c F963A23B 		.word	1000498169
+ 1537 0450 EB8B0C3D 		.word	1024232427
+ 1538 0454 EE75393D 		.word	1027175918
+ 1539 0458 C226153D 		.word	1024796354
+ 1540 045c EA39903C 		.word	1016084970
+ 1541 0460 18E29DBC 		.word	-1130503656
+ 1542 0464 DA3882BD 		.word	-1115539238
+ 1543 0468 95A381BD 		.word	-1115577451
+ 1544 046c 62CB8DBC 		.word	-1131558046
+ 1545 0470 E9E5B03C 		.word	1018226153
+ 1546 0474 52E2503D 		.word	1028710994
+ 1547 0478 DC58883D 		.word	1032345820
+ 1548 047c ACA32B3D 		.word	1026270124
+ 1549 0480 6C1A0CBC 		.word	-1140057492
+ 1550 0484 7C6D3EBD 		.word	-1119982212
+ 1551 0488 C41F4EBD 		.word	-1118953532
+ 1552 048c FC0D16BD 		.word	-1122628100
+ 1553 0490 9091A4BC 		.word	-1130065520
+ 1554 0494 C07C083B 		.word	990411968
+ 1555 0498 D9F29B3C 		.word	1016853209
+ 1556 049c D13AC73C 		.word	1019689681
+ 1557 04a0 AD47CA3C 		.word	1019889581
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 75
+
+
+ 1558 04a4 055BE43C 		.word	1021598469
+ 1559 04a8 2A78EE3C 		.word	1022261290
+ 1560 04ac 49D77C3C 		.word	1014814537
+ 1561 04b0 A15823BC 		.word	-1138534239
+ 1562 04b4 5B4819BD 		.word	-1122416549
+ 1563 04b8 D7B155BD 		.word	-1118457385
+ 1564 04bc B02014BD 		.word	-1122754384
+ 1565 04c0 209F083A 		.word	973643552
+ 1566 04c4 6138C33C 		.word	1019426913
+ 1567 04c8 7D02BA3C 		.word	1018823293
+ 1568 04cc 2E416C3C 		.word	1013727534
+ 1569 04d0 D869AF3B 		.word	1001351640
+ 1570 04d4 846A01BB 		.word	-1157535100
+ 1571 04d8 54146D3B 		.word	997004372
+ 1572 04dc 3A89A13C 		.word	1017219386
+ 1573 04e0 E3746B3C 		.word	1013675235
+ 1574 04e4 419C46BC 		.word	-1136223167
+ 1575 04e8 AA8685BC 		.word	-1132099926
+ 1576 04ec 6C0126BC 		.word	-1138359956
+ 1577 04f0 42EDB4BC 		.word	-1128993470
+ 1578 04f4 BE67D2BC 		.word	-1127061570
+ 1579 04f8 177EBBBB 		.word	-1145340393
+ 1580 04fc 1EB4663C 		.word	1013363742
+ 1581 0500 E72CD33C 		.word	1020472551
+ 1582 0504 6DD6FB3C 		.word	1023137389
+ 1583 0508 F999C43C 		.word	1019517433
+ 1584 050c 18E7FB3B 		.word	1006364440
+ 1585 0510 9FDB4DBC 		.word	-1135748193
+ 1586 0514 422587BC 		.word	-1131993790
+ 1587 0518 26ED6DBC 		.word	-1133646554
+ 1588 051c 14D4C4BC 		.word	-1127951340
+ 1589 0520 A461E4BC 		.word	-1125883484
+ 1590 0524 04FB69BC 		.word	-1133905148
+ 1591 0528 AF97EC3B 		.word	1005361071
+ 1592 052c 12CED43C 		.word	1020579346
+ 1593 0530 533C253D 		.word	1025850451
+ 1594 0534 1EF01D3D 		.word	1025372190
+ 1595 0538 E06F503C 		.word	1011904480
+ 1596 053c 31BCD0BC 		.word	-1127171023
+ 1597 0540 59F32EBD 		.word	-1120996519
+ 1598 0544 A87DFBBC 		.word	-1124368984
+ 1599 0548 722110BC 		.word	-1139793550
+ 1600 054c 52DA8A3C 		.word	1015732818
+ 1601 0550 CA4E083D 		.word	1023954634
+ 1602 0554 7156B83C 		.word	1018713713
+ 1603 0558 961DB1BB 		.word	-1146020458
+ 1604 055c 130BC6BC 		.word	-1127871725
+ 1605 0560 35A1B8BC 		.word	-1128750795
+ 1606 0564 18D853BB 		.word	-1152133096
+ 1607 0568 C2AC5F3C 		.word	1012903106
+ 1608 056c 71020B3C 		.word	1007354481
+ 1609 0570 A736E0BB 		.word	-1142933849
+ 1610 0574 8EE212BB 		.word	-1156390258
+ 1611 0578 D5C18B3C 		.word	1015792085
+ 1612 057c 4F168D3C 		.word	1015879247
+ 1613 0580 222F443B 		.word	994324258
+ 1614 0584 8EF6E3BB 		.word	-1142688114
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 76
+
+
+ 1615 0588 198F84BC 		.word	-1132163303
+ 1616 058c FE169EBC 		.word	-1130490114
+ 1617 0590 07F682BB 		.word	-1149045241
+ 1618 0594 713E7A3C 		.word	1014644337
+ 1619 0598 73769D3C 		.word	1016952435
+ 1620 059c 63C2923B 		.word	999473763
+ 1621 05a0 BD345CBC 		.word	-1134807875
+ 1622 05a4 275F30BC 		.word	-1137680601
+ 1623 05a8 FC75EFBB 		.word	-1141934596
+ 1624 05ac B07375BC 		.word	-1133153360
+ 1625 05b0 AC7D39BB 		.word	-1153860180
+ 1626 05b4 5DE4AC3C 		.word	1017963613
+ 1627 05b8 AD38BE3C 		.word	1019099309
+ 1628 05bc C3798A3C 		.word	1015708099
+ 1629 05c0 AB3C5D3C 		.word	1012743339
+ 1630 05c4 6804D1BB 		.word	-1143929752
+ 1631 05c8 BDC1E0BC 		.word	-1126121027
+ 1632 05cc 9A8CD2BC 		.word	-1127052134
+ 1633 05d0 F9D504BC 		.word	-1140533767
+ 1634 05d4 7CBAFBBA 		.word	-1157907844
+ 1635 05d8 B73226BC 		.word	-1138347337
+ 1636 05dc 8C246D3B 		.word	997008524
+ 1637 05e0 58AB0A3D 		.word	1024109400
+ 1638 05e4 5110153D 		.word	1024790609
+ 1639 05e8 D777553C 		.word	1012234199
+ 1640 05ec DE668FBB 		.word	-1148229922
+ 1641 05f0 35F1AFBC 		.word	-1129320139
+ 1642 05f4 2A1D31BD 		.word	-1120854742
+ 1643 05f8 713D25BD 		.word	-1121632911
+ 1644 05fc FAD77CBB 		.word	-1149446150
+ 1645 0600 18F40D3D 		.word	1024324632
+ 1646 0604 AEB1263D 		.word	1025946030
+ 1647 0608 2789CE3C 		.word	1020168487
+ 1648 060c 0270283C 		.word	1009283074
+ 1649 0610 0E710BBC 		.word	-1140100850
+ 1650 0614 1A37D1BC 		.word	-1127139558
+ 1651 0618 19E1C5BC 		.word	-1127882471
+ 1652 061c F6D5D4BB 		.word	-1143679498
+ 1653 0620 8E56D73B 		.word	1003968142
+ 1654 0624 D07D2FBA 		.word	-1171292720
+ 1655 0628 DDF858BC 		.word	-1135019811
+ 1656 062c 76E2BABB 		.word	-1145380234
+ 1657 0630 B4CD7B3C 		.word	1014746548
+ 1658 0634 EEC3D53C 		.word	1020642286
+ 1659 0638 61F6A33C 		.word	1017378401
+ 1660 063c A095C33B 		.word	1002673568
+ 1661 0640 BF2A01BC 		.word	-1140774209
+ 1662 0644 EBD19FBC 		.word	-1130376725
+ 1663 0648 2BB9CFBC 		.word	-1127237333
+ 1664 064c 86A25DBC 		.word	-1134714234
+ 1665 0650 98DEA63B 		.word	1000791704
+ 1666 0654 A2FA0D3C 		.word	1007549090
+ 1667 0658 6D95543C 		.word	1012176237
+ 1668 065c FBB3BA3C 		.word	1018868731
+ 1669 0660 4671333C 		.word	1010004294
+ 1670 0664 FF7C8CBC 		.word	-1131643649
+ 1671 0668 5B4BDBBC 		.word	-1126479013
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 77
+
+
+ 1672 066c 59582CBC 		.word	-1137944487
+ 1673 0670 C0AA3D3C 		.word	1010674368
+ 1674 0674 04159C3C 		.word	1016861956
+ 1675 0678 3A85E73B 		.word	1005028666
+ 1676 067c 2898D4BB 		.word	-1143695320
+ 1677 0680 364774BC 		.word	-1133230282
+ 1678 0684 730F36BC 		.word	-1137307789
+ 1679 0688 B013403C 		.word	1010832304
+ 1680 068c D75DC63C 		.word	1019633111
+ 1681 0690 C62F273C 		.word	1009201094
+ 1682 0694 7E1C2CBC 		.word	-1137959810
+ 1683 0698 9BC0DBBC 		.word	-1126448997
+ 1684 069c A127EFBC 		.word	-1125177439
+ 1685 06a0 EC89D9BB 		.word	-1143371284
+ 1686 06a4 113EB03C 		.word	1018183185
+ 1687 06a8 83BF103D 		.word	1024507779
+ 1688 06ac BAF8013D 		.word	1023539386
+ 1689 06b0 B27ADA3B 		.word	1004174002
+ 1690 06b4 6D5DB8BC 		.word	-1128768147
+ 1691 06b8 6EC2F5BC 		.word	-1124744594
+ 1692 06bc F2019ABC 		.word	-1130757646
+ 1693 06c0 C05533BB 		.word	-1154263616
+ 1694 06c4 E3A0B93B 		.word	1002021091
+ 1695 06c8 8744A83B 		.word	1000883335
+ 1696 06cc FEB2013B 		.word	989967102
+ 1697 06d0 683F59BB 		.word	-1151778968
+ 1698 06d4 D0C41FBA 		.word	-1172323120
+ 1699 06d8 F3F46D3C 		.word	1013839091
+ 1700 06dc 62B3D03C 		.word	1020310370
+ 1701 06e0 5C25673C 		.word	1013392732
+ 1702 06e4 1BA707BC 		.word	-1140349157
+ 1703 06e8 429780BC 		.word	-1132423358
+ 1704 06ec 081882BC 		.word	-1132324856
+ 1705 06f0 8AC484BC 		.word	-1132149622
+ 1706 06f4 C4D0DBBB 		.word	-1143222076
+ 1707 06f8 A211EF3B 		.word	1005523362
+ 1708 06fc 1A09D43B 		.word	1003751706
+ 1709 0700 BDD983BB 		.word	-1148986947
+ 1710 0704 40BF46BB 		.word	-1152991424
+ 1711 0708 5969D03B 		.word	1003514201
+ 1712 070c B2446C3C 		.word	1013728434
+ 1713 0710 6B4A8E3C 		.word	1015958123
+ 1714 0714 0929883C 		.word	1015556361
+ 1715 0718 EC8F0A3B 		.word	990547948
+ 1716 071c BCEEA9BC 		.word	-1129713988
+ 1717 0720 B379EBBC 		.word	-1125418573
+ 1718 0724 4F2DB5BC 		.word	-1128977073
+ 1719 0728 976F19BC 		.word	-1139183721
+ 1720 072c 7A5FD63B 		.word	1003904890
+ 1721 0730 5D85A63C 		.word	1017546077
+ 1722 0734 604EB53C 		.word	1018515040
+ 1723 0738 BB73613C 		.word	1013019579
+ 1724 073c F4942C3B 		.word	992777460
+ 1725 0740 FCD9CCBA 		.word	-1160979972
+ 1726 0744 340725BB 		.word	-1155201228
+ 1727 0748 E69524BC 		.word	-1138453018
+ 1728 074c DB0D64BC 		.word	-1134293541
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 78
+
+
+ 1729 0750 1C8C55BC 		.word	-1135244260
+ 1730 0754 CFF323BC 		.word	-1138494513
+ 1731 0758 E42230BB 		.word	-1154473244
+ 1732 075c 8B2B1F3C 		.word	1008675723
+ 1733 0760 157CA33C 		.word	1017347093
+ 1734 0764 42DAA73C 		.word	1017633346
+ 1735 0768 54DB1C3C 		.word	1008524116
+ 1736 076c D0E9DBBB 		.word	-1143215664
+ 1737 0770 F0F191BC 		.word	-1131286032
+ 1738 0774 10DF97BC 		.word	-1130897648
+ 1739 0778 975210BC 		.word	-1139780969
+ 1740 077c 20718A3B 		.word	998928672
+ 1741 0780 2BFC553C 		.word	1012268075
+ 1742 0784 A1EF773C 		.word	1014493089
+ 1743 0788 F139F63B 		.word	1005992433
+ 1744 078c 5A64C7BB 		.word	-1144560550
+ 1745 0790 637538BC 		.word	-1137150621
+ 1746 0794 E259F2BB 		.word	-1141745182
+ 1747 0798 F42839BB 		.word	-1153881868
+ 1748 079c 90E49AB9 		.word	-1181031280
+ 1749 07a0 DCFFEC3A 		.word	988610524
+ 1750 07a4 26B5223B 		.word	992130342
+ 1751 07a8 8CE6D43A 		.word	987031180
+ 1752 07ac EFE9DA3B 		.word	1004202479
+ 1753 07b0 401E243C 		.word	1009000000
+ 1754 07b4 AEC6343B 		.word	993314478
+ 1755 07b8 A63B09BC 		.word	-1140245594
+ 1756 07bc D0C350BC 		.word	-1135557680
+ 1757 07c0 F81410BC 		.word	-1139796744
+ 1758 07c4 90ADB93A 		.word	985247120
+ 1759 07c8 5C343B3C 		.word	1010512988
+ 1760 07cc 7555613C 		.word	1013011829
+ 1761 07d0 01C71D3C 		.word	1008584449
+ 1762 07d4 50F0B4BB 		.word	-1145769904
+ 1763 07d8 F49C9BBC 		.word	-1130652428
+ 1764 07dc D79D81BC 		.word	-1132356137
+ 1765 07e0 4453FEBB 		.word	-1140960444
+ 1766 07e4 8847693A 		.word	979978120
+ 1767 07e8 D6A2733C 		.word	1014211286
+ 1768 07ec 0799AC3C 		.word	1017944327
+ 1769 07f0 04D3463C 		.word	1011274500
+ 1770 07f4 707D383B 		.word	993557872
+ 1771 07f8 C663A2BB 		.word	-1146985530
+ 1772 07fc F90D3CBC 		.word	-1136914951
+ 1773 0800 1D5158BC 		.word	-1135062755
+ 1774 0804 AD0635BC 		.word	-1137375571
+ 1775 0808 CE21A7BB 		.word	-1146674738
+ 1776 080c D4A439BB 		.word	-1153850156
+ 1777 0810 385A833A 		.word	981686840
+ 1778 0814 57BC7E3C 		.word	1014938711
+ 1779 0818 BE5AD43C 		.word	1020549822
+ 1780 081c 3F968B3C 		.word	1015780927
+ 1781 0820 18329BBA 		.word	-1164234216
+ 1782 0824 B5AF86BC 		.word	-1132023883
+ 1783 0828 CDA7DFBC 		.word	-1126193203
+ 1784 082c 428ED0BC 		.word	-1127182782
+ 1785 0830 5E9BF7BB 		.word	-1141400738
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 79
+
+
+ 1786 0834 5EF6833C 		.word	1015281246
+ 1787 0838 15D7E03C 		.word	1021368085
+ 1788 083c DD2C9E3C 		.word	1016999133
+ 1789 0840 9C79C73B 		.word	1002928540
+ 1790 0844 D0A2B1BB 		.word	-1145986352
+ 1791 0848 5B6E54BC 		.word	-1135317413
+ 1792 084c 612739BC 		.word	-1137105055
+ 1793 0850 648D73BB 		.word	-1150055068
+ 1794 0854 1050673A 		.word	979849232
+ 1795 0858 10C199BA 		.word	-1164328688
+ 1796 085c 01C88CBB 		.word	-1148401663
+ 1797 0860 96AB27BB 		.word	-1155028074
+ 1798 0864 894A973B 		.word	999770761
+ 1799 0868 D2AA323C 		.word	1009953490
+ 1800 086c F34A2E3C 		.word	1009666803
+ 1801 0870 DA8C4D3B 		.word	994938074
+ 1802 0874 EB35B8BB 		.word	-1145555477
+ 1803 0878 E65B09BC 		.word	-1140237338
+ 1804 087c 31AFF7BB 		.word	-1141395663
+ 1805 0880 327E8ABB 		.word	-1148551630
+ 1806 0884 56550F3B 		.word	990860630
+ 1807 0888 E1C9BE3B 		.word	1002359265
+ 1808 088c 869B983B 		.word	999857030
+ 1809 0890 349C743B 		.word	997497908
+ 1810 0894 28D4773A 		.word	980931624
+ 1811 0898 2819C3BB 		.word	-1144841944
+ 1812 089c 6AEF18BC 		.word	-1139216534
+ 1813 08a0 28F57EBB 		.word	-1149307608
+ 1814 08a4 43FDD13B 		.word	1003617603
+ 1815 08a8 42B73E3C 		.word	1010743106
+ 1816 08ac 4E93B33B 		.word	1001624398
+ 1817 08b0 CB0597BB 		.word	-1147730485
+ 1818 08b4 775706BC 		.word	-1140435081
+ 1819 08b8 2266DEBB 		.word	-1143052766
+ 1820 08bc E87562BA 		.word	-1167952408
+ 1821 08c0 9662E63B 		.word	1004954262
+ 1822 08c4 2311F23B 		.word	1005719843
+ 1823 08c8 C85DB13A 		.word	984702408
+ 1824 08cc 0464AABB 		.word	-1146461180
+ 1825 08d0 A6B319BC 		.word	-1139166298
+ 1826 08d4 0B68A2BB 		.word	-1146984437
+ 1827 08d8 30A0963B 		.word	999727152
+ 1828 08dc 0640103C 		.word	1007697926
+ 1829 08e0 D4D5063C 		.word	1007080916
+ 1830 08e4 EA3B973B 		.word	999767018
+ 1831 08e8 F03E71BB 		.word	-1150206224
+ 1832 08ec AE4813BC 		.word	-1139586898
+ 1833 08f0 FAE3CDBB 		.word	-1144134662
+ 1834 08f4 BC8E82BA 		.word	-1165848900
+ 1835 08f8 AC32CE3A 		.word	986591916
+ 1836 08fc 605F32B9 		.word	-1187881120
+ 1837 0900 40DBE4BA 		.word	-1159406784
+ 1838 0904 BCD783BA 		.word	-1165764676
+ 1839 0908 10CDB339 		.word	968084752
+ 1840 090c F0657C3B 		.word	998008304
+ 1841 0910 D772003C 		.word	1006662359
+ 1842 0914 A97F073C 		.word	1007124393
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 80
+
+
+ 1843 0918 2099063B 		.word	990288160
+ 1844 091c B0EA88BB 		.word	-1148654928
+ 1845 0920 D445C0BB 		.word	-1145027116
+ 1846 0924 F442EBBB 		.word	-1142209804
+ 1847 0928 B36ED2BB 		.word	-1143837005
+ 1848 092c E80E10BB 		.word	-1156575512
+ 1849 0930 4832D73A 		.word	987181640
+ 1850 0934 E8B6603A 		.word	979416808
+ 1851 0938 A828443A 		.word	977545384
+ 1852 093c AA975A3B 		.word	995792810
+ 1853 0940 41DAC43B 		.word	1002756673
+ 1854 0944 AC67FC3B 		.word	1006397356
+ 1855 0948 B520C93B 		.word	1003036853
+ 1856 094c 9092113A 		.word	974230160
+ 1857 0950 853904BC 		.word	-1140573819
+ 1858 0954 05993CBC 		.word	-1136879355
+ 1859 0958 39E909BC 		.word	-1140201159
+ 1860 095c 389B57BB 		.word	-1151886536
+ 1861 0960 8CF10D3B 		.word	990769548
+ 1862 0964 D298D53B 		.word	1003854034
+ 1863 0968 90DAF43B 		.word	1005902480
+ 1864 096c CA5EA83B 		.word	1000890058
+ 1865 0970 98422B3B 		.word	992690840
+ 1866 0974 803010B9 		.word	-1190121344
+ 1867 0978 34A0D1BA 		.word	-1160667084
+ 1868 097c D8886ABB 		.word	-1150646056
+ 1869 0980 7BF0A1BB 		.word	-1147015045
+ 1870 0984 700482BB 		.word	-1149107088
+ 1871 0988 8C182CBB 		.word	-1154738036
+ 1872 098c E0F1CCB9 		.word	-1177751072
+ 1873 0990 2456353B 		.word	993351204
+ 1874 0994 880AA73B 		.word	1000802952
+ 1875 0998 23D59D3B 		.word	1000199459
+ 1876 099c DCBB373B 		.word	993508316
+ 1877 09a0 703FE7B9 		.word	-1176027280
+ 1878 09a4 D4287CBB 		.word	-1149490988
+ 1879 09a8 DDC7A9BB 		.word	-1146501155
+ 1880 09ac 7C6E57BB 		.word	-1151897988
+ 1881 09b0 E0104A39 		.word	961155296
+ 1882 09b4 E0CB383B 		.word	993577952
+ 1883 09b8 9C7C7F3B 		.word	998210716
+ 1884 09bc 1C7F753B 		.word	997555996
+ 1885 09c0 C0605A3A 		.word	979001536
+ 1886 09c4 F8183CBB 		.word	-1153689352
+ 1887 09c8 82C883BB 		.word	-1148991358
+ 1888 09cc 742E44BB 		.word	-1153159564
+ 1889 09d0 A0C5F3B9 		.word	-1175206496
+ 1890 09d4 1873AA3A 		.word	984249112
+ 1891 09d8 780FDE3A 		.word	987631480
+ 1892 09dc 700D3E3A 		.word	977145200
+ 1893 09e0 64D9883A 		.word	982047076
+ 1894 09e4 3CDE253B 		.word	992337468
+ 1895 09e8 1866A63A 		.word	983983640
+ 1896 09ec 9011D7BA 		.word	-1160310384
+ 1897 09f0 C03B55BB 		.word	-1152042048
+ 1898 09f4 028B2BBB 		.word	-1154774270
+ 1899 09f8 604114BA 		.word	-1173077664
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 81
+
+
+ 1900 09fc 04B8593B 		.word	995735556
+ 1901 0a00 196FA43B 		.word	1000632089
+ 1902 0a04 C409463B 		.word	994445764
+ 1903 0a08 C09CAABA 		.word	-1163223872
+ 1904 0a0c C202CEBB 		.word	-1144126782
+ 1905 0a10 A29BC9BB 		.word	-1144415326
+ 1906 0a14 AC6F25BB 		.word	-1155174484
+ 1907 0a18 B0A09C39 		.word	966566064
+ 1908 0a1c 60D9733B 		.word	997448032
+ 1909 0a20 424CDF3B 		.word	1004489794
+ 1910 0a24 F43DA33B 		.word	1000553972
+ 1911 0a28 B489D53A 		.word	987072948
+ 1912 0a2c E06685B9 		.word	-1182439712
+ 1913 0a30 C4B35EBB 		.word	-1151421500
+ 1914 0a34 DC23AEBB 		.word	-1146215460
+ 1915 0a38 9A469CBB 		.word	-1147386214
+ 1916 0a3c 961616BB 		.word	-1156180330
+ 1917 0a40 809407B9 		.word	-1190685568
+ 1918 0a44 88FC043A 		.word	973405320
+ 1919 0a48 1861733B 		.word	997417240
+ 1920 0a4c 0482033C 		.word	1006862852
+ 1921 0a50 9716DE3B 		.word	1004410519
+ 1922 0a54 E864133A 		.word	974349544
+ 1923 0a58 3AFE90BB 		.word	-1148125638
+ 1924 0a5c 246DF7BB 		.word	-1141412572
+ 1925 0a60 4DC20DBC 		.word	-1139948979
+ 1926 0a64 4C7E9CBB 		.word	-1147371956
+ 1927 0a68 A2F0233B 		.word	992211106
+ 1928 0a6c C93E073C 		.word	1007107785
+ 1929 0a70 3945F93B 		.word	1006191929
+ 1930 0a74 722E563B 		.word	995503730
+ 1931 0a78 0086C1B7 		.word	-1212054016
+ 1932 0a7c AC5B36BB 		.word	-1154065492
+ 1933 0a80 868288BB 		.word	-1148681594
+ 1934 0a84 766547BB 		.word	-1152948874
+ 1935 0a88 381004BA 		.word	-1174138824
+ 1936 0a8c 30FB0F3A 		.word	974125872
+ 1937 0a90 B8F506BA 		.word	-1173949000
+ 1938 0a94 88BE9FBA 		.word	-1163936120
+ 1939 0a98 00932239 		.word	958567168
+ 1940 0a9c 38FE1B3B 		.word	991690296
+ 1941 0aa0 3259443B 		.word	994335026
+ 1942 0aa4 8C93F33A 		.word	989041548
+ 1943 0aa8 6035A1B9 		.word	-1180617376
+ 1944 0aac B8D1D4BA 		.word	-1160457800
+ 1945 0ab0 6875F5BA 		.word	-1158318744
+ 1946 0ab4 0064D6BA 		.word	-1160354816
+ 1947 0ab8 A0280EB9 		.word	-1190254432
+ 1948 0abc F08C883A 		.word	982027504
+ 1949 0ac0 8853063A 		.word	973493128
+ 1950              		.section	.data.notes,"aw"
+ 1951              		.align	2
+ 1952              		.set	.LANCHOR1,. + 0
+ 1955              	notes:
+ 1956 0000 00000000 		.word	.LC0
+ 1957 0004 04000000 		.word	.LC1
+ 1958 0008 08000000 		.word	.LC2
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 82
+
+
+ 1959 000c 0C000000 		.word	.LC3
+ 1960 0010 10000000 		.word	.LC4
+ 1961 0014 14000000 		.word	.LC5
+ 1962 0018 18000000 		.word	.LC6
+ 1963 001c 1C000000 		.word	.LC7
+ 1964 0020 20000000 		.word	.LC8
+ 1965 0024 24000000 		.word	.LC9
+ 1966 0028 28000000 		.word	.LC10
+ 1967 002c 2C000000 		.word	.LC11
+ 1968              		.section	.sdram_bss,"aw"
+ 1969              		.align	2
+ 1972              	sdramBuffer:
+ 1973 0000 00000000 		.space	62914560
+ 1973      00000000 
+ 1973      00000000 
+ 1973      00000000 
+ 1973      00000000 
+ 1974              		.text
+ 1975              	.Letext0:
+ 1976              		.file 13 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 1977              		.file 14 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1978              		.file 15 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
+ 1979              		.file 16 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
+ 1980              		.file 17 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
+ 1981              		.file 18 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
+ 1982              		.file 19 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
+ 1983              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
+ 1984              		.file 21 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
+ 1985              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
+ 1986              		.file 23 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
+ 1987              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
+ 1988              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\string_view"
+ 1989              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
+ 1990              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
+ 1991              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
+ 1992              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\system_error"
+ 1993              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwctype"
+ 1994              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\tr1\\special_fun
+ 1995              		.file 32 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\functional"
+ 1996              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdarg"
+ 1997              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstring"
+ 1998              		.file 35 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\cpp_type_t
+ 1999              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
+ 2000              		.file 37 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
+ 2001              		.file 38 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
+ 2002              		.file 39 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
+ 2003              		.file 40 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
+ 2004              		.file 41 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
+ 2005              		.file 42 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
+ 2006              		.file 43 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
+ 2007              		.file 44 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
+ 2008              		.file 45 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
+ 2009              		.file 46 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
+ 2010              		.file 47 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wctype.h"
+ 2011              		.file 48 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\stdlib.h"
+ 2012              		.file 49 "../../libDaisy/src/daisy_core.h"
+ 2013              		.file 50 "../../libDaisy/src/per/tim.h"
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 83
+
+
+ 2014              		.file 51 "../../libDaisy/src/util/wav_format.h"
+ 2015              		.file 52 "../../libDaisy/src/dev/max11300.h"
+ 2016              		.file 53 "../../libDaisy/src/per/gpio.h"
+ 2017              		.file 54 "../../libDaisy/src/dev/sdram.h"
+ 2018              		.file 55 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\pstl\\execution_
+ 2019              		.file 56 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\string.h"
+ 2020              		.file 57 "util.hpp"
+ 2021              		.file 58 "../../libDaisy/src/dev/sr_595.h"
+ 2022              		.file 59 "<built-in>"
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 84
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 util.cpp
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:17     .text._ZN5daisy9DaisySeedD2Ev:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:26     .text._ZN5daisy9DaisySeedD2Ev:00000000 _ZN5daisy9DaisySeedD2Ev
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:26     .text._ZN5daisy9DaisySeedD2Ev:00000000 _ZN5daisy9DaisySeedD1Ev
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:67     .text._Z11sdram_allocjb:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:75     .text._Z11sdram_allocjb:00000000 _Z11sdram_allocjb
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:144    .text._Z11sdram_allocjb:00000030 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1277   .sdram_bss:00000000 sdramBuffer
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:150    .text._Z7ditfft2PfiiPSt7complexIfE:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:158    .text._Z7ditfft2PfiiPSt7complexIfE:00000000 _Z7ditfft2PfiiPSt7complexIfE
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:637    .text._Z7ditfft2PfiiPSt7complexIfE:0000011c $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:643    .text._Z15frequencyToNotefPPKcPi:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:651    .text._Z15frequencyToNotefPPKcPi:00000000 _Z15frequencyToNotefPPKcPi
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:750    .text._Z15frequencyToNotefPPKcPi:00000080 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:757    .text._ZN14CircularBufferC2EPfjj:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:765    .text._ZN14CircularBufferC2EPfjj:00000000 _ZN14CircularBufferC2EPfjj
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:765    .text._ZN14CircularBufferC2EPfjj:00000000 _ZN14CircularBufferC1EPfjj
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:797    .text._ZN14CircularBuffer14setWriteOffsetEj:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:805    .text._ZN14CircularBuffer14setWriteOffsetEj:00000000 _ZN14CircularBuffer14setWriteOffsetEj
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:830    .text._ZN14CircularBuffer13setReadOffsetEj:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:838    .text._ZN14CircularBuffer13setReadOffsetEj:00000000 _ZN14CircularBuffer13setReadOffsetEj
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:867    .text._ZN14CircularBuffer8readNextEv:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:875    .text._ZN14CircularBuffer8readNextEv:00000000 _ZN14CircularBuffer8readNextEv
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:916    .text._ZN14CircularBuffer9writeNextEf:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:924    .text._ZN14CircularBuffer9writeNextEf:00000000 _ZN14CircularBuffer9writeNextEf
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:961    .text._ZN14CircularBuffer5resetEv:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:969    .text._ZN14CircularBuffer5resetEv:00000000 _ZN14CircularBuffer5resetEv
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:988    .text.startup._GLOBAL__sub_I_sdramBuffer:00000000 $t
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:995    .text.startup._GLOBAL__sub_I_sdramBuffer:00000000 _GLOBAL__sub_I_sdramBuffer
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1154   .text.startup._GLOBAL__sub_I_sdramBuffer:0000003c $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1162   .init_array:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1226   .bss.floatParams:00000000 floatParams
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1214   .bss.boolParams:00000000 boolParams
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1220   .bss.buttons:00000000 buttons
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1253   .bss.potentiometers:00000000 potentiometers
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1247   .bss.persistentData:00000000 persistentData
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1233   .bss.hw:00000000 hw
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1260   .data.notes:00000000 notes
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1172   .rodata.str1.4:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1240   .bss.nextOffset:00000000 nextOffset
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1211   .bss.boolParams:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1217   .bss.buttons:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1223   .bss.floatParams:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1229   .bss.hw:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1236   .bss.nextOffset:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1243   .bss.persistentData:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1250   .bss.potentiometers:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1256   .data.notes:00000000 $d
-C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s:1274   .sdram_bss:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:17     .text._ZN5daisy9DaisySeedD2Ev:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:26     .text._ZN5daisy9DaisySeedD2Ev:00000000 _ZN5daisy9DaisySeedD2Ev
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:26     .text._ZN5daisy9DaisySeedD2Ev:00000000 _ZN5daisy9DaisySeedD1Ev
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:67     .text._Z11sdram_allocjb:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:75     .text._Z11sdram_allocjb:00000000 _Z11sdram_allocjb
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:144    .text._Z11sdram_allocjb:00000030 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1972   .sdram_bss:00000000 sdramBuffer
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:150    .text._Z7ditfft2PfiiPSt7complexIfE:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:158    .text._Z7ditfft2PfiiPSt7complexIfE:00000000 _Z7ditfft2PfiiPSt7complexIfE
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:637    .text._Z7ditfft2PfiiPSt7complexIfE:0000011c $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:643    .text._Z15frequencyToNotefPPKcPi:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:651    .text._Z15frequencyToNotefPPKcPi:00000000 _Z15frequencyToNotefPPKcPi
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:750    .text._Z15frequencyToNotefPPKcPi:00000080 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:757    .text._ZN14CircularBufferC2EPfjj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:765    .text._ZN14CircularBufferC2EPfjj:00000000 _ZN14CircularBufferC2EPfjj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:765    .text._ZN14CircularBufferC2EPfjj:00000000 _ZN14CircularBufferC1EPfjj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:797    .text._ZN14CircularBuffer14setWriteOffsetEj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:805    .text._ZN14CircularBuffer14setWriteOffsetEj:00000000 _ZN14CircularBuffer14setWriteOffsetEj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:830    .text._ZN14CircularBuffer13setReadOffsetEj:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:838    .text._ZN14CircularBuffer13setReadOffsetEj:00000000 _ZN14CircularBuffer13setReadOffsetEj
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:867    .text._ZN14CircularBuffer8readNextEv:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:875    .text._ZN14CircularBuffer8readNextEv:00000000 _ZN14CircularBuffer8readNextEv
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:916    .text._ZN14CircularBuffer9writeNextEf:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:924    .text._ZN14CircularBuffer9writeNextEf:00000000 _ZN14CircularBuffer9writeNextEf
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:961    .text._ZN14CircularBuffer5resetEv:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:969    .text._ZN14CircularBuffer5resetEv:00000000 _ZN14CircularBuffer5resetEv
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:988    .text.startup._GLOBAL__sub_I_sdramBuffer:00000000 $t
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:995    .text.startup._GLOBAL__sub_I_sdramBuffer:00000000 _GLOBAL__sub_I_sdramBuffer
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1154   .text.startup._GLOBAL__sub_I_sdramBuffer:0000003c $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1162   .init_array:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1260   .data.metronomeClick:00000000 metronomeClick
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1227   .bss.floatParams:00000000 floatParams
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1215   .bss.boolParams:00000000 boolParams
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1221   .bss.buttons:00000000 buttons
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1254   .bss.potentiometers:00000000 potentiometers
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1248   .bss.persistentData:00000000 persistentData
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1234   .bss.hw:00000000 hw
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1955   .data.notes:00000000 notes
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1173   .rodata.str1.4:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1241   .bss.nextOffset:00000000 nextOffset
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1212   .bss.boolParams:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1218   .bss.buttons:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1224   .bss.floatParams:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1230   .bss.hw:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1237   .bss.nextOffset:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1244   .bss.persistentData:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1251   .bss.potentiometers:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1257   .data.metronomeClick:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1951   .data.notes:00000000 $d
+C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s:1969   .sdram_bss:00000000 $d
                            .group:00000000 _ZN5daisy9DaisySeedD5Ev
 
 UNDEFINED SYMBOLS
 memset
 expf
+ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccGKztan.s 			page 85
+
+
 cosf
 sinf
-ARM GAS  C:\Users\FINNDY~1\AppData\Local\Temp\ccCrwauH.s 			page 72
-
-
 __mulsc3
 log2f
 fmodf
