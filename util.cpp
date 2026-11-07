@@ -29,16 +29,48 @@ void* sdram_alloc(size_t size, bool zero) {
 
 // thanks wikipedia
 // TODO: maybe make it work with zero padding (without hopefully using too much more memory)
-void ditfft2(float* x, int N, int s, std::complex<float>* X)
+// buf size is size of input: zero padded from bufSize to N, X should have size N though
+// void ditfft2(float* x, int N, int s, std::complex<float>* X)
+// {
+
+//     if (N == 1) {
+//         X[0] = x[0];
+//         return;
+//     }
+
+//     ditfft2(x, N/2, 2 * s, X);
+//     ditfft2(x + s, N/2, 2 * s, X + N/2);
+
+//     for (int k = 0; k < N/2; k++) {
+//         std::complex<float> p = X[k];
+//         std::complex<float> q = exp(-2 * (float)My_PI * 1if * (float)k / (float)N) * X[k + N / 2];
+//         X[k] = p + q;
+//         X[k + N / 2] = p - q;
+//     }
+
+// }
+
+void ditfft2(float* x, int N, int s, int xi, std::complex<float>* X, int bufSize);
+
+void fft(float* x, int N, std::complex<float>* X, int zeroPad) {
+    ditfft2(x, N, 1, 0, X, N - zeroPad);
+}
+
+void ditfft2(float* x, int N, int s, int xi, std::complex<float>* X, int bufSize)
 {
 
-    if (N == 1){
-        X[0] = x[0];
+    if (N == 1) {
+
+        if (xi >= bufSize)
+            X[0] = 0;
+        else
+            X[0] = x[xi];
+
         return;
     }
 
-    ditfft2(x, N/2, 2 * s, X);
-    ditfft2(x + s, N/2, 2 * s, X + N/2);
+    ditfft2(x, N/2, 2 * s, xi, X, bufSize);
+    ditfft2(x, N/2, 2 * s, xi + s, X + N/2, bufSize);
 
     for (int k = 0; k < N/2; k++) {
         std::complex<float> p = X[k];
@@ -48,6 +80,47 @@ void ditfft2(float* x, int N, int s, std::complex<float>* X)
     }
 
 }
+
+void iditfft2(std::complex<float>* X, int N, int s, float* x);
+
+void ifft(std::complex<float>* X, int N, float* x) {
+    iditfft2(X, N, 1, x);
+}
+
+// non normalize and maybe not correct idk
+void iditfft2(std::complex<float>* X, int N, int s, float* x)
+{
+    if (N == 1) {
+        x[0] = X[0].real();
+        return;
+    }
+
+    iditfft2(X, N / 2, 2 * s, x);
+    iditfft2(X + N / 2, N / 2, 2 * s, x + s);
+
+    for (int k = 0; k < N / 2; k++) {
+        std::complex<float> p = x[k];
+        std::complex<float> q = exp(2 * My_PI * 1if * (float)k / (float)N) * x[k + N / 2];
+
+        x[k] = (p + q).real();
+        x[k + N / 2] = (p - q).real();
+    }
+}
+
+inline float lerp(float a, float b, float t) {
+    return a + (b - a) * t;
+}
+
+void resample(float* in, float* out, float ratio, int outLen) {
+
+    float inSamp = 0;
+    for (int i = 0; i < outLen; i++) {
+        out[i] = lerp(in[(int)inSamp], in[(int)(inSamp + 1)], inSamp - (int)inSamp);
+        inSamp += ratio;
+    }
+
+}
+
 
 const char* notes[] = { "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
 #define C0 16.3515978313f
@@ -71,7 +144,7 @@ float frequencyToNote(float freq, const char** note, int* octave)
 
 // bloatware / premature abstraction / idrc / idrk
 
-CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : buffer(buffer), writePos(offset % size), readPos(0), size(size) {}
+CircularBuffer::CircularBuffer(float* buffer, size_t size, size_t offset) : writePos(offset % size), readPos(0), buffer(buffer), size(size) {}
 
 void CircularBuffer::setWriteOffset(size_t offset) {
     writePos = (readPos + offset + size) % size;
@@ -80,7 +153,7 @@ void CircularBuffer::setWriteOffset(size_t offset) {
 void CircularBuffer::setReadOffset(size_t offset) {
     readPos = (writePos - offset + size * 2) % size;
 }
-
+// also maybe do batch read/write with memcpy for cases where its well-aligned
 float CircularBuffer::readNext() {
     float f = buffer[readPos];
     readPos++;
@@ -103,6 +176,13 @@ void CircularBuffer::reset() {
     writePos = 0; 
     readPos = 0;
 }
+
+void hanningWindow(float* w, int N) {
+    for (int i = 0; i < N; i++) {
+        w[i] = 0.5 * (1 - cosf(2 * My_PI * i / (N - 1)));
+    }
+}
+
 
 daisy::DaisySeed hw;
 

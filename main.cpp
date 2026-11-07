@@ -7,11 +7,15 @@
 using namespace daisy;
 
 
-#define NUM_EFFECTS 8 // idk maybe the user (I) will be able to add more in the interface
+#define NUM_EFFECTS 9 // idk maybe the user (I) will be able to add more in the interface
 Effect* effects[NUM_EFFECTS];
 
 static void Callback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
+    for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) { // kinda has to be here, shouldnt be too slow
+        buttons[i]->update();
+    }
+
     // passthrough copy
     memcpy(out[0], in[0], size * sizeof(float));
 
@@ -26,7 +30,7 @@ static void Callback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out,
 
 }
 
-#define CONTOLS_UPDATE_RATE 1000
+#define CONTROLS_UPDATE_RATE 1000
 
 RgbLed rgbLed;
 Encoder encoder;
@@ -138,6 +142,7 @@ int main(void)
 
     Phaser* phaser = new Phaser(true);
     boolParams[bp++] = &phaser->enabled;
+    boolParams[bp++] = &phaser->daisyMode;
     floatParams[fp++] = &phaser->rate;
     floatParams[fp++] = &phaser->depth;
     floatParams[fp++] = &phaser->feedback;
@@ -146,15 +151,22 @@ int main(void)
     boolParams[bp++] = &metronome->enabled;
     floatParams[fp++] = &metronome->volume;
     metronomeWindow.metronome = metronome;
+
+    PitchShifter* shifter = new PitchShifter(true);
+    boolParams[bp++] = &shifter->enabled;
+    boolParams[bp++] = &shifter->daisyMode;
+    boolParams[bp++] = &shifter->quantized;
+    floatParams[fp++] = &shifter->amount;
     
     effects[0] = tuner;
-    effects[1] = reverb;
-    effects[2] = bitCrusher;
-    effects[3] = delay;
-    effects[4] = chorus;
-    effects[5] = phaser;
-    effects[6] = looper;
-    effects[7] = metronome;
+    effects[1] = shifter;
+    effects[2] = reverb;
+    effects[3] = bitCrusher;
+    effects[4] = delay;
+    effects[5] = chorus;
+    effects[6] = phaser;
+    effects[7] = looper;
+    effects[8] = metronome;
 
     char controlNameBuf[9];
     // pots
@@ -218,7 +230,7 @@ int main(void)
     TimerHandle::Config timerCfg;
     timerCfg.periph = TimerHandle::Config::Peripheral::TIM_5;
     timerCfg.dir = TimerHandle::Config::CounterDir::UP;
-    timerCfg.period = System::GetPClk2Freq() * 2 / CONTOLS_UPDATE_RATE;
+    timerCfg.period = System::GetPClk2Freq() * 2 / CONTROLS_UPDATE_RATE;
     timerCfg.enable_irq = true;
 
     volatile ControlData cd = { 0 };
@@ -248,10 +260,6 @@ void step(void) { // could return a bool for stopping but idk if thats needed
     
     for (int i = 0; i < NUM_VARIABLE_CONTROLS; i++) {
         potentiometers[i]->update();
-    }
-
-    for (int i = 0; i < NUM_TOGGLE_CONTROLS; i++) {
-        buttons[i]->update();
     }
 
 

@@ -6,12 +6,13 @@
 #include "daisy_seed.h"
 
 #define SAMPLE_RATE 48000
-#define BLOCK_SIZE 16
+#define INV_SAMPLE_RATE (1/(float)SAMPLE_RATE)
+#define BLOCK_SIZE 32
 
 #define MEMORY_SIZE (60 * 1024 * 1024)
 
-#define NUM_BOOL_PARAMETERS 9
-#define NUM_FLOAT_PARAMETERS 12
+#define NUM_BOOL_PARAMETERS 13
+#define NUM_FLOAT_PARAMETERS 13
 
 #define NUM_VARIABLE_CONTROLS 4
 #define NUM_TOGGLE_CONTROLS 4
@@ -21,15 +22,17 @@ void* sdram_alloc(size_t size, bool zero = false);
 
 float frequencyToNote(float freq, const char** note, int* octave);
 
-void ditfft2(float* x, int N, int s, std::complex<float>* X);
+void fft(float* x, int N, std::complex<float>* X, int zeroPad);
+// void ditfft2(float* x, int N, int s, std::complex<float>* X);
+void ifft(std::complex<float>* X, int N, float* x);
 
 class CircularBuffer {
 
-    float* buffer;
     size_t writePos;
     size_t readPos;
     
 public:
+    float* buffer;
     size_t size;
     
     CircularBuffer() {}
@@ -44,6 +47,9 @@ public:
     void reset();
 
 };
+
+void hanningWindow(float* w, int N);
+void resample(float* in, float* out, float ratio, int outLen);
 
 template <typename T> struct ParameterSetting {
     T value;

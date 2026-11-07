@@ -174,6 +174,7 @@ public:
 #define DFT_NEW_WINDOW_SAMPLES 16384 // maybe increase this (already pretty big)
 #define DFT_OVERLAP_SAMPLES DFT_NEW_WINDOW_SAMPLES 
 #define DFT_WINDOW_SAMPLES (DFT_NEW_WINDOW_SAMPLES + DFT_OVERLAP_SAMPLES)
+#define DFT_ZERO_PAD DFT_WINDOW_SAMPLES // zero pad to double size
 
 class Tuner : public Effect {
 
@@ -182,7 +183,7 @@ class Tuner : public Effect {
 
     bool usingBufferA = false;
     int currentDftWindowSamples = 0;
-    std::complex<float> dftFrequencyBuffer[DFT_WINDOW_SAMPLES]; // maybe zero pad, idk. (f = k*fs/N) // TODO: sdram_alloc this (i think)
+    std::complex<float> dftFrequencyBuffer[DFT_WINDOW_SAMPLES + DFT_ZERO_PAD]; // maybe zero pad, idk. (f = k*fs/N) // TODO: sdram_alloc this (i think)
     bool newDftReady = false;
 
 public:
@@ -277,7 +278,10 @@ class Phaser : public Effect {
 
     AllPassFilter2 allPassFilters[PHASER_NUM_AP_FILTERS];
 
+    daisysp::Phaser daisyPhaser;
+
 public:
+    EffectParameter<bool> daisyMode = EffectParameter<bool>("Phaser Mode", false);
     EffectParameter<float> rate = EffectParameter<float>("Phaser Rate", 0.1f);
     EffectParameter<float> depth = EffectParameter<float>("Phaser Depth", 0.7f);
     EffectParameter<float> feedback = EffectParameter<float>("Phaser Feedback", 0.5f);
@@ -285,7 +289,7 @@ public:
     Phaser(bool series);    
 
     void apply(const float* in, float* out, size_t samples);
-    void update() {};
+    void update();
 
 };
 
@@ -307,6 +311,45 @@ public:
     void update() {};
 
 };
+
+
+#define SHIFTER_WINDOW_SIZE 1024
+#define SHIFTER_NEW_SAMPLES (SHIFTER_WINDOW_SIZE / 4) // 256
+class PitchShifter : public Effect {
+
+    // hella buffers bruh
+    CircularBuffer windowInputSamples; // maybe i should do an A/B with this but i dont want to. also maybe i should make a thing for handling this because i do it so often
+    float* windowBuffer;
+    float* windowOutputSamples;
+    std::complex<float> frequencyBuffer [SHIFT_BUFFER_SIZE]; // one of these will hold the previous window and the other the current
+    std::complex<float> frequencyOutputBuffer [SHIFT_BUFFER_SIZE];
+    float* lastPhiA;
+    float* lastPhiS;
+    float* synthesisBuffer;
+    float* resampleBuffer;
+
+    float hopS;
+
+    bool currentBufferA = true;
+
+    float* w;
+    int windowCurrentSamples = 0;
+    size_t windowStartIdx = 0;
+
+    daisysp::PitchShifter daisyPitchShifter; // like i guess, might be worse because its time domain only
+
+public:
+    EffectParameter<bool> daisyMode = EffectParameter<bool>("Shifter Mode", false);
+    EffectParameter<bool> quantized = EffectParameter<bool>("Quantize Shift", true);
+    EffectParameter<float> amount = EffectParameter<float>("Shifter Amount", 0.5f);
+
+    PitchShifter(bool series);
+
+    void apply(const float* in, float* out, size_t samples);
+    void update();
+
+};
+
 
 
 

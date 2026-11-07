@@ -179,6 +179,17 @@ Looper::Looper(bool series) : Effect(series), buffer((float*)sdram_alloc(MAX_LOO
 
 void Looper::apply(const float* in, float* out, size_t samples) {
 
+    if (recordingEnabled.value && !lastRecEnabled) { // doing this on update makes things bad when they are pressed (plays part of the end of the thing before restarting), so like i guess its here now bro
+        loopSamples = 0;
+    }
+
+    if ((enabled.value && !lastPlaybackEnabled) || (!recordingEnabled.value && lastRecEnabled)) {
+        currentLoopSample = 0;
+    }
+
+    lastPlaybackEnabled = enabled.value;
+    lastRecEnabled = recordingEnabled.value;
+
     // so the enabled thing cant go outside for this to work
     if (recordingEnabled.value) {
 
@@ -200,16 +211,6 @@ void Looper::apply(const float* in, float* out, size_t samples) {
 }
 
 void Looper::update() {
-    if (recordingEnabled.value && !lastRecEnabled) { 
-        loopSamples = 0;
-    }
-
-    if ((enabled.value && !lastPlaybackEnabled) || (!recordingEnabled.value && lastRecEnabled)) {
-        currentLoopSample = 0;
-    }
-
-    lastPlaybackEnabled = enabled.value;
-    lastRecEnabled = recordingEnabled.value;
 }
 
 
@@ -277,9 +278,11 @@ void Tuner::update() {
 
     // run dft
     if (usingBufferA)
-        ditfft2(dftTimeBufferB, DFT_WINDOW_SAMPLES, 1, dftFrequencyBuffer);
+        fft(dftTimeBufferB, DFT_WINDOW_SAMPLES + DFT_ZERO_PAD, dftFrequencyBuffer, DFT_ZERO_PAD);
+        // ditfft2(dftTimeBufferB, DFT_WINDOW_SAMPLES, 1, dftFrequencyBuffer);
     else 
-        ditfft2(dftTimeBufferA, DFT_WINDOW_SAMPLES, 1, dftFrequencyBuffer);
+        fft(dftTimeBufferA, DFT_WINDOW_SAMPLES + DFT_ZERO_PAD, dftFrequencyBuffer, DFT_ZERO_PAD);
+        // ditfft2(dftTimeBufferA, DFT_WINDOW_SAMPLES, 1, dftFrequencyBuffer);
 
     float maxMagnitude = 0;
     int maxIdx = 0;
@@ -390,7 +393,7 @@ void Chorus::update() {
 
 
 // BitCrusher
-// lowk doesnt work rn for some reason
+// lowk  works rn for some reason
 BitCrusher::BitCrusher(bool series) : Effect(series) {
     enabled = EffectParameter("> Bit Crusher", false);
 }
@@ -441,8 +444,10 @@ Phaser::Phaser(bool series) : Effect(series) {
     for (int i = 0; i < PHASER_NUM_AP_FILTERS; i++) {
         allPassFilters[i] = AllPassFilter2(); //AllPassFilter((2 * BLOCK_SIZE) / (float)SAMPLE_RATE, 0.1f);
         // allPassFilters[i].offsetSamples(1);
-    
     }
+
+    daisyPhaser.Init(SAMPLE_RATE);
+    daisyPhaser.SetPoles(6);
 
 }
 
@@ -450,6 +455,13 @@ Phaser::Phaser(bool series) : Effect(series) {
 void Phaser::apply(const float* in, float* out, size_t samples) {
 
     if (!enabled.value) return;
+
+    if (daisyMode.value) {
+        for (size_t i = 0; i < samples; i++)
+            out[i] = daisyPhaser.Process(in[i]);
+
+        return;
+    }
 
     for (size_t i = 0; i < samples; i++) {
 
@@ -486,6 +498,14 @@ void Phaser::apply(const float* in, float* out, size_t samples) {
 
 }
 
+void Phaser::update() {
+    if (!daisyMode.value) return;
+    daisyPhaser.SetFeedback(feedback.value);
+    daisyPhaser.SetLfoDepth(depth.value);
+    daisyPhaser.SetLfoFreq(10 * rate.value + 0.1f);
+}
+
+
 Metronome::Metronome() : Effect(true) {
     enabled = EffectParameter<bool> ("> Metronome", false);
 }
@@ -520,5 +540,113 @@ void Metronome::apply(const float* in, float* out, size_t samples) {
             shouldPlay = false;
 
     }
+
+}
+
+PitchShifter::PitchShifter(bool series) : Effect(series) {
+
+    windowInputSamples = CircularBuffer((float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float)), SHIFTER_WINDOW_SIZE, 0);
+    windowBuffer = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float));
+    windowOutputSamples = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float), true);
+    lastPhiA = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float), true);
+    lastPhiS = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float), true);
+    synthesisBuffer = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float), true);
+    resampleBuffer = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float), true);
+
+    w = (float*)sdram_alloc(SHIFTER_WINDOW_SIZE * sizeof(float));
+    hanningWindow(w, SHIFTER_WINDOW_SIZE);
+
+}
+
+// Phase vocoder implementation from https://www.guitarpitchshifter.com/algorithm.html
+void PitchShifter::apply(const float* in, float* out, size_t samples) {
+
+    if (!enabled.value) return;
+
+    if (daisyMode.value) {
+        for (size_t i = 0; i < samples; i++) {
+            float s = in[i];
+            out[i] = daisyPitchShifter.Process(s);
+        }
+
+        return;
+    }
+
+    for (size_t i = 0; i < samples; i++) {
+        windowInputSamples.writeNext(in[i]);
+    }
+    
+    memcpy(out, windowOutputSamples, samples * sizeof(float));
+
+    windowCurrentSamples += samples;
+    
+    if (windowCurrentSamples < SHIFTER_WINDOW_SIZE) return; // this should high key not be happening all durring audio callback (unless its just that goated and can be done in like less than 1ms)
+    
+    for (size_t i = 0; i < SHIFTER_WINDOW_SIZE; i++) { // align correctly and apply hanning window
+        size_t inputIdx = i + windowStartIdx;
+        if (inputIdx > SHIFTER_WINDOW_SIZE)
+            inputIdx -= SHIFTER_WINDOW_SIZE;
+
+        windowBuffer[i] = windowInputSamples.buffer[inputIdx] * w[i];
+    }
+    // if/when i separate, it should be separated at this point
+    // after this copy to window buffer, it will be fine to write to window input samples
+
+    // fourier analysis
+    fft(windowBuffer, SHIFTER_WINDOW_SIZE, frequencyBuffer, 0);
+
+    for (size_t i = 0; i < SHIFTER_WINDOW_SIZE; i++) { // re-adjust phase & copy to output freq buffer
+
+        const std::complex<float> s = frequencyBuffer[i];
+        const float phiA = std::arg(s);
+
+        const float wBin = i * SAMPLE_RATE / (float)SHIFTER_WINDOW_SIZE;
+        const float delw = (phiA - lastPhiA[i]) / (SHIFTER_NEW_SAMPLES * INV_SAMPLE_RATE) - wBin;
+        const float wWrapped = std::fmod(delw + PI_F, 2 * PI_F) - PI_F;
+        
+        const float wTrue = wBin + wWrapped;
+        const float phiS = lastPhiS[i] + hopS * INV_SAMPLE_RATE * wTrue; 
+        
+        frequencyOutputBuffer[i] = std::polar(std::abs(s), phiS);
+        lastPhiS[i] = phiS;
+        lastPhiA[i] = phiA;
+    }
+
+    ifft(frequencyOutputBuffer, SHIFT_BUFFER_SIZE, synthesisBuffer);
+
+    // add back with overlap TOTODODO
+    // idk how this eqn really works but i think what i have to do is have 2 synth buffers and
+    // add from this one (scaled by 1/n * w[i]) to the last one but shifted (right) by hop_s - think they overlap by hop_s, that way there are the right number of samples???
+    // this step will have not 256 samples
+
+    // output [ { hop_s, already read }, remaining ] -> [ remaining, { hop_s zeros } ] + [ { hop_s zeros }, resampled synthesis * w[i] / N ]
+    static const float invN = 1 / (float)SHIFT_BUFFER_SIZE; 
+    for (int i = 0; i < SHIFT_BUFFER_SIZE; i++) {
+        if (i < SHIFT_BUFFER_SIZE - (int)hopS)
+            resampleBuffer[i] = resampleBuffer[i + (int)hopS];
+        resampleBuffer[i] += w[i] * invN * synthesisBuffer[i];
+    }
+
+    // resample - resmapled synth should be size 1024 - hop_s
+    resample(resampleBuffer, windowOutputSamples, hopS / SHIFTER_NEW_SAMPLES, SHIFTER_WINDOW_SIZE - hopS);
+
+    // aint no way this is done in less than 1 ms, maybe it can be done in 5 idk bro
+
+    currentBufferA = !currentBufferA;
+    windowCurrentSamples = SHIFTER_WINDOW_SIZE - SHIFTER_NEW_SAMPLES;
+    windowStartIdx = (windowStartIdx + SHIFTER_NEW_SAMPLES) % SHIFTER_WINDOW_SIZE;
+
+}
+
+void PitchShifter::update() {
+
+    // 2^(semitoneshift / 12) = hop_s / hop_a
+    float semitones = (amount.value - 0.5f) * (12 / 0.5f);
+    if (quantized.value)
+        semitones = roundf(semitones);
+    hopS = powf(2, semitones / 12) * SHIFTER_NEW_SAMPLES; 
+
+    if (daisyMode.value)
+        daisyPitchShifter.SetTransposition(semitones);
 
 }
